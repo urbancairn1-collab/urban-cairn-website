@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Cpu } from 'lucide-react';
+import { Mail, Phone, MapPin, Cpu } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -24,10 +24,10 @@ const Footer = () => {
             Smart Digital Solutions for Modern Businesses. We build digital power through innovative software, websites, and marketing strategies.
           </p>
           <div style={{ display: 'flex', gap: '15px' }}>
-            <a href="#" style={{ color: '#a0a0a0' }}><Facebook size={20} /></a>
-            <a href="#" style={{ color: '#a0a0a0' }}><Twitter size={20} /></a>
-            <a href="#" style={{ color: '#a0a0a0' }}><Linkedin size={20} /></a>
-            <a href="#" style={{ color: '#a0a0a0' }}><Instagram size={20} /></a>
+            <a href="#" style={{ color: '#a0a0a0', fontWeight: 'bold' }}>FB</a>
+            <a href="#" style={{ color: '#a0a0a0', fontWeight: 'bold' }}>X</a>
+            <a href="#" style={{ color: '#a0a0a0', fontWeight: 'bold' }}>IN</a>
+            <a href="#" style={{ color: '#a0a0a0', fontWeight: 'bold' }}>IG</a>
           </div>
         </div>
 
