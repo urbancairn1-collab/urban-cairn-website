@@ -1,144 +1,130 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
+import LeadForm from '../components/LeadForm';
+import { company } from '../data/company';
+
+const WIcon = () => (
+  <svg viewBox="0 0 24 24" width={20} height={20} fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
 
 const Contact = () => {
   return (
-    <div style={{ paddingTop: '100px', minHeight: '100vh' }}>
-      <section className="section" style={{ textAlign: 'center' }}>
-        <div className="container">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="section-title"
-          >
-            Get in <span className="gold-text">Touch</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="section-subtitle"
-          >
-            Ready to start your next big project? Contact us today for a free consultation and quote.
-          </motion.p>
+    <>
+      <SEO title="Contact" description="Direct WhatsApp, call, or email. Anand, Gujarat. We respond within 4 business hours." path="/contact" />
+
+      <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 60px', position: 'relative', overflow: 'hidden' }}>
+        <div className="gradient-mesh" style={{ opacity: 0.4 }} />
+        <div className="container" style={{ position: 'relative', maxWidth: 980 }}>
+          <span className="t-eyebrow">Reach us</span>
+          <h1 className="h-display" style={{ fontSize: 'clamp(3rem, 9vw, 8rem)', marginTop: 24, lineHeight: 0.92 }}>
+            Let's ship <span className="serif-italic" style={{ color: 'var(--accent)' }}>something.</span>
+          </h1>
+          <p style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.25rem)', color: 'var(--text-soft)', maxWidth: 640, lineHeight: 1.55, marginTop: 28 }}>
+            45 minutes. Zero pressure. Either we're a fit and we ship something remarkable together — or we point you toward a better partner. Either way, you leave with clarity.
+          </p>
         </div>
       </section>
 
       <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container grid grid-cols-2" style={{ gap: '50px' }}>
-          
-          {/* Contact Info & Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
-          >
-            <div className="glass-panel" style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '25px' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Contact Information</h3>
-              
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(212,175,55,0.1)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--gold-primary)', flexShrink: 0 }}>
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '5px' }}>Call Us Directly</p>
-                  <a href="tel:9313560694" style={{ fontSize: '1.2rem', fontWeight: 600 }}>+91 9313560694</a>
-                </div>
-              </div>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 48 }} className="ch-grid">
+            {[
+              { icon: Phone, label: 'Direct line', value: company.phone, href: `tel:${company.phoneRaw}`, sub: 'Mon-Sat · 10am-8pm IST' },
+              { icon: WIcon, label: 'WhatsApp', value: company.phone, href: `https://wa.me/${company.whatsapp}`, sub: 'Fastest · 24/7', accent: 'var(--whatsapp)' },
+              { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}`, sub: 'Within 4 business hours' },
+              { icon: MapPin, label: 'Studio', value: 'Anand · Gujarat', href: '#map', sub: company.address.pin }
+            ].map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <motion.a
+                  key={i}
+                  href={c.href}
+                  target={c.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="card card-hover"
+                  style={{ padding: 24, display: 'block' }}
+                >
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 'var(--r-md)',
+                    background: c.accent ? `${c.accent}15` : 'var(--bg-soft)',
+                    color: c.accent || 'var(--accent)',
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 18
+                  }}>
+                    <Icon size={18} />
+                  </div>
+                  <div className="t-eyebrow" style={{ marginBottom: 6 }}>{c.label}</div>
+                  <div style={{ fontSize: 17, fontWeight: 600, marginBottom: 4 }}>{c.value}</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{c.sub}</div>
+                </motion.a>
+              );
+            })}
+          </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(212,175,55,0.1)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--gold-primary)', flexShrink: 0 }}>
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '5px' }}>Email Address</p>
-                  <a href="mailto:urbancairn1@gmail.com" style={{ fontSize: '1.2rem', fontWeight: 600 }}>urbancairn1@gmail.com</a>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(212,175,55,0.1)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--gold-primary)', flexShrink: 0 }}>
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '5px' }}>Office Location</p>
-                  <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>Anand, Gujarat, India</span>
-                </div>
+          {/* Form + Map */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="ct">
+            <div>
+              <div className="card" style={{ padding: 'clamp(28px, 4vw, 44px)' }}>
+                <h2 className="h-display" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', marginBottom: 8 }}>
+                  Send a <span className="serif-italic" style={{ color: 'var(--accent)' }}>message.</span>
+                </h2>
+                <p style={{ color: 'var(--text-soft)', marginBottom: 32, fontSize: 15 }}>We respond within 4 business hours. Always.</p>
+                <LeadForm compact />
               </div>
             </div>
 
-            {/* Map */}
-            <div className="glass-panel" style={{ padding: '10px', height: '300px', overflow: 'hidden' }}>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d117498.42878411037!2d72.87192621043343!3d22.563065306381014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e7e721516bd%3A0xc34664a3d4f40f0c!2sAnand%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1714023451234!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, borderRadius: '8px' }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }} id="map">
+              <div className="card" style={{ padding: 6, height: 320, overflow: 'hidden' }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.0!2d72.95!3d22.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAnand%2C%20Gujarat%20388570!5e0!3m2!1sen!2sin!4v1714023451234"
+                  width="100%" height="100%"
+                  style={{ border: 0, borderRadius: 'var(--r-md)' }}
+                  loading="lazy"
+                  title="Studio location"
+                />
+              </div>
+              <div style={{
+                background: 'var(--ink)', color: 'var(--text-on-ink)',
+                borderRadius: 'var(--r-lg)', padding: 28
+              }}>
+                <ShieldCheck size={20} color="var(--accent)" />
+                <h3 className="h-display" style={{ fontSize: '1.3rem', color: 'var(--text-on-ink)', margin: '14px 0 8px' }}>
+                  Officially registered. Fully accountable.
+                </h3>
+                <p style={{ fontSize: 13, color: 'var(--text-on-ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
+                  Government of India recognized · GST-compliant invoicing · Full legal accountability for every engagement.
+                </p>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-on-ink-soft)' }}>
+                  UDYAM: <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.udyam}</span>
+                </div>
+              </div>
+              <div className="card" style={{ padding: 28 }}>
+                <Clock size={20} color="var(--accent)" />
+                <div className="t-eyebrow" style={{ marginTop: 14, marginBottom: 14 }}>Hours</div>
+                <ul style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14 }}>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text-soft)' }}>Mon - Fri</span><span style={{ fontWeight: 600 }}>10am - 8pm IST</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text-soft)' }}>Saturday</span><span style={{ fontWeight: 600 }}>10am - 4pm IST</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text-soft)' }}>Sunday</span><span style={{ color: 'var(--text-muted)' }}>WhatsApp only</span></li>
+                </ul>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="glass-panel"
-            style={{ padding: '40px' }}
-          >
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Send us a Message</h3>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Full Name</label>
-                <input type="text" placeholder="John Doe" className="form-input" />
-              </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Email Address</label>
-                <input type="email" placeholder="john@example.com" className="form-input" />
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Phone Number</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX" className="form-input" />
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Your Message</label>
-                <textarea placeholder="Tell us about your project..." rows="5" className="form-input" style={{ resize: 'vertical' }}></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-primary btn-glow" style={{ width: '100%', marginTop: '10px', display: 'flex', gap: '10px', fontSize: '1.1rem', padding: '16px' }}>
-                Send Message <Send size={20} />
-              </button>
-            </form>
-          </motion.div>
-
+          <style>{`
+            @media (max-width: 920px) { .ct { grid-template-columns: 1fr !important; } }
+            @media (max-width: 720px) { .ch-grid { grid-template-columns: 1fr 1fr !important; } }
+            @media (max-width: 480px) { .ch-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
         </div>
       </section>
-
-      <style>{`
-        .form-input {
-          background: rgba(0, 0, 0, 0.5);
-          border: 1px solid var(--glass-border);
-          padding: 15px 20px;
-          border-radius: 8px;
-          color: #fff;
-          font-family: var(--font-body);
-          font-size: 1rem;
-          transition: all 0.3s ease;
-          outline: none;
-        }
-        .form-input:focus {
-          border-color: var(--gold-primary);
-          box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 

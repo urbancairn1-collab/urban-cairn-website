@@ -1,145 +1,147 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
+import { caseStudies } from '../data/caseStudies';
 
-const projects = [
-  { id: 1, title: 'Fintech Dashboard', category: 'Software', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' },
-  { id: 2, title: 'Luxury Real Estate', category: 'Website', image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=800' },
-  { id: 3, title: 'Premium Fashion Store', category: 'E-commerce', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800' },
-  { id: 4, title: 'AI Marketing Campaign', category: 'Ads', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
-  { id: 5, title: 'Healthcare Portal', category: 'Software', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800' },
-  { id: 6, title: 'Corporate Branding', category: 'Website', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800' }
-];
-
-const categories = ['All', 'Website', 'Software', 'E-commerce', 'Ads'];
+const categories = ['All', 'Trading Business', 'Real Estate Company', 'Multi-Speciality Clinic', 'E-Commerce Store', 'Education Institute'];
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === activeCategory);
+  const [active, setActive] = useState('All');
+  const filtered = active === 'All' ? caseStudies : caseStudies.filter(c => c.industry === active);
 
   return (
-    <div style={{ paddingTop: '100px', minHeight: '100vh' }}>
-      <section className="section" style={{ textAlign: 'center' }}>
-        <div className="container">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="section-title"
-          >
-            Our <span className="gold-text">Portfolio</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="section-subtitle"
-          >
-            Explore our premium projects and witness the digital excellence we deliver to our partners.
-          </motion.p>
+    <>
+      <SEO title="Work" description="Real demos. Real numbers. Trading dashboards, lead engines, automation systems — shipped end-to-end." path="/portfolio" />
 
-          {/* Filter */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap', marginBottom: '50px' }}
-          >
+      <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 60px', position: 'relative', overflow: 'hidden' }}>
+        <div className="gradient-mesh" style={{ opacity: 0.4 }} />
+        <div className="container" style={{ position: 'relative', maxWidth: 980 }}>
+          <span className="t-eyebrow">Selected work</span>
+          <h1 className="h-display" style={{ fontSize: 'clamp(3rem, 9vw, 8rem)', marginTop: 24, lineHeight: 0.92 }}>
+            Receipts. <span className="serif-italic" style={{ color: 'var(--accent)' }}>Not slides.</span>
+          </h1>
+          <p style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.25rem)', color: 'var(--text-soft)', maxWidth: 640, lineHeight: 1.55, marginTop: 28 }}>
+            Five live demonstrations we can walk you through on a 30-minute call — built end-to-end, ready to be customized.
+          </p>
+        </div>
+      </section>
+
+      <section style={{ paddingBottom: 32 }}>
+        <div className="container">
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             {categories.map(cat => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => setActive(cat)}
                 style={{
-                  background: activeCategory === cat ? 'var(--gold-gradient)' : 'transparent',
-                  color: activeCategory === cat ? '#000' : '#fff',
-                  border: `1px solid ${activeCategory === cat ? 'transparent' : 'rgba(212, 175, 55, 0.5)'}`,
-                  padding: '8px 24px',
-                  borderRadius: '30px',
-                  cursor: 'pointer',
-                  fontWeight: 500,
-                  transition: 'all 0.3s ease',
-                  fontFamily: 'var(--font-heading)'
+                  padding: '10px 18px', borderRadius: 'var(--r-pill)',
+                  background: active === cat ? 'var(--ink)' : 'var(--bg-pure)',
+                  color: active === cat ? 'var(--bg-pure)' : 'var(--text)',
+                  border: '1px solid ' + (active === cat ? 'var(--ink)' : 'var(--line)'),
+                  fontSize: 13, fontWeight: 500, transition: 'all 200ms var(--ease)'
                 }}
-              >
-                {cat}
-              </button>
+              >{cat}</button>
             ))}
-          </motion.div>
-
-          {/* Grid */}
-          <motion.div layout className="grid grid-cols-3">
-            <AnimatePresence>
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  style={{
-                    position: 'relative',
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    aspectRatio: '4/3',
-                    cursor: 'pointer',
-                    group: 'true'
-                  }}
-                  className="portfolio-item"
-                >
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    className="portfolio-img"
-                  />
-                  <div 
-                    className="portfolio-overlay"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'flex-end',
-                      padding: '30px',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease'
-                    }}
-                  >
-                    <span style={{ color: 'var(--gold-primary)', fontSize: '0.9rem', fontWeight: 500, marginBottom: '5px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                      {project.category}
-                    </span>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                      <h3 style={{ fontSize: '1.5rem', margin: 0 }}>{project.title}</h3>
-                      <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--gold-primary)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#000' }}>
-                        <ExternalLink size={20} />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Inline styles for hover effects since React doesn't support complex hover selectors easily without CSS */}
-          <style>{`
-            .portfolio-item:hover .portfolio-img {
-              transform: scale(1.1);
-            }
-            .portfolio-item:hover .portfolio-overlay {
-              opacity: 1 !important;
-            }
-          `}</style>
-
+          </div>
         </div>
       </section>
-    </div>
+
+      <section style={{ paddingBottom: 'var(--section-y)' }}>
+        <div className="container">
+          <motion.div layout style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <AnimatePresence>
+              {filtered.map((c, i) => {
+                const big = i === 0;
+                return (
+                  <motion.div
+                    key={c.slug}
+                    layout
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.4, delay: i * 0.04 }}
+                  >
+                    <Link to={`/case-study/${c.slug}`} style={{ display: 'block' }}>
+                      <article className="card-hover" style={{
+                        background: big ? 'var(--ink)' : 'var(--bg-pure)',
+                        color: big ? 'var(--text-on-ink)' : 'var(--text)',
+                        borderRadius: 'var(--r-xl)',
+                        padding: 'clamp(28px, 4vw, 56px)',
+                        border: big ? 'none' : '1px solid var(--line)',
+                        display: 'grid',
+                        gridTemplateColumns: '1.4fr 1fr',
+                        gap: 40,
+                        alignItems: 'center',
+                        transition: 'all 320ms var(--ease)'
+                      }}
+                      className="case-row"
+                      >
+                        <div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 22 }}>
+                            <span style={{
+                              padding: '5px 12px', borderRadius: 'var(--r-pill)',
+                              background: `${c.color}28`, color: c.color,
+                              fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 600,
+                              letterSpacing: '0.05em', textTransform: 'uppercase'
+                            }}>{c.industry}</span>
+                            <span style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: big ? 'var(--text-on-ink-soft)' : 'var(--text-muted)' }}>
+                              SHIPPED IN {c.timeline.toUpperCase()}
+                            </span>
+                          </div>
+                          <h2 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.4rem)', marginBottom: 18, lineHeight: 1, color: big ? 'var(--text-on-ink)' : 'var(--text)' }}>
+                            {c.headline}
+                          </h2>
+                          <p style={{ fontSize: 16, lineHeight: 1.6, color: big ? 'var(--text-on-ink-soft)' : 'var(--text-soft)', marginBottom: 24, maxWidth: 540 }}>
+                            {c.problem}
+                          </p>
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--accent)', fontWeight: 600, fontSize: 14 }}>
+                            Read full case <ArrowUpRight size={14} />
+                          </span>
+                        </div>
+
+                        <div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                            {c.metrics.map((m, mi) => (
+                              <div key={mi} style={{
+                                padding: '18px 22px', borderRadius: 'var(--r-md)',
+                                background: big ? 'rgba(255,255,255,0.06)' : 'var(--bg-soft)',
+                                border: big ? '1px solid var(--line-on-ink)' : '1px solid var(--line)',
+                                display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16
+                              }}>
+                                <div className="h-display" style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', color: m.positive ? '#0FA958' : '#dc2626' }}>
+                                  {m.value}
+                                </div>
+                                <div style={{ fontSize: 13, fontFamily: 'var(--font-mono)', color: big ? 'var(--text-on-ink-soft)' : 'var(--text-muted)', letterSpacing: '0.04em', textAlign: 'right' }}>
+                                  {m.label}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+
+        <style>{`@media (max-width: 920px) { .case-row { grid-template-columns: 1fr !important; } }`}</style>
+      </section>
+
+      <section className="section" style={{ background: 'var(--bg-soft)', textAlign: 'center' }}>
+        <div className="container">
+          <p className="h-display serif-italic" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'var(--accent)', marginBottom: 14, fontWeight: 400 }}>
+            ★ Demo projects that showcase capability.
+          </p>
+          <p style={{ color: 'var(--text-soft)', marginBottom: 32 }}>Imagine the lift for your business.</p>
+          <Link to="/free-audit" className="btn btn-accent btn-lg">See one live for your industry <ArrowUpRight size={18} /></Link>
+        </div>
+      </section>
+    </>
   );
 };
 

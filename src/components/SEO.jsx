@@ -1,0 +1,135 @@
+import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { company } from '../data/company';
+import { SITE_URL, SITE_NAME, getSeo } from '../data/seo';
+
+const DEFAULT_OG = `${SITE_URL}/og-default.png`;
+const DEFAULT_OG_SVG = `${SITE_URL}/og-default.svg`;
+
+const SEO = ({ title, description, path, image, keywords, type = 'website' }) => {
+  const location = useLocation();
+  const route = path || location.pathname;
+  const fallback = getSeo(route);
+
+  const finalTitle = title ? `${title} | ${SITE_NAME}` : (fallback.title ? `${fallback.title} | ${SITE_NAME}` : SITE_NAME);
+  const finalDesc = description || fallback.description;
+  const finalKeywords = keywords || fallback.keywords;
+  const finalImage = image || DEFAULT_OG;
+  const url = `${SITE_URL}${route === '/' ? '/' : route}`;
+
+  const localBusiness = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService', 'Organization'],
+    '@id': `${SITE_URL}/#organization`,
+    name: company.name,
+    legalName: company.name,
+    alternateName: 'Urban Cairn',
+    description: finalDesc,
+    url: SITE_URL,
+    logo: `${SITE_URL}/favicon.svg`,
+    image: finalImage,
+    telephone: company.phone,
+    email: company.email,
+    priceRange: '₹₹',
+    foundingDate: '2026-02-13',
+    founder: {
+      '@type': 'Person',
+      name: company.founder,
+      jobTitle: 'Founder'
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: company.address.line1,
+      addressLocality: 'Anand',
+      addressRegion: 'Gujarat',
+      postalCode: company.address.pin,
+      addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 22.5645,
+      longitude: 72.9289
+    },
+    openingHoursSpecification: [
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '10:00', closes: '20:00' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '16:00' }
+    ],
+    areaServed: [
+      { '@type': 'Country', name: 'India' },
+      { '@type': 'AdministrativeArea', name: 'Gujarat' }
+    ],
+    identifier: company.udyam,
+    sameAs: [],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Capabilities',
+      itemListElement: [
+        'High-converting websites','Mobile app development','WhatsApp automation',
+        'Custom software development','Trading dashboards','Lead generation systems'
+      ].map((s, i) => ({
+        '@type': 'Offer',
+        position: i + 1,
+        itemOffered: { '@type': 'Service', name: s }
+      }))
+    }
+  };
+
+  const breadcrumb = route !== '/' ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: (fallback.title || title || 'Page').split('·')[0].trim(), item: url }
+    ]
+  } : null;
+
+  const webSite = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_URL}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
+  return (
+    <Helmet>
+      <title>{finalTitle}</title>
+      <meta name="description" content={finalDesc} />
+      {finalKeywords && <meta name="keywords" content={finalKeywords} />}
+      <meta name="author" content={SITE_NAME} />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <link rel="canonical" href={url} />
+
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={finalDesc} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={finalImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:locale" content="en_IN" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={finalTitle} />
+      <meta name="twitter:description" content={finalDesc} />
+      <meta name="twitter:image" content={finalImage} />
+
+      <meta name="geo.region" content="IN-GJ" />
+      <meta name="geo.placename" content="Anand, Gujarat" />
+      <meta name="geo.position" content="22.5645;72.9289" />
+      <meta name="ICBM" content="22.5645, 72.9289" />
+
+      <script type="application/ld+json">{JSON.stringify(localBusiness)}</script>
+      <script type="application/ld+json">{JSON.stringify(webSite)}</script>
+      {breadcrumb && <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>}
+    </Helmet>
+  );
+};
+
+export default SEO;
