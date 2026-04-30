@@ -233,6 +233,142 @@ export const posts = [
       { type: 'p', text: 'Reserve a ₹50-60K buffer for the inevitable unplanned thing — domain renewal, SSL, an emergency fix, a market test. Don\'t spend the full budget on day one.' },
       { type: 'cta', text: 'Want help allocating your tech budget?', button: 'Book a free strategy call', to: '/free-audit' }
     ]
+  },
+  {
+    slug: 'why-website-not-generating-leads',
+    title: '7 reasons your website isn\'t generating leads — and the fix for each',
+    excerpt: 'You\'re getting traffic, but the phone isn\'t ringing. Here\'s the 7-point audit we run on every client site, and the specific fix that moves conversion from 0.5% to 3%+.',
+    cover: 'linear-gradient(135deg, #FF5A1F, #FF8B5C)',
+    date: 'Apr 28, 2026',
+    dateISO: '2026-04-28',
+    author: 'Rahulkumar Dhobi',
+    category: 'Conversion',
+    readTime: '9 min',
+    keywords: 'website not generating leads, low website conversion rate, website audit india, why no leads from website, conversion optimization smb',
+    body: [
+      { type: 'p', text: '"I get 400-500 visitors a month and zero calls." This is the #1 message that lands in our inbox. Almost every time, the diagnosis lives in the same 7 places. Here is the audit we run, in order.' },
+      { type: 'h2', text: '1. There is no single, obvious primary CTA above the fold' },
+      { type: 'p', text: 'A visitor decides in 4-5 seconds whether to act. If they see six buttons (Get a quote, Book a call, Download brochure, Learn more, Watch video, Subscribe), they pick none. Pick ONE primary action. Make it large, accent-colored, and impossible to miss. Everything else is secondary.' },
+      { type: 'h2', text: '2. The form asks for too much, too soon' },
+      { type: 'p', text: 'Every additional form field drops submissions by ~10%. A 7-field form (name, phone, email, company, role, budget, project type) loses 60-70% of intent. Start with 2 fields — name + phone. Enrich the rest after they reply on WhatsApp.' },
+      { type: 'h2', text: '3. Zero trust signals' },
+      { type: 'p', text: 'No real client names, no real photos, no specific outcome numbers. Just "we deliver excellence" copy. Visitors don\'t trust strangers — they trust evidence. Add 3 case studies with real names + real numbers ("₹14L revenue in 90 days for client X"). Indian buyers care about specificity 10x more than design polish.' },
+      { type: 'h2', text: '4. Mobile experience is broken' },
+      { type: 'p', text: '80%+ of Indian traffic is mobile. If your site takes 4+ seconds to render, has tiny tap targets, or breaks the form on iOS Safari, you lost the lead before they read a word. Open the site on your phone in incognito on 4G — not your office WiFi. That\'s what users see.' },
+      { type: 'h2', text: '5. WhatsApp is buried or missing entirely' },
+      { type: 'p', text: 'Indian customers will WhatsApp you 8x more often than they\'ll email or call. If there\'s no floating WhatsApp button, no WhatsApp link in the form thank-you, no WhatsApp deep-link in the footer — you\'re dropping leads who would have converted on the channel they actually prefer.' },
+      { type: 'h2', text: '6. Page is slow (Lighthouse score under 80)' },
+      { type: 'p', text: 'Every 1 second of load delay drops conversion ~7%. Most "designed" Indian sites score 30-50 on mobile because they ship 4MB of unoptimized images and 1.5MB of JavaScript. Real number to hit: <2.5s LCP, <100ms INP. Run pagespeed.web.dev on your homepage right now.' },
+      { type: 'h2', text: '7. Copy is feature-led, not outcome-led' },
+      { type: 'p', text: '"We provide custom web development services using modern frameworks" is feature copy. "We ship websites that have generated ₹3.2 crore for our clients in 18 months" is outcome copy. Visitors don\'t care what stack you use. They care what they get.' },
+      { type: 'h2', text: 'How to run this audit yourself in 30 minutes' },
+      { type: 'list', items: [
+        'Open your homepage in incognito on your phone, on 4G, not WiFi.',
+        'Count primary CTAs above the fold. If more than one, that\'s the issue.',
+        'Open the lead form. Count fields. More than 3? Cut.',
+        'Search Ctrl+F for "WhatsApp" on every page. If zero results, that\'s the issue.',
+        'Run pagespeed.web.dev on homepage. Mobile score under 80? Speed is the issue.',
+        'Read your hero copy out loud. Does it say what the customer GETS, or what you DO?'
+      ]},
+      { type: 'p', text: 'Most sites we audit have 4-5 of these 7 issues at once. Fixing them is rarely a redesign — it\'s usually 2-3 days of focused work that can 4-6x conversion.' },
+      { type: 'cta', text: 'Want us to run this audit on your site?', button: 'Get a free 12-point audit', to: '/free-audit' }
+    ]
+  },
+  {
+    slug: 'mobile-app-vs-website-india-smb',
+    title: 'Mobile app vs mobile-first website for Indian SMBs — when each actually makes sense',
+    excerpt: '"We need an app" is the most common wrong answer Indian SMBs give when the real problem is a slow mobile website. Here\'s the honest decision framework, with cost numbers.',
+    cover: 'linear-gradient(135deg, #25D366, #0F9D58)',
+    date: 'Apr 22, 2026',
+    dateISO: '2026-04-22',
+    author: 'Rahulkumar Dhobi',
+    category: 'Strategy',
+    readTime: '8 min',
+    keywords: 'mobile app vs website india, do i need a mobile app smb, custom app cost india, pwa vs native india, when to build mobile app',
+    body: [
+      { type: 'p', text: '"We need a mobile app for our business." This is the #1 ask we hear from first-time founders. 8 out of 10 times, the honest answer is: not yet, and probably not at all. Here is the framework we use to figure out which side a business actually falls on.' },
+      { type: 'h2', text: 'The 4-question decision tree' },
+      { type: 'h3', text: '1. Do users open you DAILY or WEEKLY?' },
+      { type: 'p', text: 'Apps live on home screens. Websites live in browsers. If your customer opens you twice a year (real estate, wedding services, one-time purchases), nobody installs your app — and if they do, they uninstall it after the first use. Daily/weekly use: app makes sense. Less than weekly: stop here, build a website.' },
+      { type: 'h3', text: '2. Do you need device hardware or offline?' },
+      { type: 'p', text: 'Camera scanning, GPS tracking, Bluetooth, accelerometer, offline-first sync — websites can\'t do this well. If your business legitimately needs hardware access (delivery routing, field service tracking, scanning inventory), you need a native app. Otherwise, a web app handles 95% of the use cases people think need an app.' },
+      { type: 'h3', text: '3. Do you need push notifications WhatsApp can\'t handle?' },
+      { type: 'p', text: 'In India, WhatsApp Business API delivers notifications faster, cheaper, and with higher engagement than push. The only reason to need native push is if you\'re sending 10+ notifications per user per day (gaming, news, deals) — and at that volume, you need a real product team, not just an app.' },
+      { type: 'h3', text: '4. Do you have paying customers on web FIRST?' },
+      { type: 'p', text: 'Building an app to "find product-market fit" is the most expensive way to learn it doesn\'t exist. Validate the offer with a website + WhatsApp first. Once you have 100+ paying customers and they ask for an app, build one.' },
+      { type: 'p', text: 'If you answered "no" to any of these, you don\'t need an app yet. A mobile-first website (and ideally a PWA) will outperform an app in conversion, cost, and time-to-market.' },
+      { type: 'h2', text: 'When a website wins (most cases)' },
+      { type: 'list', items: [
+        'Lead-gen / service businesses (real estate, education, healthcare, consulting).',
+        'E-commerce under ₹3 crore annual revenue (Shopify or WooCommerce + WhatsApp checkout).',
+        'B2B / SaaS products with infrequent use (twice a month or less).',
+        'Anything where SEO is a primary acquisition channel — apps don\'t rank.'
+      ]},
+      { type: 'h2', text: 'When a native app wins' },
+      { type: 'list', items: [
+        'Daily-use consumer products (food delivery, ride-hail, fintech wallets).',
+        'Field-service apps (delivery, logistics, sales reps in the field).',
+        'Anything requiring camera, GPS, or offline-first behavior.',
+        'High-frequency notification businesses with proven retention.'
+      ]},
+      { type: 'h2', text: 'PWA — the middle ground most people miss' },
+      { type: 'p', text: 'A Progressive Web App installs from a link, lives on the home screen, sends push notifications (on Android), works offline, and costs 70% less to build than a native app. For most Indian SMBs sitting between "website" and "app," a PWA is the right answer. We ship them in 3-4 weeks.' },
+      { type: 'h2', text: 'Cost reality (2026 India)' },
+      { type: 'list', items: [
+        'Mobile-first website: ₹80,000 - ₹1,80,000 (14 days).',
+        'PWA: ₹1,20,000 - ₹3,50,000 (3-4 weeks).',
+        'Simple native app (iOS + Android, basic features): ₹4,00,000 - ₹8,00,000 (8-12 weeks).',
+        'Production-grade native app with backend: ₹10,00,000 - ₹25,00,000+ (3-6 months).'
+      ]},
+      { type: 'p', text: 'If your budget is under ₹4 lakh and someone is selling you a "complete native app," they\'re selling you a template wrapped in a WebView. Walk away.' },
+      { type: 'cta', text: 'Not sure which one your business needs?', button: 'Get a free strategy call', to: '/free-audit' }
+    ]
+  },
+  {
+    slug: 'local-seo-google-business-profile-india',
+    title: 'Local SEO for Indian businesses — how to rank #1 for "[service] near me" in your city',
+    excerpt: 'Your competitor with the uglier website ranks above you on Google because their local SEO is dialed in. Here\'s the exact playbook for Indian SMBs — GBP, citations, reviews, city pages.',
+    cover: 'linear-gradient(135deg, #1A73E8, #4285F4)',
+    date: 'Apr 16, 2026',
+    dateISO: '2026-04-16',
+    author: 'Rahulkumar Dhobi',
+    category: 'SEO',
+    readTime: '11 min',
+    keywords: 'local seo india, google business profile gujarat, near me ranking india, local seo anand, gbp optimization indian smb, justdial indiamart citations',
+    body: [
+      { type: 'p', text: 'Google "web designer near me" or "CA in Anand" or "interior designer Vadodara" — the top 3 results aren\'t there because their websites are pretty. They\'re there because four specific local SEO signals are working in their favor. Here are those four signals, ranked by impact.' },
+      { type: 'h2', text: 'The 4 ranking factors that move local results' },
+      { type: 'h3', text: '1. Google Business Profile (GBP) completeness — 40% of weight' },
+      { type: 'p', text: 'GBP is free, takes 30 minutes to set up, and most Indian SMBs do it badly. The complete profile has: a verified address, exact business hours, primary + secondary categories chosen surgically, 10+ photos (storefront, team, work samples), services listed individually, products listed where applicable, and a 750-character description with your top 2-3 keywords used naturally. A fully complete GBP outranks a half-filled one almost every time.' },
+      { type: 'h3', text: '2. Citation consistency — 25% of weight' },
+      { type: 'p', text: 'A citation = your business name, address, phone (NAP) listed on a third-party directory. Google checks 30+ Indian directories looking for consistency. If your name is "Urban Cairn Tech Solution" on Justdial but "Urban Cairn Technology Solutions" on IndiaMART and "UC Tech" on Sulekha, Google de-ranks you for "untrustworthy data." Pick one exact name, address, and phone format, then deploy it identically everywhere.' },
+      { type: 'h3', text: '3. Review velocity, recency, and keywords — 20% of weight' },
+      { type: 'p', text: 'Not just review count — review velocity (rate of new reviews) and keyword density inside review text. A business with 12 reviews in the last 90 days, where customers naturally mention "web design" or "WhatsApp automation" in the text, beats a business with 80 reviews from 2022. Ask satisfied customers within 48 hours of delivery, not months later.' },
+      { type: 'h3', text: '4. On-page local signals — 15% of weight' },
+      { type: 'p', text: 'City-specific landing pages (/in/anand, /in/vadodara, etc.), LocalBusiness schema markup, geo meta tags, embedded Google Map, and the city name appearing in H1 + page title + first paragraph. Most Indian agency sites skip this and rely on GBP alone. Adding 8-10 city pages with real local context typically lifts local pack visibility by 30-50% within 90 days.' },
+      { type: 'h2', text: 'The Indian directories that actually move the needle' },
+      { type: 'p', text: 'Most "200+ directory submission" services list dead or low-trust sites. The ones Google actually weighs in India are: Google Business Profile, Justdial, IndiaMART, Sulekha, Yellow Pages, Bing Places, Apple Maps Connect, Trustpilot, Clutch.co, GoodFirms, LinkedIn Company Page, Facebook Page. Twelve right citations beat 200 wrong ones.' },
+      { type: 'h2', text: 'How to ask for reviews without being weird' },
+      { type: 'list', items: [
+        'Send within 48 hours of delivery — not weeks later when they\'ve forgotten the warm feeling.',
+        'Use a short WhatsApp message with a direct GBP review link — not "please log into Google."',
+        'Don\'t script the review. Ask "what did you find most useful?" — natural answers carry keywords.',
+        'Reply to every review (positive or negative) within 24 hours. Google rewards engagement.',
+        'NEVER pay for reviews — Google detects fake review patterns and de-indexes the entire profile.'
+      ]},
+      { type: 'h2', text: 'City-page SEO — the underused weapon' },
+      { type: 'p', text: 'A city page is NOT just the homepage with the city name swapped in. It\'s a full landing page with: a city-specific hero ("[Service] in [City]"), 2-3 local case studies, the local market context (typical client size, pricing, common pain), an FAQ section answering "[city] customers ask," embedded GBP map, and unique meta description. Google penalizes near-duplicate city pages — make each one genuinely different.' },
+      { type: 'h2', text: '90-day local SEO ramp' },
+      { type: 'list', items: [
+        'Week 1: Complete GBP fully. Verify address. Add 10 photos. Write 750-char description.',
+        'Weeks 2-3: Submit to the 12 trusted Indian directories with identical NAP.',
+        'Weeks 4-12: Ask every delivered customer for a GBP review within 48 hours.',
+        'Weeks 4-8: Build city-specific landing pages for your top 3-5 markets.',
+        'Ongoing: Post 1-2 GBP updates per week (offers, new work, photos).'
+      ]},
+      { type: 'p', text: 'Most Indian SMBs see meaningful local pack visibility lift in 60-90 days. The compounding kicks in around month 4-6 and rarely reverses if you keep posting and collecting reviews.' },
+      { type: 'cta', text: 'Want help with your local SEO setup?', button: 'Get a free local SEO audit', to: '/free-audit' }
+    ]
   }
 ];
 

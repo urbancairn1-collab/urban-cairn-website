@@ -37,7 +37,10 @@ const POST_SLUGS = [
   'custom-trading-dashboard-vs-broker-tools',
   'lead-generation-mistakes-indian-smbs',
   '14-day-website-delivery-process',
-  'msme-tech-budget-india'
+  'msme-tech-budget-india',
+  'why-website-not-generating-leads',
+  'mobile-app-vs-website-india-smb',
+  'local-seo-google-business-profile-india'
 ];
 const POSTS = POST_SLUGS.map(s => ({ path: `/blog/${s}`, priority: '0.75', change: 'monthly' }));
 
