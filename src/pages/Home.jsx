@@ -1,10 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {
-  ArrowUpRight, ArrowRight, Plus, Minus,
-  Globe, Smartphone, Zap, Code, TrendingUp, Users
-} from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Plus, Minus } from 'lucide-react';
 import SEO from '../components/SEO';
 import Mark from '../components/Mark';
 import Counter from '../components/Counter';
@@ -183,7 +180,7 @@ const ProductReveal = () => {
         height: 'calc(100vh - var(--header-h))',
         display: 'flex', alignItems: 'center'
       }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 60, alignItems: 'center', width: '100%' }} className_alt="reveal-grid">
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 60, alignItems: 'center', width: '100%' }}>
           <div>
             <span className="t-eyebrow">What we build</span>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', marginTop: 16, marginBottom: 24, lineHeight: 0.96 }}>
