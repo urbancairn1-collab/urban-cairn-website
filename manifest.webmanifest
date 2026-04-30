@@ -1,0 +1,14 @@
+{
+  "name": "Urban Cairn Tech Solution",
+  "short_name": "Urban Cairn",
+  "description": "A studio for ambitious operators. Custom websites, automation, dashboards.",
+  "start_url": "/urban-cairn-website/",
+  "scope": "/urban-cairn-website/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#0A0A0F",
+  "lang": "en",
+  "icons": [
+    { "src": "/urban-cairn-website/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

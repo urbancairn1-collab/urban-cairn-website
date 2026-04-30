@@ -1,0 +1,6 @@
+# Urban Cairn Tech Solution
+User-agent: *
+Allow: /
+Disallow: /404
+
+Sitemap: https://urbancairn1-collab.github.io/urban-cairn-website/sitemap.xml
