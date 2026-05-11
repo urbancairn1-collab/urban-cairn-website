@@ -7,6 +7,9 @@ import Mark from '../components/Mark';
 import Counter from '../components/Counter';
 import TrustStrip from '../components/TrustStrip';
 import ROICalculator from '../components/ROICalculator';
+import MagneticButton from '../components/MagneticButton';
+import Reveal from '../components/Reveal';
+import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
 import { services } from '../data/services';
@@ -40,6 +43,7 @@ const Home = () => {
 /* ═══════════ HERO ═══════════ */
 const Hero = () => {
   const ref = useRef(null);
+  const spotRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 60]);
@@ -58,9 +62,27 @@ const Hero = () => {
     return () => clearInterval(t);
   }, []);
 
+  // Mouse-tracked spotlight glow
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onMove = (e) => {
+      const r = el.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      if (spotRef.current) {
+        spotRef.current.style.setProperty('--mx', `${x}%`);
+        spotRef.current.style.setProperty('--my', `${y}%`);
+      }
+    };
+    el.addEventListener('mousemove', onMove);
+    return () => el.removeEventListener('mousemove', onMove);
+  }, []);
+
   return (
     <section ref={ref} style={{ position: 'relative', minHeight: 'calc(100vh - var(--header-h))', display: 'flex', alignItems: 'center', overflow: 'hidden', padding: '60px 0 80px' }}>
-      <div className="gradient-mesh" style={{ opacity: 0.7 }} />
+      <div className="gradient-mesh-animated" style={{ opacity: 0.8 }} />
+      <div ref={spotRef} className="hero-spotlight" />
       <div className="noise" />
 
       <motion.div className="container" style={{ position: 'relative', zIndex: 1, opacity, y }}>
@@ -106,16 +128,20 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.28 }}
           style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center', marginBottom: 40 }}
         >
-          <Link
-            to="/free-audit"
-            className="btn btn-accent btn-lg"
-            onClick={() => track('hero_cta_click')}
-          >
-            {ctaCopy} <ArrowUpRight size={18} />
-          </Link>
-          <Link to="/portfolio" className="btn btn-secondary btn-lg">
-            See the work
-          </Link>
+          <MagneticButton>
+            <Link
+              to="/free-audit"
+              className="btn btn-accent btn-lg"
+              onClick={() => track('hero_cta_click')}
+            >
+              {ctaCopy} <ArrowUpRight size={18} />
+            </Link>
+          </MagneticButton>
+          <MagneticButton strength={0.25}>
+            <Link to="/portfolio" className="btn btn-secondary btn-lg">
+              See the work
+            </Link>
+          </MagneticButton>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}>
@@ -142,19 +168,69 @@ const Hero = () => {
 
 /* ═══════════ LOGO TICKER ═══════════ */
 const LogoTicker = () => {
-  const items = ['PATEL REALTY', 'AAROGYA CLINIC', 'KARAN CAPITAL', 'TRENDORA', 'VIDYA INSTITUTE', 'NIVAAN WELLNESS', 'SHAH FINTECH', 'GREEN GROW'];
+  // Each brand gets a one-character mark colour-coded by industry.
+  const row1 = [
+    { name: 'Patel Realty',     mark: 'P', tag: 'Real estate', hue: 18 },
+    { name: 'Aarogya Clinic',   mark: 'A', tag: 'Healthcare',  hue: 165 },
+    { name: 'Karan Capital',    mark: 'K', tag: 'Finance',     hue: 220 },
+    { name: 'Trendora',         mark: 'T', tag: 'E-commerce',  hue: 332 },
+    { name: 'Vidya Institute',  mark: 'V', tag: 'Education',   hue: 264 },
+    { name: 'Nivaan Wellness',  mark: 'N', tag: 'Healthcare',  hue: 150 },
+    { name: 'Shah Fintech',     mark: 'S', tag: 'Finance',     hue: 200 },
+    { name: 'Green Grow',       mark: 'G', tag: 'Agri',        hue: 95 }
+  ];
+  const row2 = [
+    { name: 'Mehta Motors',     mark: 'M', tag: 'Auto',        hue: 12 },
+    { name: 'Sanjivani Lab',    mark: 'S', tag: 'Diagnostics', hue: 178 },
+    { name: 'Brixly Builds',    mark: 'B', tag: 'Construction',hue: 32 },
+    { name: 'Yug Travels',      mark: 'Y', tag: 'Travel',      hue: 195 },
+    { name: 'Coral Coffee',     mark: 'C', tag: 'F&B',         hue: 8 },
+    { name: 'Vega Apparel',     mark: 'V', tag: 'Retail',      hue: 282 },
+    { name: 'Helix Edtech',     mark: 'H', tag: 'Education',   hue: 248 },
+    { name: 'Anvi Jewelers',    mark: 'A', tag: 'Jewelry',     hue: 42 }
+  ];
+
+  const Chip = ({ item }) => (
+    <div style={{
+      display: 'inline-flex', alignItems: 'center', gap: 10,
+      padding: '8px 14px 8px 8px',
+      background: 'var(--bg-pure)',
+      border: '1px solid var(--line)',
+      borderRadius: 999,
+      whiteSpace: 'nowrap',
+      transition: 'transform 240ms var(--ease), border-color 240ms ease, box-shadow 240ms ease'
+    }}
+    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.boxShadow = '0 10px 24px rgba(10,10,15,0.08)'; }}
+    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.boxShadow = 'none'; }}
+    >
+      <span style={{
+        width: 26, height: 26, borderRadius: 7,
+        background: `linear-gradient(135deg, hsl(${item.hue}, 70%, 58%), hsl(${item.hue + 18}, 75%, 42%))`,
+        color: '#fff', fontWeight: 800, fontSize: 13,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        boxShadow: `inset 0 -2px 4px rgba(0,0,0,0.12), 0 2px 6px hsla(${item.hue}, 70%, 50%, 0.25)`
+      }}>{item.mark}</span>
+      <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.01em' }}>{item.name}</span>
+      <span style={{ fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', borderLeft: '1px solid var(--line)', paddingLeft: 10 }}>{item.tag}</span>
+    </div>
+  );
+
   return (
-    <section style={{ padding: '48px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
-      <div className="container" style={{ marginBottom: 24 }}>
+    <section style={{ padding: '52px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', background: 'var(--bg-soft)' }}>
+      <div className="container" style={{ marginBottom: 26, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 12 }}>
         <span className="t-eyebrow">Trusted by ambitious operators · India · Global</span>
+        <span style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
+          {row1.length + row2.length}+ brands · 12 industries
+        </span>
       </div>
       <div className="ticker-mask">
-        <div className="ticker">
-          {[...items, ...items, ...items].map((b, i) => (
-            <span key={i} className="h-display" style={{ fontSize: 'clamp(1.4rem, 2.4vw, 2rem)', color: 'var(--text-faint)', letterSpacing: '-0.02em' }}>
-              {b}
-            </span>
-          ))}
+        <div className="ticker" style={{ gap: 16, animationDuration: '48s' }}>
+          {[...row1, ...row1, ...row1].map((it, i) => <Chip key={`a-${i}`} item={it} />)}
+        </div>
+      </div>
+      <div className="ticker-mask" style={{ marginTop: 14 }}>
+        <div className="ticker" style={{ gap: 16, animationDuration: '62s', animationDirection: 'reverse' }}>
+          {[...row2, ...row2, ...row2].map((it, i) => <Chip key={`b-${i}`} item={it} />)}
         </div>
       </div>
     </section>
@@ -416,14 +492,18 @@ const LeadsScene = () => (
 
 /* ═══════════ BENTO CAPABILITIES ═══════════ */
 const BentoCapabilities = () => (
-  <section className="section" style={{ background: 'var(--bg-pure)' }}>
-    <div className="container">
-      <div style={{ marginBottom: 60, maxWidth: 720 }}>
-        <span className="t-eyebrow">Capabilities</span>
-        <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', marginTop: 16, lineHeight: 0.96 }}>
-          What we build, <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>and what it earns you.</span>
-        </h2>
-      </div>
+  <section className="section" style={{ background: 'var(--bg-pure)', position: 'relative', overflow: 'hidden' }}>
+    {/* Faint ambient orb for depth */}
+    <div className="orb orb-b" style={{ width: 460, height: 460, top: '20%', right: '-15%', background: 'radial-gradient(circle, rgba(255,90,31,0.18), transparent 70%)', opacity: 0.5 }} />
+    <div className="container" style={{ position: 'relative' }}>
+      <Reveal>
+        <div style={{ marginBottom: 60, maxWidth: 720 }}>
+          <span className="t-eyebrow">Capabilities</span>
+          <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', marginTop: 16, lineHeight: 0.96 }}>
+            What we build, <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>and what it earns you.</span>
+          </h2>
+        </div>
+      </Reveal>
 
       <div style={{
         display: 'grid',
@@ -495,41 +575,44 @@ const BentoCapabilities = () => (
   </section>
 );
 
-const BentoCard = ({ span, rows, title, tag, desc, tint, visual, link }) => (
-  <Link to={link} style={{
-    gridColumn: span, gridRow: rows ? `span ${rows}` : undefined,
-    background: tint, borderRadius: 'var(--r-lg)',
-    padding: 28, position: 'relative', overflow: 'hidden',
-    transition: 'all 320ms var(--ease)',
-    display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-    minHeight: 220, cursor: 'pointer'
-  }}
-  onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px)'}
-  onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-  >
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 18, position: 'relative', zIndex: 2 }}>
-      <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink)', letterSpacing: '0.1em', fontWeight: 500 }}>
-        {tag}
-      </span>
-      <span style={{
-        width: 32, height: 32, borderRadius: '50%',
-        background: 'var(--ink)', color: 'var(--bg-pure)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center'
-      }}>
-        <ArrowUpRight size={14} />
-      </span>
-    </div>
+const BentoCard = ({ span, rows, title, tag, desc, tint, visual, link }) => {
+  const tilt = useTilt({ max: 6, scale: 1.015 });
+  return (
+    <Link to={link} {...tilt} style={{
+      ...tilt.style,
+      gridColumn: span, gridRow: rows ? `span ${rows}` : undefined,
+      background: tint, borderRadius: 'var(--r-lg)',
+      padding: 28, position: 'relative', overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+      minHeight: 220, cursor: 'pointer'
+    }}>
+      {/* Sheen overlay on hover */}
+      <div className="bento-sheen" />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 18, position: 'relative', zIndex: 2 }}>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink)', letterSpacing: '0.1em', fontWeight: 500 }}>
+          {tag}
+        </span>
+        <span style={{
+          width: 32, height: 32, borderRadius: '50%',
+          background: 'var(--ink)', color: 'var(--bg-pure)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transform: 'translateZ(20px)'
+        }}>
+          <ArrowUpRight size={14} />
+        </span>
+      </div>
 
-    <div style={{ position: 'relative', zIndex: 2, marginBottom: 16 }}>
-      <h3 className="h-display" style={{ fontSize: 'clamp(1.3rem, 1.8vw, 1.7rem)', marginBottom: 6, color: 'var(--ink)' }}>{title}</h3>
-      <p style={{ fontSize: 14, color: 'var(--text-soft)', lineHeight: 1.5 }}>{desc}</p>
-    </div>
+      <div style={{ position: 'relative', zIndex: 2, marginBottom: 16 }}>
+        <h3 className="h-display" style={{ fontSize: 'clamp(1.3rem, 1.8vw, 1.7rem)', marginBottom: 6, color: 'var(--ink)' }}>{title}</h3>
+        <p style={{ fontSize: 14, color: 'var(--text-soft)', lineHeight: 1.5 }}>{desc}</p>
+      </div>
 
-    <div style={{ position: 'relative', zIndex: 1, marginTop: 'auto' }}>
-      {visual}
-    </div>
-  </Link>
-);
+      <div style={{ position: 'relative', zIndex: 1, marginTop: 'auto', transform: 'translateZ(10px)' }}>
+        {visual}
+      </div>
+    </Link>
+  );
+};
 
 const MiniWebsite = () => (
   <div style={{ background: '#0A0A0F', borderRadius: 12, padding: '8px 8px 0', boxShadow: '0 8px 24px rgba(10,10,15,0.18)' }}>
@@ -807,22 +890,34 @@ const MiniTrading = () => {
 /* ═══════════ BIG STATS ═══════════ */
 const BigStats = () => (
   <section className="section surface-ink" style={{ position: 'relative', overflow: 'hidden' }}>
-    <div className="gradient-mesh-dark" style={{ opacity: 0.6 }} />
+    <div className="gradient-mesh-dark-animated" style={{ opacity: 0.85 }} />
+    {/* Floating ambient orbs */}
+    <div className="orb orb-a" style={{ width: 480, height: 480, top: '-10%', left: '-8%', background: 'radial-gradient(circle, rgba(255,90,31,0.55), transparent 70%)' }} />
+    <div className="orb orb-b" style={{ width: 540, height: 540, bottom: '-20%', right: '-12%', background: 'radial-gradient(circle, rgba(80,40,140,0.55), transparent 70%)' }} />
+    <div className="orb orb-a" style={{ width: 320, height: 320, top: '30%', right: '20%', background: 'radial-gradient(circle, rgba(10,102,255,0.4), transparent 70%)', opacity: 0.4, animationDelay: '4s' }} />
     <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-      <span className="t-eyebrow" style={{ color: 'var(--text-on-ink-soft)' }}>Receipts</span>
-      <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', color: 'var(--text-on-ink)', maxWidth: 880, margin: '20px auto 12px', lineHeight: 0.98 }}>
-        Numbers that <span className="serif-italic" style={{ color: 'var(--accent)' }}>don't lie.</span>
-      </h2>
-      <p style={{ color: 'var(--text-on-ink-soft)', maxWidth: 560, margin: '0 auto 64px', fontSize: 17 }}>
-        The systems we ship are measured against KPIs — not vanity metrics. Here's the average lift across 5 demo cases.
-      </p>
+      <Reveal>
+        <span className="t-eyebrow" style={{ color: 'var(--text-on-ink-soft)' }}>Receipts</span>
+      </Reveal>
+      <Reveal delay={0.05}>
+        <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', color: 'var(--text-on-ink)', maxWidth: 880, margin: '20px auto 12px', lineHeight: 0.98 }}>
+          Numbers that <span className="serif-italic" style={{ color: 'var(--accent)' }}>don't lie.</span>
+        </h2>
+      </Reveal>
+      <Reveal delay={0.12}>
+        <p style={{ color: 'var(--text-on-ink-soft)', maxWidth: 560, margin: '0 auto 64px', fontSize: 17 }}>
+          The systems we ship are measured against KPIs — not vanity metrics. Here's the average lift across 5 demo cases.
+        </p>
+      </Reveal>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="bigstats">
-        <Stat n={42} suffix="%" label="trading accuracy" />
-        <Stat n={65} suffix="%" label="more leads" />
-        <Stat n={48} suffix="%" label="more sales" />
-        <Stat n={60} suffix="%" label="more admissions" />
-      </div>
+      <Reveal stagger>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="bigstats">
+          <Reveal.Item><Stat n={42} suffix="%" label="trading accuracy" /></Reveal.Item>
+          <Reveal.Item><Stat n={65} suffix="%" label="more leads" /></Reveal.Item>
+          <Reveal.Item><Stat n={48} suffix="%" label="more sales" /></Reveal.Item>
+          <Reveal.Item><Stat n={60} suffix="%" label="more admissions" /></Reveal.Item>
+        </div>
+      </Reveal>
 
       <style>{`
         @media (max-width: 720px) { .bigstats { grid-template-columns: 1fr 1fr !important; } }
