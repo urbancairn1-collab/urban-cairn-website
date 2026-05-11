@@ -16,7 +16,7 @@ const CityLanding = () => {
     <>
       <SEO
         title={`Web development & software studio in ${city.name}`}
-        description={`Custom websites, WhatsApp automation, trading dashboards, and lead engines for ambitious operators in ${city.name}, ${city.state}. Shipped in 14 days. Udyam-registered MSME in Gujarat.`}
+        description={`Custom websites, WhatsApp automation, trading dashboards, and lead engines for ambitious operators in ${city.name}. Shipped in 14 days. India-based Udyam + GST registered MSME.`}
         path={`/in/${slug}`}
         keywords={`web development ${city.name.toLowerCase()}, website design ${city.name.toLowerCase()}, software developer ${city.name.toLowerCase()}, whatsapp automation ${city.name.toLowerCase()}, lead generation ${city.name.toLowerCase()}, custom software ${city.state.toLowerCase()}`}
       />

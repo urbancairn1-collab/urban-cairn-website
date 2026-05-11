@@ -93,7 +93,7 @@ const Footer = () => {
               </li>
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, color: 'var(--text-on-ink-soft)', fontSize: 14, lineHeight: 1.6 }}>
                 <MapPin size={14} style={{ marginTop: 3, flexShrink: 0 }} />
-                <span>{company.address.line1}<br />{company.address.line2}, {company.address.state} {company.address.pin}</span>
+                <span>India · remote<br />IST 9 AM – 9 PM · Mon – Sat</span>
               </li>
             </ul>
             <div style={{ display: 'flex', gap: 10, marginTop: 24, flexWrap: 'wrap' }}>
@@ -167,7 +167,7 @@ const Footer = () => {
           gap: 16, fontSize: 12, color: 'var(--text-on-ink-soft)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em'
         }}>
           <span>© {new Date().getFullYear()} URBAN CAIRN TECH SOLUTION</span>
-          <span>UDYAM-GJ-03-0077762 · GSTIN 24ETKPD1689B1ZU · ANAND · GUJARAT · INDIA</span>
+          <span>UDYAM-GJ-03-0077762 · GSTIN 24ETKPD1689B1ZU · INDIA</span>
           <span style={{ display: 'inline-flex', gap: 16 }}>
             <Link to="/privacy" style={{ color: 'var(--text-on-ink-soft)' }}>PRIVACY</Link>
             <Link to="/terms" style={{ color: 'var(--text-on-ink-soft)' }}>TERMS</Link>

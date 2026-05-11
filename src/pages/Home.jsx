@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <SEO
         title="A studio for ambitious operators"
-        description="Urban Cairn builds the systems that turn ideas into revenue. Custom websites, automation, dashboards. Shipped in 14 days. Anand, Gujarat."
+        description="Urban Cairn builds the systems that turn ideas into revenue. Custom websites, automation, dashboards. Shipped in 14 days. India · remote, IST."
       />
       <Hero />
       <LogoTicker />

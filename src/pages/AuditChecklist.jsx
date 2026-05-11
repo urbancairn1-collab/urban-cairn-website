@@ -168,7 +168,7 @@ const AuditChecklist = () => (
             The same checklist we use when teardown-ing client websites in our free audit. Print it, screenshot it, share it with your team. Score yourself honestly — anything that fails is leaking pipeline.
           </p>
           <p style={{ fontSize: 13, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: 14, letterSpacing: '0.04em' }}>
-            URBAN CAIRN TECH SOLUTION · UDYAM-GJ-03-0077762 · GSTIN 24ETKPD1689B1ZU · ANAND, GUJARAT
+            URBAN CAIRN TECH SOLUTION · UDYAM-GJ-03-0077762 · GSTIN 24ETKPD1689B1ZU · INDIA
           </p>
         </header>
 

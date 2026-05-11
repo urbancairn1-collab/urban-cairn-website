@@ -29,6 +29,6 @@ export const faqs = [
   },
   {
     q: 'Where are you based?',
-    a: 'Anand, Gujarat. We work with clients all over India and globally — most engagements happen over WhatsApp, video calls, and a shared staging link. In-person available for Gujarat-based projects.'
+    a: 'India · remote, IST hours (9 AM – 9 PM Mon–Sat). We work with clients all over India and globally — engagements happen over WhatsApp, video calls, and a shared staging link.'
   }
 ];

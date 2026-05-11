@@ -9,7 +9,7 @@ import { company } from '../data/company';
 const About = () => {
   return (
     <>
-      <SEO title="Studio" description="Urban Cairn is a studio for ambitious operators. Founded by Rahulkumar Dhobi in Anand, Gujarat. Udyam-registered MSME." />
+      <SEO title="Studio" description="Urban Cairn is a studio for ambitious operators. Founded by Rahulkumar Dhobi. India-based · IST hours. Udyam + GST registered MSME." />
 
       <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 clamp(60px, 8vw, 100px)', position: 'relative', overflow: 'hidden' }}>
         <div className="gradient-mesh" style={{ opacity: 0.5 }} />
@@ -19,7 +19,7 @@ const About = () => {
             We'd rather build <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>than wait.</span>
           </h1>
           <p style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.35rem)', color: 'var(--text-soft)', maxWidth: 640, lineHeight: 1.55, marginTop: 32, marginBottom: 32 }}>
-            Urban Cairn is a small, opinionated software studio in Anand, Gujarat. We work with ambitious operators who want their tech to compound revenue — not consume it.
+            Urban Cairn is a small, opinionated software studio working with ambitious operators across India and global Tier-1 markets. We build tech that compounds revenue — not tech that consumes it.
           </p>
           <TrustStrip />
         </div>
@@ -133,7 +133,7 @@ const About = () => {
               <div style={{ fontWeight: 600, fontSize: 17 }}>{company.founder}</div>
               <div style={{ fontSize: 14, color: 'var(--text-soft)' }}>Founder · Urban Cairn Tech Solution</div>
               <div style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: 4, display: 'flex', alignItems: 'center', gap: 4 }}>
-                <MapPin size={11} /> Anand · Gujarat
+                <MapPin size={11} /> India · IST
               </div>
             </div>
             <Link to="/free-audit" className="btn btn-accent">Talk to me <ArrowUpRight size={16} /></Link>

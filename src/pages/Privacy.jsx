@@ -17,7 +17,7 @@ const Privacy = () => (
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22, fontSize: 16, lineHeight: 1.75, color: 'var(--text)' }}>
-          <p>This Privacy Policy describes how <strong>Urban Cairn Tech Solution</strong> ("we", "our", "us"), a sole-proprietorship MSME registered in Gujarat, India (Udyam: {company.udyam} · GSTIN: {company.gstin}), collects, uses, and shares information about you when you visit this website or engage our services.</p>
+          <p>This Privacy Policy describes how <strong>Urban Cairn Tech Solution</strong> ("we", "our", "us"), a sole-proprietorship MSME registered in India (Udyam: {company.udyam} · GSTIN: {company.gstin}), collects, uses, and shares information about you when you visit this website or engage our services.</p>
 
           <Heading>1. What we collect</Heading>
           <p>We collect only what's necessary to respond to you and operate the site:</p>

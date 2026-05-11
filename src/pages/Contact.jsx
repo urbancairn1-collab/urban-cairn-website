@@ -14,7 +14,7 @@ const WIcon = () => (
 const Contact = () => {
   return (
     <>
-      <SEO title="Contact" description="Direct WhatsApp, call, or email. Anand, Gujarat. We respond within 4 business hours." path="/contact" />
+      <SEO title="Contact" description="Direct WhatsApp, call, or email. India-based · IST hours. We respond within 4 business hours." path="/contact" />
 
       <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 60px', position: 'relative', overflow: 'hidden' }}>
         <div className="gradient-mesh" style={{ opacity: 0.4 }} />
@@ -36,7 +36,7 @@ const Contact = () => {
               { icon: Phone, label: 'Direct line', value: company.phone, href: `tel:${company.phoneRaw}`, sub: 'Mon-Sat · 10am-8pm IST' },
               { icon: WIcon, label: 'WhatsApp', value: company.phone, href: `https://wa.me/${company.whatsapp}`, sub: 'Fastest · 24/7', accent: 'var(--whatsapp)' },
               { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}`, sub: 'Within 4 business hours' },
-              { icon: MapPin, label: 'Studio', value: 'Anand · Gujarat', href: '#map', sub: company.address.pin }
+              { icon: MapPin, label: 'Coverage', value: 'India · remote', href: '#hours', sub: company.address.timezone }
             ].map((c, i) => {
               const Icon = c.icon;
               return (
@@ -81,32 +81,24 @@ const Contact = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }} id="map">
-              <div className="card" style={{ padding: 6, height: 320, overflow: 'hidden' }}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.0!2d72.95!3d22.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAnand%2C%20Gujarat%20388570!5e0!3m2!1sen!2sin!4v1714023451234"
-                  width="100%" height="100%"
-                  style={{ border: 0, borderRadius: 'var(--r-md)' }}
-                  loading="lazy"
-                  title="Studio location"
-                />
-              </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div style={{
                 background: 'var(--ink)', color: 'var(--text-on-ink)',
-                borderRadius: 'var(--r-lg)', padding: 28
+                borderRadius: 'var(--r-lg)', padding: 'clamp(24px, 3vw, 36px)'
               }}>
                 <ShieldCheck size={20} color="var(--accent)" />
                 <h3 className="h-display" style={{ fontSize: '1.3rem', color: 'var(--text-on-ink)', margin: '14px 0 8px' }}>
                   Officially registered. Fully accountable.
                 </h3>
-                <p style={{ fontSize: 13, color: 'var(--text-on-ink-soft)', lineHeight: 1.6, marginBottom: 12 }}>
+                <p style={{ fontSize: 13, color: 'var(--text-on-ink-soft)', lineHeight: 1.6, marginBottom: 16 }}>
                   Government of India recognized · GST-compliant invoicing · Full legal accountability for every engagement.
                 </p>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-on-ink-soft)' }}>
-                  UDYAM: <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.udyam}</span>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-on-ink-soft)', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  <span>UDYAM: <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.udyam}</span></span>
+                  <span>GSTIN: <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.gstin}</span></span>
                 </div>
               </div>
-              <div className="card" style={{ padding: 28 }}>
+              <div className="card" style={{ padding: 28 }} id="hours">
                 <Clock size={20} color="var(--accent)" />
                 <div className="t-eyebrow" style={{ marginTop: 14, marginBottom: 14 }}>Hours</div>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14 }}>

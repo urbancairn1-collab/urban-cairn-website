@@ -20,7 +20,7 @@ const Terms = () => (
           <p>By using this website or engaging <strong>{company.name}</strong> ("we", "our", "us") for any service, you agree to these Terms. If you don't agree, please don't use the site or engage us.</p>
 
           <Heading>1. Who we are</Heading>
-          <p>{company.name} is a sole-proprietorship software studio in Gujarat, India, founded by {company.founder}. Officially registered as a Micro enterprise under the Government of India's Udyam framework (registration no. {company.udyam}) and registered under the Goods &amp; Services Tax Act (GSTIN: {company.gstin}).</p>
+          <p>{company.name} is a sole-proprietorship software studio in India, founded by {company.founder}. Officially registered as a Micro enterprise under the Government of India's Udyam framework (registration no. {company.udyam}) and registered under the Goods &amp; Services Tax Act (GSTIN: {company.gstin}).</p>
 
           <Heading>2. Use of this website</Heading>
           <List items={[
@@ -60,7 +60,7 @@ const Terms = () => (
           <p>Either party can end the engagement with 7 days written notice. You pay for work completed up to the termination date. We hand over partial deliverables and you are free to take them to another partner.</p>
 
           <Heading>11. Governing law & jurisdiction</Heading>
-          <p>These Terms and any engagement we have with you are governed by the laws of India. Disputes are subject to the exclusive jurisdiction of courts in Anand district, Gujarat, India.</p>
+          <p>These Terms and any engagement we have with you are governed by the laws of India. Disputes are subject to the exclusive jurisdiction of competent courts in India, with venue determined by the jurisdiction of our Udyam registration ({company.udyam}).</p>
 
           <Heading>12. Contact</Heading>
           <p>{company.name} · {company.founder} (proprietor) · {company.address.full} · <a href={`mailto:${company.email}`} style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.email}</a> · {company.phone}</p>

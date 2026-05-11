@@ -9,12 +9,10 @@ export const company = {
   whatsapp: '919313560694',
   email: 'urbancairn1@gmail.com',
   address: {
-    line1: 'Near Patel Wadi, Hospital Road',
-    line2: 'Ras, Anand',
-    state: 'Gujarat',
-    pin: '388570',
     country: 'India',
-    full: 'Near Patel Wadi, Hospital Road, Ras, Anand, Gujarat 388570, India'
+    countryCode: 'IN',
+    timezone: 'IST (UTC+5:30)',
+    full: 'India · remote, IST 9-9 Mon-Sat'
   },
   udyam: 'UDYAM-GJ-03-0077762',
   gstin: '24ETKPD1689B1ZU',

@@ -19,7 +19,7 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
 
   const localBusiness = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService', 'Organization'],
+    '@type': ['ProfessionalService', 'Organization'],
     '@id': `${SITE_URL}/#organization`,
     name: company.name,
     legalName: company.name,
@@ -39,25 +39,13 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: company.address.line1,
-      addressLocality: 'Anand',
-      addressRegion: 'Gujarat',
-      postalCode: company.address.pin,
       addressCountry: 'IN'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 22.5645,
-      longitude: 72.9289
     },
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '10:00', closes: '20:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '16:00' }
     ],
-    areaServed: [
-      { '@type': 'Country', name: 'India' },
-      { '@type': 'AdministrativeArea', name: 'Gujarat' }
-    ],
+    areaServed: { '@type': 'Country', name: 'India' },
     identifier: company.udyam,
     sameAs: [
       company.social.linkedin,
@@ -126,10 +114,7 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
       <meta name="twitter:description" content={finalDesc} />
       <meta name="twitter:image" content={finalImage} />
 
-      <meta name="geo.region" content="IN-GJ" />
-      <meta name="geo.placename" content="Anand, Gujarat" />
-      <meta name="geo.position" content="22.5645;72.9289" />
-      <meta name="ICBM" content="22.5645, 72.9289" />
+      <meta name="geo.region" content="IN" />
 
       <script type="application/ld+json">{JSON.stringify(localBusiness)}</script>
       <script type="application/ld+json">{JSON.stringify(webSite)}</script>

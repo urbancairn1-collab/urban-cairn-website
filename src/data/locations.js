@@ -1,7 +1,7 @@
 // Programmatic SEO data — city + industry combos.
 
 export const cities = [
-  { slug: 'anand', name: 'Anand', state: 'Gujarat', tone: 'home', context: 'our home base. Local-first delivery, in-person available, GST-compliant invoicing.' },
+  { slug: 'anand', name: 'Anand', state: 'Gujarat', context: 'co-operative-belt SMBs — agri, dairy, retail, and education clients we ship for.' },
   { slug: 'vadodara', name: 'Vadodara', state: 'Gujarat', context: 'one of our most active markets — manufacturing, real-estate, healthcare clients.' },
   { slug: 'ahmedabad', name: 'Ahmedabad', state: 'Gujarat', context: 'Gujarat\'s commercial capital — fintech, retail, and education clients we ship for.' },
   { slug: 'surat', name: 'Surat', state: 'Gujarat', context: 'textile, jewelry, and trading-business clients — high WhatsApp + e-commerce demand.' },
