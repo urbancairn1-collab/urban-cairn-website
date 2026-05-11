@@ -38,10 +38,15 @@ const CustomCursor = () => {
 
     const onOver = (e) => {
       const t = e.target;
-      if (!ringRef.current) return;
+      if (!ringRef.current || !dotRef.current) return;
       const hoverable = t.closest('a, button, [role="button"], input, textarea, label, [data-cursor]');
-      if (hoverable) ringRef.current.classList.add('hover');
-      else ringRef.current.classList.remove('hover');
+      if (hoverable) {
+        ringRef.current.classList.add('hover');
+        dotRef.current.classList.add('hover');
+      } else {
+        ringRef.current.classList.remove('hover');
+        dotRef.current.classList.remove('hover');
+      }
     };
 
     const onLeave = () => {

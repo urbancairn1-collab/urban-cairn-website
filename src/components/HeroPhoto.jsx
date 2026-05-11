@@ -1,15 +1,12 @@
 import { motion } from 'framer-motion';
-import { useTilt } from '../hooks/useTilt';
 
 const HERO_SRC = `${import.meta.env.BASE_URL}hero-photo.jpg`;
 
 // Hero photograph composition. The photo is a Gemini-generated Indian
-// founder/client meeting in a premium home-office; this component frames
-// it with a tilt-on-hover effect, a halo gradient behind, and a floating
-// "outcome" stat badge that anchors the headline's promise.
+// founder/client meeting in a premium home-office. Static frame — no
+// tilt or scale animation on hover (per RD: image still rahe).
 
 const HeroPhoto = () => {
-  const tilt = useTilt({ max: 4, scale: 1.01, perspective: 1200 });
   return (
     <div style={{ position: 'relative', width: '100%', maxWidth: 560, aspectRatio: '5 / 4' }}>
       {/* Halo behind the frame */}
@@ -23,26 +20,23 @@ const HeroPhoto = () => {
       {/* Decorative ring offset */}
       <motion.div
         aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.94, rotate: -3 }}
-        animate={{ opacity: 1, scale: 1, rotate: -3 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
         transition={{ duration: 0.9, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
         style={{
           position: 'absolute', inset: '6% -4% -4% 6%',
           borderRadius: 24,
           border: '1.5px solid var(--accent)',
-          opacity: 0.4,
           pointerEvents: 'none'
         }}
       />
 
-      {/* Photo frame */}
+      {/* Photo frame — static, no tilt */}
       <motion.div
-        {...tilt}
-        initial={{ opacity: 0, y: 30, rotate: -1.5 }}
-        animate={{ opacity: 1, y: 0, rotate: -1.5 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.25, ease: [0.32, 0.72, 0, 1] }}
         style={{
-          ...tilt.style,
           position: 'relative',
           width: '100%', height: '100%',
           borderRadius: 22,
