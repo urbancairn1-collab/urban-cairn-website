@@ -9,6 +9,7 @@ import TrustStrip from '../components/TrustStrip';
 import ROICalculator from '../components/ROICalculator';
 import MagneticButton from '../components/MagneticButton';
 import Reveal from '../components/Reveal';
+import AnimatedCairn from '../components/AnimatedCairn';
 import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
@@ -85,7 +86,8 @@ const Hero = () => {
       <div ref={spotRef} className="hero-spotlight" />
       <div className="noise" />
 
-      <motion.div className="container" style={{ position: 'relative', zIndex: 1, opacity, y }}>
+      <motion.div className="container hero-grid" style={{ position: 'relative', zIndex: 1, opacity, y, display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 48, alignItems: 'center' }}>
+       <div>
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <span className="t-eyebrow">A studio for ambitious operators</span>
         </motion.div>
@@ -161,7 +163,26 @@ const Hero = () => {
             style={{ width: 1, height: 36, background: 'var(--text-muted)', display: 'inline-block' }}
           />
         </div>
+       </div>
+
+       {/* Right: animated cairn — hides on mobile */}
+       <motion.div
+         className="hero-cairn"
+         initial={{ opacity: 0, scale: 0.92 }}
+         animate={{ opacity: 1, scale: 1 }}
+         transition={{ duration: 0.9, delay: 0.3, ease: [0.32, 0.72, 0, 1] }}
+         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+       >
+         <AnimatedCairn size={520} />
+       </motion.div>
       </motion.div>
+
+      <style>{`
+        @media (max-width: 920px) {
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-cairn { display: none !important; }
+        }
+      `}</style>
     </section>
   );
 };
@@ -1017,6 +1038,23 @@ const ROISection = () => (
 );
 
 /* ═══════════ TESTIMONIALS ═══════════ */
+// Deterministic hue per name so the same person always gets the same gradient.
+const hueFromName = (name) => {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  return h % 360;
+};
+
+const Stars = ({ n = 5, dark = false }) => (
+  <div style={{ display: 'inline-flex', gap: 2 }} aria-label={`${n} out of 5 stars`}>
+    {Array.from({ length: 5 }).map((_, i) => (
+      <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill={i < n ? '#FFC107' : 'transparent'} stroke={i < n ? '#FFC107' : (dark ? 'rgba(255,255,255,0.25)' : 'var(--line-strong)')} strokeWidth="1.5">
+        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+      </svg>
+    ))}
+  </div>
+);
+
 const Testimonials = () => {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -1024,57 +1062,94 @@ const Testimonials = () => {
     return () => clearInterval(t);
   }, []);
   const t = testimonials[i];
+  const hue = hueFromName(t.name);
   return (
-    <section className="section">
-      <div className="container">
+    <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Giant decorative quote watermark */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: 20, right: 'var(--pad-x)',
+        fontFamily: 'Georgia, serif', fontSize: 'clamp(220px, 32vw, 420px)',
+        lineHeight: 0.7, color: 'var(--accent)', opacity: 0.06, fontStyle: 'italic',
+        pointerEvents: 'none', zIndex: 0, userSelect: 'none'
+      }}>"</div>
+
+      <div className="container" style={{ position: 'relative' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 60, alignItems: 'center' }} className="testi">
-          <div>
-            <span className="t-eyebrow">Voices</span>
-            <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', marginTop: 16, lineHeight: 0.98 }}>
-              Real founders. <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>Real numbers.</span>
-            </h2>
-            <div style={{ display: 'flex', gap: 6, marginTop: 32 }}>
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setI(idx)}
-                  style={{
-                    width: idx === i ? 28 : 6, height: 6, borderRadius: 6,
-                    background: idx === i ? 'var(--accent)' : 'var(--line-strong)',
-                    transition: 'all 280ms var(--ease)'
-                  }}
-                  aria-label={`Show testimonial ${idx + 1}`}
-                />
-              ))}
+          <Reveal>
+            <div>
+              <span className="t-eyebrow">Voices</span>
+              <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', marginTop: 16, lineHeight: 0.98 }}>
+                Real founders. <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>Real numbers.</span>
+              </h2>
+              <p style={{ color: 'var(--text-soft)', fontSize: 15, lineHeight: 1.6, marginTop: 18, maxWidth: 360 }}>
+                Six engagements across real estate, healthcare, trading, e-commerce, education and wellness — averaging +52% on the primary KPI in under 90 days.
+              </p>
+              <div style={{ display: 'flex', gap: 6, marginTop: 28 }}>
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setI(idx)}
+                    style={{
+                      width: idx === i ? 32 : 8, height: 8, borderRadius: 8,
+                      background: idx === i ? 'var(--accent)' : 'var(--line-strong)',
+                      transition: 'all 280ms var(--ease)',
+                      border: 'none', padding: 0, cursor: 'pointer'
+                    }}
+                    aria-label={`Show testimonial ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              <div style={{ marginTop: 18, fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', letterSpacing: '0.06em' }}>
+                {String(i + 1).padStart(2, '0')} / {String(testimonials.length).padStart(2, '0')}
+              </div>
             </div>
-          </div>
+          </Reveal>
           <AnimatePresence mode="wait">
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
+              style={{
+                position: 'relative',
+                padding: 'clamp(28px, 4vw, 44px)',
+                background: 'var(--bg-pure)',
+                borderRadius: 'var(--r-xl)',
+                border: '1px solid var(--line)',
+                boxShadow: '0 24px 60px rgba(10,10,15,0.06)'
+              }}
             >
+              {/* Accent corner */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0, width: 80, height: 4,
+                background: `linear-gradient(90deg, hsl(${hue}, 70%, 55%), var(--accent))`,
+                borderRadius: '12px 0 0 0'
+              }} />
+              <Stars n={t.rating} />
               <p className="h-display" style={{
-                fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
-                fontWeight: 500, lineHeight: 1.2, letterSpacing: '-0.025em',
-                color: 'var(--text)', marginBottom: 36
+                fontSize: 'clamp(1.4rem, 2.6vw, 2.1rem)',
+                fontWeight: 500, lineHeight: 1.25, letterSpacing: '-0.02em',
+                color: 'var(--text)', marginTop: 18, marginBottom: 32
               }}>
                 "{t.quote}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, paddingTop: 24, borderTop: '1px solid var(--line)' }}>
                 <div style={{
-                  width: 48, height: 48, borderRadius: '50%',
-                  background: 'var(--ink)', color: 'var(--bg-pure)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700
+                  width: 52, height: 52, borderRadius: '50%',
+                  background: `linear-gradient(135deg, hsl(${hue}, 70%, 58%), hsl(${(hue + 30) % 360}, 75%, 42%))`,
+                  color: '#fff',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 800, fontSize: 17,
+                  boxShadow: `0 6px 16px hsla(${hue}, 70%, 50%, 0.28), inset 0 -3px 6px rgba(0,0,0,0.15)`
                 }}>{t.initials}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 600 }}>{t.name}</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: 15 }}>{t.name}</div>
                   <div style={{ fontSize: 13, color: 'var(--text-soft)' }}>{t.role} · <span style={{ color: 'var(--text-muted)' }}>{t.location}</span></div>
                 </div>
                 <span style={{
-                  padding: '6px 12px', borderRadius: 'var(--r-pill)',
+                  padding: '7px 13px', borderRadius: 'var(--r-pill)',
                   background: 'var(--accent-tint)', color: 'var(--accent)',
-                  fontWeight: 700, fontSize: 13, letterSpacing: '-0.01em'
+                  fontWeight: 700, fontSize: 13, letterSpacing: '-0.01em',
+                  whiteSpace: 'nowrap'
                 }}>{t.metric}</span>
               </div>
             </motion.div>

@@ -11,6 +11,7 @@ import ExitIntentModal from './components/ExitIntentModal';
 import Analytics from './components/Analytics';
 import StickyScrollCTA from './components/StickyScrollCTA';
 import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 
 // Home stays eager (LCP route); the rest is code-split for fast first paint.
 import Home from './pages/Home';
@@ -83,6 +84,7 @@ function App() {
       <ScrollToTop />
       <Analytics />
       <CustomCursor />
+      <ScrollProgress />
       <PromoStrip />
       <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
