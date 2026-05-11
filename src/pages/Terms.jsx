@@ -20,7 +20,7 @@ const Terms = () => (
           <p>By using this website or engaging <strong>{company.name}</strong> ("we", "our", "us") for any service, you agree to these Terms. If you don't agree, please don't use the site or engage us.</p>
 
           <Heading>1. Who we are</Heading>
-          <p>{company.name} is a sole-proprietorship software studio in Gujarat, India, founded by {company.founder}. Officially registered as a Micro enterprise under the Government of India's Udyam framework (registration no. {company.udyam}).</p>
+          <p>{company.name} is a sole-proprietorship software studio in Gujarat, India, founded by {company.founder}. Officially registered as a Micro enterprise under the Government of India's Udyam framework (registration no. {company.udyam}) and registered under the Goods &amp; Services Tax Act (GSTIN: {company.gstin}).</p>
 
           <Heading>2. Use of this website</Heading>
           <List items={[
@@ -39,7 +39,7 @@ const Terms = () => (
           ]} />
 
           <Heading>4. Payments</Heading>
-          <p>Standard schedule for projects: 40% advance, 40% at v1 staging, 20% at delivery. Larger or longer projects may be split into more milestones. All amounts in INR. GST will be added per Indian tax law. Invoices issued through our HDFC business account against the Udyam registration.</p>
+          <p>Standard schedule for projects: 40% advance, 40% at v1 staging, 20% at delivery. Larger or longer projects may be split into more milestones. All amounts in INR. GST will be charged at the applicable rate under GSTIN {company.gstin}. Invoices issued through our HDFC business account against the Udyam registration.</p>
 
           <Heading>5. Delivery & timelines</Heading>
           <p>Most projects deliver within 7-14 days; complex platforms within 3-6 weeks. Timelines start from the day of advance payment receipt and can shift if you delay feedback or input. We commit to clear communication: progress updates every 48 hours during build.</p>

@@ -17,7 +17,9 @@ export const company = {
     full: 'Near Patel Wadi, Hospital Road, Ras, Anand, Gujarat 388570, India'
   },
   udyam: 'UDYAM-GJ-03-0077762',
+  gstin: '24ETKPD1689B1ZU',
   registrationDate: '13 Feb 2026',
+  gstRegistrationDate: '11 May 2026',
   bank: 'HDFC Bank',
   social: {
     facebook: '#',
@@ -35,7 +37,7 @@ export const stats = [
 ];
 
 export const trustPoints = [
-  'Udyam Registered MSME',
+  'Udyam + GST Registered',
   '100% Code Ownership',
   '7-14 Day Delivery',
   'Direct WhatsApp Support'

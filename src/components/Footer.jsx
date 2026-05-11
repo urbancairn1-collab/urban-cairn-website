@@ -149,7 +149,7 @@ const Footer = () => {
           gap: 16, fontSize: 12, color: 'var(--text-on-ink-soft)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em'
         }}>
           <span>© {new Date().getFullYear()} URBAN CAIRN TECH SOLUTION</span>
-          <span>UDYAM-GJ-03-0077762 · ANAND · GUJARAT · INDIA</span>
+          <span>UDYAM-GJ-03-0077762 · GSTIN 24ETKPD1689B1ZU · ANAND · GUJARAT · INDIA</span>
           <span style={{ display: 'inline-flex', gap: 16 }}>
             <Link to="/privacy" style={{ color: 'var(--text-on-ink-soft)' }}>PRIVACY</Link>
             <Link to="/terms" style={{ color: 'var(--text-on-ink-soft)' }}>TERMS</Link>

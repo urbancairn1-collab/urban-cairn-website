@@ -59,14 +59,15 @@ const About = () => {
             <div>
               <span className="t-eyebrow">Officially recognized</span>
               <h2 className="h-display" style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)', marginTop: 16, marginBottom: 16, lineHeight: 1 }}>
-                Udyam-registered <span className="serif-italic" style={{ color: 'var(--accent)' }}>MSME.</span>
+                Udyam + GST <span className="serif-italic" style={{ color: 'var(--accent)' }}>registered.</span>
               </h2>
               <p style={{ color: 'var(--text-soft)', fontSize: 16, lineHeight: 1.65, marginBottom: 24 }}>
-                Recognized by the Ministry of MSME (Government of India). Verified business credentials, GST-compliant invoicing, and full legal accountability for every engagement.
+                Recognized by the Ministry of MSME (Government of India) and registered under the Goods &amp; Services Tax framework. Verified business credentials, GST-compliant invoicing, and full legal accountability for every engagement.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {[
                   ['UDYAM', company.udyam],
+                  ['GSTIN', company.gstin],
                   ['Type', 'Micro · Services'],
                   ['Registered', company.registrationDate]
                 ].map(([k, v]) => (

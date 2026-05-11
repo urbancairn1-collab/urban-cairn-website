@@ -17,7 +17,7 @@ Always use this exact format:
 - **Founded:** 13 February 2026
 - **Udyam:** UDYAM-GJ-03-0077762
 - **Type:** Micro Enterprise · Services
-- **GSTIN:** (add when registered)
+- **GSTIN:** 24ETKPD1689B1ZU (Regular, Gujarat — registered 11/05/2026, jurisdiction Centre · VADODARA)
 
 ---
 
@@ -73,7 +73,7 @@ https://www.indiamart.com → "Sell on IndiaMART"
 **Year of establishment:** 2026
 **Business type:** Service Provider
 **Number of employees:** 1-10
-**GST Number:** [add when registered]
+**GST Number:** 24ETKPD1689B1ZU
 **Udyam:** UDYAM-GJ-03-0077762
 **Annual turnover:** [add bracket]
 
