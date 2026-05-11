@@ -421,67 +421,33 @@ a:hover > .bento-sheen { opacity: 0.6; transform: translateX(30%); }
 .orb-a { animation: orb-float-a 14s ease-in-out infinite; }
 .orb-b { animation: orb-float-b 18s ease-in-out infinite; }
 
-/* ========== Custom cursor ========== */
-html.custom-cursor-on,
-html.custom-cursor-on body,
-html.custom-cursor-on a,
-html.custom-cursor-on button,
-html.custom-cursor-on [role="button"],
-html.custom-cursor-on input,
-html.custom-cursor-on textarea,
-html.custom-cursor-on label {
-  cursor: none !important;
-}
-
-.cc-dot, .cc-ring {
+/* ========== Custom cursor (minimal: halo-on-hover only) ========== */
+/* Native cursor stays visible. A soft accent halo appears only when
+   hovering interactive elements — JS toggles .on class on .cc-halo. */
+.cc-halo {
   position: fixed;
   top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  will-change: transform;
-  transition: opacity 200ms ease;
-}
-/* Crisp center dot — pin-point pointer */
-.cc-dot {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
+  will-change: transform, opacity;
   transform: translate(-50%, -50%);
-  opacity: 1;
-}
-/* Soft gradient orb — glows like a lantern; eases toward dot */
-.cc-ring {
-  width: 28px; height: 28px;
-  border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255,90,31,0.55) 0%,
-    rgba(255,140,80,0.22) 45%,
-    rgba(255,90,31,0) 75%
+    rgba(255,90,31,0.50) 0%,
+    rgba(255,140,80,0.18) 50%,
+    rgba(255,90,31,0) 80%
   );
-  box-shadow: 0 0 14px rgba(255,90,31,0.18);
-  transform: translate(-50%, -50%);
-  transition: width 240ms cubic-bezier(0.32, 0.72, 0, 1),
-              height 240ms cubic-bezier(0.32, 0.72, 0, 1),
-              background 220ms ease,
-              box-shadow 220ms ease,
-              opacity 200ms ease;
+  box-shadow: 0 0 20px rgba(255,90,31,0.18);
+  opacity: 0;
+  transition: opacity 220ms ease, width 220ms cubic-bezier(0.32, 0.72, 0, 1),
+              height 220ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.cc-halo.on {
   opacity: 1;
-  mix-blend-mode: normal;
+  width: 48px; height: 48px;
 }
-.cc-ring.hover {
-  width: 52px; height: 52px;
-  background: radial-gradient(
-    circle,
-    rgba(255,90,31,0.85) 0%,
-    rgba(255,140,80,0.40) 45%,
-    rgba(255,90,31,0) 75%
-  );
-  box-shadow: 0 0 28px rgba(255,90,31,0.32), 0 0 56px rgba(255,90,31,0.15);
-}
-/* Fade the center dot on hover (JS adds .hover class via mouseover handler).
-   transform is owned by JS each frame — do not transition it here. */
-.cc-dot.hover { opacity: 0.3; }
 @media (prefers-color-scheme: dark) {
   .cc-ring { border-color: rgba(255,255,255,0.4); }
 }
