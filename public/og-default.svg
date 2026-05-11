@@ -1,52 +1,113 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
+    <!-- Multi-stop mesh gradient — feels lit, not flat -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FAFAFA"/>
-      <stop offset="100%" stop-color="#F2F2F4"/>
+      <stop offset="0%" stop-color="#F7F5F0"/>
+      <stop offset="55%" stop-color="#EFECE5"/>
+      <stop offset="100%" stop-color="#E4DFD3"/>
     </linearGradient>
-    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.22"/>
+    <radialGradient id="warm" cx="78%" cy="22%" r="62%">
+      <stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#FF8A4C" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#FF5A1F" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="20%" cy="90%" r="55%">
-      <stop offset="0%" stop-color="#FFC896" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#FFC896" stop-opacity="0"/>
+    <radialGradient id="cool" cx="14%" cy="92%" r="65%">
+      <stop offset="0%" stop-color="#A88FFF" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#A88FFF" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="sand" cx="50%" cy="50%" r="80%">
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0A0A0F" stop-opacity="0.04"/>
+    </radialGradient>
+    <!-- Cairn stone gradient — gives the stones depth/realism -->
+    <linearGradient id="stone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFC896"/>
+      <stop offset="55%" stop-color="#FF8A4C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
+    </linearGradient>
+    <linearGradient id="stoneShade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+    </linearGradient>
+    <!-- Subtle paper noise -->
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="stoneShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
+  <!-- Base + atmospherics -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <rect width="1200" height="630" fill="url(#warm)"/>
+  <rect width="1200" height="630" fill="url(#cool)"/>
+  <rect width="1200" height="630" fill="url(#sand)"/>
+  <rect width="1200" height="630" fill="#0A0A0F" filter="url(#noise)" opacity="0.5"/>
 
-  <!-- Subtle grid -->
-  <g opacity="0.04">
-    <path d="M0 0 L1200 0 M0 100 L1200 100 M0 200 L1200 200 M0 300 L1200 300 M0 400 L1200 400 M0 500 L1200 500 M0 600 L1200 600" stroke="#0A0A0F" stroke-width="1"/>
-    <path d="M0 0 L0 630 M120 0 L120 630 M240 0 L240 630 M360 0 L360 630 M480 0 L480 630 M600 0 L600 630 M720 0 L720 630 M840 0 L840 630 M960 0 L960 630 M1080 0 L1080 630" stroke="#0A0A0F" stroke-width="1"/>
+  <!-- Faint grid for technical feel -->
+  <g opacity="0.035">
+    <path d="M0 0 L1200 0 M0 105 L1200 105 M0 210 L1200 210 M0 315 L1200 315 M0 420 L1200 420 M0 525 L1200 525 M0 630 L1200 630" stroke="#0A0A0F" stroke-width="1"/>
+    <path d="M0 0 L0 630 M150 0 L150 630 M300 0 L300 630 M450 0 L450 630 M600 0 L600 630 M750 0 L750 630 M900 0 L900 630 M1050 0 L1050 630 M1200 0 L1200 630" stroke="#0A0A0F" stroke-width="1"/>
   </g>
 
   <!-- Logo mark + wordmark top-left -->
   <g transform="translate(72, 72)">
-    <rect x="3" y="3" width="44" height="44" rx="12" stroke="#0A0A0F" stroke-width="2.5" fill="none"/>
-    <path d="M14 40 L40 14" stroke="#0A0A0F" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="40" cy="14" r="4" fill="#0A0A0F"/>
-    <text x="68" y="36" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700" fill="#0A0A0F" letter-spacing="-0.5">Urban Cairn</text>
+    <rect x="3" y="3" width="46" height="46" rx="13" stroke="#0A0A0F" stroke-width="2.5" fill="none"/>
+    <path d="M14 41 L41 14" stroke="#0A0A0F" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="41" cy="14" r="4.5" fill="#0A0A0F"/>
+    <text x="68" y="37" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" fill="#0A0A0F" letter-spacing="-0.5">Urban Cairn</text>
   </g>
 
   <!-- Eyebrow -->
-  <text x="72" y="280" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="3" fill="#FF5A1F" font-weight="500">A STUDIO FOR AMBITIOUS OPERATORS</text>
+  <text x="72" y="285" font-family="JetBrains Mono, monospace" font-size="16" letter-spacing="3" fill="#C2410C" font-weight="600">A STUDIO FOR AMBITIOUS OPERATORS</text>
 
   <!-- Headline -->
-  <text x="72" y="370" font-family="Inter, system-ui, sans-serif" font-size="86" font-weight="800" fill="#0A0A0F" letter-spacing="-3.5">Software that</text>
-  <text x="72" y="460" font-family="Instrument Serif, serif" font-style="italic" font-size="86" font-weight="500" fill="#FF5A1F" letter-spacing="-2">ships outcomes.</text>
+  <text x="72" y="375" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="800" fill="#0A0A0F" letter-spacing="-3.5">Software that</text>
+  <text x="72" y="465" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="92" font-weight="500" fill="#C2410C" letter-spacing="-2">ships outcomes.</text>
 
-  <!-- Footer -->
-  <text x="72" y="550" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500" fill="#4A4A55">14-day delivery · 100% code ownership · Anand, Gujarat</text>
-  <text x="72" y="585" font-family="JetBrains Mono, monospace" font-size="14" fill="#8A8A95" letter-spacing="1.5">UDYAM-GJ-03-0077762 · MSME VERIFIED</text>
+  <!-- Sub line — value props (no address) -->
+  <text x="72" y="528" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500" fill="#3F3F46">
+    <tspan>14-day delivery</tspan>
+    <tspan dx="14" fill="#A1A1AA">·</tspan>
+    <tspan dx="14">100% code ownership</tspan>
+    <tspan dx="14" fill="#A1A1AA">·</tspan>
+    <tspan dx="14">Direct founder access</tspan>
+  </text>
 
-  <!-- Decorative cairn hint top-right -->
-  <g transform="translate(1080, 200)" opacity="0.85">
-    <rect x="-3" y="-3" width="80" height="80" rx="22" stroke="#FF5A1F" stroke-width="3" fill="none"/>
-    <path d="M14 70 L66 18" stroke="#FF5A1F" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="66" cy="18" r="7" fill="#FF5A1F"/>
+  <!-- Trust strip footer — Udyam + GST -->
+  <g transform="translate(72, 568)">
+    <rect x="0" y="0" width="11" height="11" rx="2" fill="#16A34A"/>
+    <text x="20" y="10" font-family="JetBrains Mono, monospace" font-size="13" fill="#52525B" letter-spacing="1.2">UDYAM-GJ-03-0077762</text>
+    <text x="245" y="10" font-family="JetBrains Mono, monospace" font-size="13" fill="#A1A1AA" letter-spacing="1.2">·</text>
+    <text x="260" y="10" font-family="JetBrains Mono, monospace" font-size="13" fill="#52525B" letter-spacing="1.2">GSTIN 24ETKPD1689B1ZU</text>
+    <text x="490" y="10" font-family="JetBrains Mono, monospace" font-size="13" fill="#A1A1AA" letter-spacing="1.2">·</text>
+    <text x="505" y="10" font-family="JetBrains Mono, monospace" font-size="13" fill="#52525B" letter-spacing="1.2">MSME VERIFIED</text>
+  </g>
+
+  <!-- Decorative cairn stack — right side, with depth -->
+  <g transform="translate(900, 130)" filter="url(#stoneShadow)">
+    <!-- bottom stone -->
+    <ellipse cx="120" cy="345" rx="140" ry="34" fill="url(#stone)"/>
+    <ellipse cx="120" cy="345" rx="140" ry="34" fill="url(#stoneShade)"/>
+    <!-- 4th stone -->
+    <ellipse cx="120" cy="278" rx="115" ry="30" fill="url(#stone)"/>
+    <ellipse cx="120" cy="278" rx="115" ry="30" fill="url(#stoneShade)"/>
+    <!-- 3rd stone -->
+    <ellipse cx="120" cy="215" rx="92" ry="26" fill="url(#stone)"/>
+    <ellipse cx="120" cy="215" rx="92" ry="26" fill="url(#stoneShade)"/>
+    <!-- 2nd stone -->
+    <ellipse cx="120" cy="158" rx="68" ry="22" fill="url(#stone)"/>
+    <ellipse cx="120" cy="158" rx="68" ry="22" fill="url(#stoneShade)"/>
+    <!-- top stone -->
+    <ellipse cx="120" cy="108" rx="44" ry="17" fill="url(#stone)"/>
+    <ellipse cx="120" cy="108" rx="44" ry="17" fill="url(#stoneShade)"/>
+    <!-- crown -->
+    <ellipse cx="120" cy="76" rx="22" ry="11" fill="url(#stone)"/>
   </g>
 </svg>

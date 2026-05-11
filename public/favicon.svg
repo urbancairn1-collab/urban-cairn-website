@@ -1,15 +1,29 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F9E596"/>
-      <stop offset="50%" stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#997A15"/>
+    <linearGradient id="warm" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFC896"/>
+      <stop offset="55%" stop-color="#FF8A4C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
     </linearGradient>
+    <linearGradient id="shade" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.22"/>
+    </linearGradient>
+    <radialGradient id="inkBg" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#1A1A24"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#050505"/>
-  <ellipse cx="32" cy="14" rx="6" ry="3.2" fill="url(#g)"/>
-  <ellipse cx="32" cy="22" rx="9" ry="3.5" fill="url(#g)" opacity="0.9"/>
-  <ellipse cx="32" cy="31" rx="12" ry="4" fill="url(#g)" opacity="0.8"/>
-  <ellipse cx="32" cy="41" rx="15" ry="4.5" fill="url(#g)" opacity="0.7"/>
-  <ellipse cx="32" cy="52" rx="19" ry="5.5" fill="url(#g)" opacity="0.6"/>
+  <rect width="64" height="64" rx="14" fill="url(#inkBg)"/>
+  <!-- Stacked cairn, increasing in width as you go down -->
+  <ellipse cx="32" cy="14" rx="6.5" ry="3.4" fill="url(#warm)"/>
+  <ellipse cx="32" cy="14" rx="6.5" ry="3.4" fill="url(#shade)"/>
+  <ellipse cx="32" cy="22" rx="9.5" ry="3.7" fill="url(#warm)"/>
+  <ellipse cx="32" cy="22" rx="9.5" ry="3.7" fill="url(#shade)"/>
+  <ellipse cx="32" cy="31" rx="12.5" ry="4.2" fill="url(#warm)"/>
+  <ellipse cx="32" cy="31" rx="12.5" ry="4.2" fill="url(#shade)"/>
+  <ellipse cx="32" cy="41" rx="15.5" ry="4.7" fill="url(#warm)"/>
+  <ellipse cx="32" cy="41" rx="15.5" ry="4.7" fill="url(#shade)"/>
+  <ellipse cx="32" cy="52" rx="19" ry="5.5" fill="url(#warm)"/>
+  <ellipse cx="32" cy="52" rx="19" ry="5.5" fill="url(#shade)"/>
 </svg>
