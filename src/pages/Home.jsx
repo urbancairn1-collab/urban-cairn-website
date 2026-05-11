@@ -977,30 +977,63 @@ const CaseStudiesScroll = () => (
           >
             <Link to={`/case-study/${c.slug}`} style={{ display: 'block' }}>
               <article className="card card-hover" style={{ overflow: 'hidden' }}>
+                {/* Top: real industry photograph with overlaid metric chip */}
                 <div style={{
                   aspectRatio: '4 / 3',
-                  background: `linear-gradient(135deg, ${c.color}28 0%, ${c.color}08 100%)`,
-                  position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  position: 'relative', overflow: 'hidden',
                   borderBottom: '1px solid var(--line)'
                 }}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}case/${c.slug}.jpg`}
+                    alt={`${c.industry} — ${c.headline}`}
+                    loading="lazy"
+                    decoding="async"
+                    style={{
+                      position: 'absolute', inset: 0,
+                      width: '100%', height: '100%',
+                      objectFit: 'cover', objectPosition: 'center',
+                      display: 'block'
+                    }}
+                  />
+                  {/* Dark gradient overlay for readability of chips */}
+                  <div aria-hidden="true" style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(180deg, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.05) 35%, rgba(10,10,15,0.05) 65%, rgba(10,10,15,0.70) 100%)'
+                  }} />
+                  {/* Top row: industry + timeline */}
                   <div style={{
-                    position: 'absolute', inset: 16,
-                    background: 'var(--bg-pure)', borderRadius: 'var(--r-md)',
-                    boxShadow: '0 12px 32px rgba(10,10,15,0.06)',
-                    padding: 20,
-                    display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
+                    position: 'absolute', top: 14, left: 14, right: 14,
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8
                   }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: c.color, fontWeight: 600, letterSpacing: '0.05em' }}>{c.industry.toUpperCase()}</span>
-                      <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>{c.timeline}</span>
+                    <span style={{
+                      padding: '5px 10px', borderRadius: 999,
+                      background: 'rgba(10,10,15,0.62)',
+                      backdropFilter: 'blur(8px)',
+                      WebkitBackdropFilter: 'blur(8px)',
+                      color: '#fff',
+                      fontSize: 10, fontFamily: 'var(--font-mono)', fontWeight: 700,
+                      letterSpacing: '0.06em', textTransform: 'uppercase'
+                    }}>{c.industry}</span>
+                    <span style={{
+                      padding: '4px 9px', borderRadius: 999,
+                      background: 'rgba(255,255,255,0.92)',
+                      color: '#0A0A0F',
+                      fontSize: 10, fontFamily: 'var(--font-mono)', fontWeight: 700, letterSpacing: '0.04em'
+                    }}>{c.timeline}</span>
+                  </div>
+                  {/* Bottom-left: metric chip */}
+                  <div style={{
+                    position: 'absolute', bottom: 14, left: 14,
+                    padding: '10px 14px', borderRadius: 12,
+                    background: 'rgba(255,255,255,0.96)',
+                    boxShadow: '0 10px 24px rgba(10,10,15,0.18)',
+                    minWidth: 132
+                  }}>
+                    <div className="h-display" style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.1rem)', color: c.color, lineHeight: 1, fontWeight: 800 }}>
+                      {c.metrics[0].value}
                     </div>
-                    <div>
-                      <div className="h-display" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', color: c.color, marginBottom: 6 }}>
-                        {c.metrics[0].value}
-                      </div>
-                      <div style={{ fontSize: 13, color: 'var(--text-soft)' }}>
-                        {c.metrics[0].label}
-                      </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-soft)', marginTop: 4, fontWeight: 500 }}>
+                      {c.metrics[0].label}
                     </div>
                   </div>
                 </div>
