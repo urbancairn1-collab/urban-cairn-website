@@ -261,21 +261,88 @@ const RevealVisual = ({ idx, slides }) => {
 
 /* Mockup scenes (real-feeling content) */
 const WebsiteScene = () => (
-  <div style={{ padding: 16, height: '100%', background: 'linear-gradient(180deg, #FAFAFA, #F2F2F4)' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-      <div style={{ width: 80, height: 12, background: 'var(--ink)', borderRadius: 4 }} />
-      <div style={{ display: 'flex', gap: 6 }}>
-        {[1,2,3].map(i => <div key={i} style={{ width: 30, height: 6, background: 'var(--text-muted)', borderRadius: 4, opacity: 0.4 }} />)}
-        <div style={{ width: 56, height: 18, background: 'var(--accent)', borderRadius: 999 }} />
+  <div style={{ height: '100%', background: 'linear-gradient(180deg, #FAFAFA 0%, #F2F2F4 100%)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    {/* Nav */}
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 18px', borderBottom: '1px solid rgba(10,10,15,0.06)', background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(8px)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+        <div style={{ width: 18, height: 18, borderRadius: 4, background: 'linear-gradient(135deg, #C2410C, #FF8A4C)' }} />
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.04em', color: '#0A0A0F' }}>PATEL REALTY</span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        {['Properties', 'EMI Calculator', 'About', 'Contact'].map(t => (
+          <span key={t} style={{ fontSize: 9, color: '#4A4A55', fontWeight: 500 }}>{t}</span>
+        ))}
+        <div style={{ padding: '5px 11px', background: '#C2410C', color: '#fff', borderRadius: 999, fontSize: 9, fontWeight: 600 }}>Book viewing →</div>
       </div>
     </div>
-    <div style={{ height: 18, background: 'var(--ink)', borderRadius: 6, marginBottom: 6, width: '70%' }} />
-    <div style={{ height: 18, background: 'var(--ink)', borderRadius: 6, marginBottom: 12, width: '50%' }} />
-    <div style={{ height: 8, background: 'var(--text-muted)', opacity: 0.3, borderRadius: 4, marginBottom: 6 }} />
-    <div style={{ height: 8, background: 'var(--text-muted)', opacity: 0.3, borderRadius: 4, marginBottom: 14, width: '85%' }} />
-    <div style={{ height: 26, background: 'var(--accent)', borderRadius: 999, width: 110, marginBottom: 14 }} />
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-      {[1,2,3].map(i => <div key={i} style={{ aspectRatio: '4/3', background: 'var(--bg-tint)', borderRadius: 6 }} />)}
+
+    {/* Hero */}
+    <div style={{ padding: '16px 18px 14px', display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 14, alignItems: 'center' }}>
+      <div>
+        <div style={{ display: 'inline-block', padding: '3px 8px', background: 'rgba(194,65,12,0.10)', color: '#C2410C', borderRadius: 999, fontSize: 8, fontWeight: 700, letterSpacing: '0.06em', marginBottom: 8 }}>NEW · ANAND PHASE-2</div>
+        <div style={{ fontSize: 18, fontWeight: 800, color: '#0A0A0F', lineHeight: 1.1, marginBottom: 4 }}>
+          Find your next <span style={{ fontStyle: 'italic', color: '#C2410C', fontFamily: 'Georgia, serif' }}>home,</span>
+        </div>
+        <div style={{ fontSize: 18, fontWeight: 800, color: '#0A0A0F', lineHeight: 1.1, marginBottom: 8 }}>not just a flat.</div>
+        <div style={{ fontSize: 8.5, color: '#52525B', lineHeight: 1.45, marginBottom: 10, maxWidth: 200 }}>
+          240+ verified 2/3/4 BHK properties across Anand, Vadodara, Ahmedabad. Site-visit booking in under 30 seconds.
+        </div>
+        <div style={{ display: 'flex', gap: 5 }}>
+          <div style={{ padding: '4px 10px', background: '#0A0A0F', color: '#fff', borderRadius: 4, fontSize: 8, fontWeight: 600 }}>Browse properties</div>
+          <div style={{ padding: '4px 10px', background: 'transparent', color: '#0A0A0F', borderRadius: 4, fontSize: 8, fontWeight: 600, border: '1px solid #0A0A0F' }}>Talk to advisor</div>
+        </div>
+      </div>
+      {/* Building "photo" — gradient placeholder with depth */}
+      <div style={{ position: 'relative', height: 92, borderRadius: 6, overflow: 'hidden', boxShadow: '0 6px 16px rgba(10,10,15,0.10)' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #7DA5C8 0%, #B9D2E5 55%, #E8DFC9 100%)' }} />
+        {/* sun */}
+        <div style={{ position: 'absolute', top: 8, right: 12, width: 14, height: 14, borderRadius: '50%', background: '#FFD27D', boxShadow: '0 0 18px rgba(255,210,125,0.7)' }} />
+        {/* buildings */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, display: 'flex', alignItems: 'flex-end', gap: 1, paddingLeft: 4 }}>
+          {[42, 56, 70, 48, 62, 38, 52, 64].map((h, i) => (
+            <div key={i} style={{
+              flex: 1, height: h,
+              background: `linear-gradient(180deg, hsl(220, 18%, ${28 + i * 2}%) 0%, hsl(220, 22%, ${18 + i}%) 100%)`,
+              borderRadius: '2px 2px 0 0',
+              position: 'relative'
+            }}>
+              {/* windows */}
+              <div style={{ position: 'absolute', inset: '6px 2px 4px 2px', display: 'grid', gridTemplateColumns: '1fr 1fr', gridAutoRows: '3px', gap: '2px 2px', opacity: 0.7 }}>
+                {Array.from({ length: Math.floor(h / 6) * 2 }).map((_, j) => (
+                  <div key={j} style={{ background: j % 3 === 0 ? '#FFD27D' : 'rgba(255,255,255,0.15)' }} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* price chip overlay */}
+        <div style={{ position: 'absolute', bottom: 8, left: 8, padding: '4px 8px', background: 'rgba(255,255,255,0.95)', borderRadius: 4, fontSize: 8, fontWeight: 700, color: '#0A0A0F', boxShadow: '0 2px 6px rgba(10,10,15,0.15)' }}>
+          ₹62 L · 3BHK · 1,420 sqft
+        </div>
+      </div>
+    </div>
+
+    {/* Property cards row */}
+    <div style={{ padding: '0 18px 14px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 7 }}>
+      {[
+        { name: 'Shantiniketan Heights', price: '₹48 L', bhk: '2 BHK', loc: 'Anand', sqft: '1,080 sqft', hue: 18 },
+        { name: 'Krishna Residency', price: '₹72 L', bhk: '3 BHK', loc: 'Vadodara', sqft: '1,560 sqft', hue: 165 },
+        { name: 'Sun Palms Villa', price: '₹1.4 Cr', bhk: '4 BHK', loc: 'Ahmedabad', sqft: '2,280 sqft', hue: 32 }
+      ].map((p, i) => (
+        <div key={i} style={{ background: '#fff', borderRadius: 5, overflow: 'hidden', boxShadow: '0 2px 6px rgba(10,10,15,0.06)', border: '1px solid rgba(10,10,15,0.04)' }}>
+          <div style={{ height: 30, background: `linear-gradient(135deg, hsl(${p.hue}, 35%, 70%) 0%, hsl(${p.hue + 10}, 45%, 55%) 100%)`, position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 3, right: 3, padding: '1px 4px', background: 'rgba(255,255,255,0.95)', borderRadius: 2, fontSize: 6, fontWeight: 700, color: '#0A0A0F' }}>{p.price}</div>
+          </div>
+          <div style={{ padding: '5px 6px 6px' }}>
+            <div style={{ fontSize: 7.5, fontWeight: 700, color: '#0A0A0F', marginBottom: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.name}</div>
+            <div style={{ fontSize: 6.5, color: '#71717A' }}>{p.bhk} · {p.sqft}</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 2, marginTop: 3 }}>
+              <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#16A34A' }} />
+              <span style={{ fontSize: 6, color: '#52525B' }}>{p.loc} · RERA verified</span>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 );
@@ -465,89 +532,277 @@ const BentoCard = ({ span, rows, title, tag, desc, tint, visual, link }) => (
 );
 
 const MiniWebsite = () => (
-  <div style={{ background: 'var(--ink)', borderRadius: 12, padding: 12 }}>
-    <div style={{ display: 'flex', gap: 4, marginBottom: 10 }}>
+  <div style={{ background: '#0A0A0F', borderRadius: 12, padding: '8px 8px 0', boxShadow: '0 8px 24px rgba(10,10,15,0.18)' }}>
+    {/* Window chrome */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 6, padding: '0 2px 6px' }}>
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#FF5F57' }} />
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#FEBC2E' }} />
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28C840' }} />
+      <div style={{ marginLeft: 8, flex: 1, height: 10, borderRadius: 3, background: '#1A1A22', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 6, color: 'rgba(255,255,255,0.5)' }}>patelrealty.in</span>
+      </div>
     </div>
-    <div style={{ background: 'var(--bg-pure)', borderRadius: 6, padding: 10 }}>
-      <div style={{ width: '60%', height: 12, background: 'var(--ink)', borderRadius: 3, marginBottom: 6 }} />
-      <div style={{ width: '40%', height: 8, background: 'var(--text-muted)', borderRadius: 3, marginBottom: 10, opacity: 0.5 }} />
-      <div style={{ width: 70, height: 18, background: 'var(--accent)', borderRadius: 999 }} />
+    {/* Browser page */}
+    <div style={{ background: 'linear-gradient(180deg, #FAFAFA, #F2F2F4)', borderRadius: '6px 6px 0 0', padding: 8, height: 92, overflow: 'hidden' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+          <div style={{ width: 8, height: 8, borderRadius: 2, background: 'linear-gradient(135deg, #C2410C, #FF8A4C)' }} />
+          <span style={{ fontSize: 6.5, fontWeight: 800, color: '#0A0A0F', letterSpacing: '0.04em' }}>PATEL REALTY</span>
+        </div>
+        <div style={{ padding: '2px 6px', background: '#C2410C', color: '#fff', borderRadius: 999, fontSize: 5.5, fontWeight: 600 }}>Book →</div>
+      </div>
+      <div style={{ fontSize: 9, fontWeight: 800, color: '#0A0A0F', lineHeight: 1, marginBottom: 2 }}>Find your <span style={{ fontStyle: 'italic', color: '#C2410C', fontFamily: 'Georgia, serif' }}>home.</span></div>
+      <div style={{ fontSize: 5.5, color: '#52525B', marginBottom: 5 }}>240+ verified properties · 30-sec booking</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 3 }}>
+        {[18, 165, 32].map((hue, i) => (
+          <div key={i} style={{ height: 22, borderRadius: 3, background: `linear-gradient(135deg, hsl(${hue}, 35%, 70%) 0%, hsl(${hue + 10}, 45%, 55%) 100%)`, position: 'relative' }}>
+            <div style={{ position: 'absolute', bottom: 1, left: 2, right: 2, fontSize: 4.5, fontWeight: 700, color: '#fff', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>{['₹48L', '₹72L', '₹1.4Cr'][i]}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 );
 
 const MiniPhone = () => (
-  <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <div style={{ width: 60, height: 110, background: 'var(--ink)', borderRadius: 12, padding: 4 }}>
-      <div style={{ background: 'var(--bg-pure)', borderRadius: 8, height: '100%', padding: 6 }}>
-        <div style={{ width: 16, height: 4, background: 'var(--ink)', borderRadius: 2, marginBottom: 6 }} />
-        <div style={{ width: '100%', height: 30, background: 'var(--accent)', borderRadius: 4, marginBottom: 4 }} />
-        {[1,2].map(i => <div key={i} style={{ height: 6, background: 'var(--bg-soft)', borderRadius: 2, marginBottom: 3 }} />)}
+  <div style={{ display: 'flex', justifyContent: 'center', gap: 10, alignItems: 'flex-end' }}>
+    {/* Phone 1 — order tracking */}
+    <div style={{ width: 74, height: 138, background: '#0A0A0F', borderRadius: 14, padding: 3, boxShadow: '0 14px 30px rgba(10,10,15,0.25)', transform: 'rotate(-4deg)' }}>
+      <div style={{ background: '#FAFAFA', borderRadius: 11, height: '100%', overflow: 'hidden', position: 'relative' }}>
+        {/* Status bar */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '3px 5px 0', fontSize: 4.5, color: '#0A0A0F', fontWeight: 700 }}>
+          <span>9:41</span>
+          <div style={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
+            <span style={{ width: 4, height: 3, borderRadius: 1, background: '#0A0A0F' }} />
+            <span style={{ width: 6, height: 3, borderRadius: 1, border: '0.5px solid #0A0A0F' }} />
+          </div>
+        </div>
+        {/* Notch */}
+        <div style={{ position: 'absolute', top: 1, left: '50%', transform: 'translateX(-50%)', width: 22, height: 4, background: '#0A0A0F', borderRadius: 999 }} />
+        {/* Header */}
+        <div style={{ padding: '5px 5px 0' }}>
+          <div style={{ fontSize: 5, color: '#71717A', fontWeight: 500 }}>Hi Rahul 👋</div>
+          <div style={{ fontSize: 7.5, fontWeight: 800, color: '#0A0A0F' }}>Today's orders</div>
+        </div>
+        {/* Hero card */}
+        <div style={{ margin: '5px 5px 4px', borderRadius: 6, background: 'linear-gradient(135deg, #C2410C 0%, #FF8A4C 100%)', padding: '5px 6px', color: '#fff' }}>
+          <div style={{ fontSize: 4.5, opacity: 0.8, letterSpacing: '0.06em', fontWeight: 600 }}>NEW THIS WEEK</div>
+          <div style={{ fontSize: 7.5, fontWeight: 800, marginTop: 1 }}>Summer collection</div>
+          <div style={{ fontSize: 4.5, opacity: 0.9, marginTop: 1 }}>Up to 40% off · Free ship</div>
+        </div>
+        {/* List items */}
+        {[
+          { name: 'Cotton kurta', price: '₹899', dot: '#16A34A' },
+          { name: 'Linen shirt', price: '₹1,249', dot: '#F59E0B' }
+        ].map((it, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '3px 5px', borderTop: '0.5px solid rgba(10,10,15,0.06)' }}>
+            <div style={{ width: 14, height: 14, borderRadius: 3, background: `linear-gradient(135deg, hsl(${i * 80 + 20}, 50%, 75%), hsl(${i * 80 + 30}, 60%, 55%))` }} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 5, fontWeight: 700, color: '#0A0A0F' }}>{it.name}</div>
+              <div style={{ fontSize: 4.5, color: '#71717A' }}>{it.price}</div>
+            </div>
+            <span style={{ width: 4, height: 4, borderRadius: '50%', background: it.dot }} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Phone 2 — push notification stack */}
+    <div style={{ width: 74, height: 138, background: '#0A0A0F', borderRadius: 14, padding: 3, boxShadow: '0 14px 30px rgba(10,10,15,0.25)', transform: 'rotate(5deg) translateY(6px)' }}>
+      <div style={{ background: 'linear-gradient(180deg, #1F3A5F 0%, #3A6FA5 100%)', borderRadius: 11, height: '100%', overflow: 'hidden', position: 'relative', padding: '3px 4px' }}>
+        {/* Notch */}
+        <div style={{ position: 'absolute', top: 1, left: '50%', transform: 'translateX(-50%)', width: 22, height: 4, background: '#0A0A0F', borderRadius: 999, zIndex: 2 }} />
+        {/* Lockscreen time */}
+        <div style={{ textAlign: 'center', color: '#fff', marginTop: 8 }}>
+          <div style={{ fontSize: 5, fontWeight: 500, opacity: 0.85 }}>TUESDAY, 11 MAY</div>
+          <div style={{ fontSize: 18, fontWeight: 200, letterSpacing: '-0.04em', lineHeight: 1 }}>9:41</div>
+        </div>
+        {/* Notification cards */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 2.5, marginTop: 7 }}>
+          {[
+            { app: 'PATEL REALTY', body: 'New 3BHK match in Vadodara — ₹72L', tint: '#C2410C' },
+            { app: 'ORDERS', body: '2 new orders · ₹3,148 today', tint: '#16A34A' },
+            { app: 'CRM', body: 'Lead: Priya Shah · WhatsApp now', tint: '#FF5A1F' }
+          ].map((n, i) => (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.95)', borderRadius: 4, padding: '3px 4px', backdropFilter: 'blur(6px)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <span style={{ width: 5, height: 5, borderRadius: 1.2, background: n.tint }} />
+                  <span style={{ fontSize: 4.2, fontWeight: 700, color: '#0A0A0F', letterSpacing: '0.04em' }}>{n.app}</span>
+                </div>
+                <span style={{ fontSize: 4, color: '#71717A' }}>now</span>
+              </div>
+              <div style={{ fontSize: 4.5, color: '#0A0A0F', lineHeight: 1.2 }}>{n.body}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 );
 
 const MiniFunnel = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-    {[100, 70, 50, 30, 18].map((w, i) => (
-      <div key={i} style={{
-        height: 10, width: `${w}%`,
-        background: i === 4 ? 'var(--success)' : 'var(--ink)',
-        borderRadius: 3, marginLeft: `${(100 - w) / 2}%`,
-        opacity: i === 4 ? 1 : 0.6 + (i * 0.1)
-      }} />
+  <div style={{ background: '#fff', borderRadius: 8, padding: '8px 10px', boxShadow: '0 4px 12px rgba(10,10,15,0.06)', border: '1px solid rgba(10,10,15,0.05)' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
+      <span style={{ fontSize: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: '#71717A', fontWeight: 600 }}>LAST 30 DAYS</span>
+      <span style={{ fontSize: 6.5, color: '#16A34A', fontWeight: 700 }}>↑ 18% MoM</span>
+    </div>
+    {[
+      { l: 'Visits',    v: '12,840', w: 100, c: '#0A0A0F' },
+      { l: 'Leads',     v: '2,156',  w: 70,  c: '#1F3A5F' },
+      { l: 'Qualified', v: '1,184',  w: 50,  c: '#3A6FA5' },
+      { l: 'Demos',     v: '487',    w: 32,  c: '#C2410C' },
+      { l: 'Closed',    v: '142',    w: 18,  c: '#16A34A' }
+    ].map((r, i) => (
+      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 3 }}>
+        <div style={{ width: 42, fontSize: 6, color: '#52525B', fontWeight: 600 }}>{r.l}</div>
+        <div style={{ flex: 1, height: 9, background: '#F4F4F5', borderRadius: 2, overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: `${r.w}%`, height: '100%', background: r.c, borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 4 }}>
+            <span style={{ fontSize: 5, color: '#fff', fontWeight: 700 }}>{r.w}%</span>
+          </div>
+        </div>
+        <div style={{ width: 30, fontSize: 6.5, fontWeight: 700, textAlign: 'right', color: '#0A0A0F', fontVariantNumeric: 'tabular-nums' }}>{r.v}</div>
+      </div>
     ))}
   </div>
 );
 
 const MiniDashboard = () => (
-  <div style={{ background: 'var(--ink)', borderRadius: 10, padding: 12, color: 'var(--bg-pure)' }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6, marginBottom: 10 }}>
-      {['Revenue', 'Orders', 'CR'].map((l, i) => (
-        <div key={i} style={{ padding: 6, background: 'rgba(255,255,255,0.05)', borderRadius: 4 }}>
-          <div style={{ fontSize: 7, color: 'var(--text-on-ink-soft)', fontFamily: 'var(--font-mono)' }}>{l.toUpperCase()}</div>
-          <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--accent)' }}>{['₹2.4L', '128', '3.2%'][i]}</div>
+  <div style={{ background: '#0A0A0F', borderRadius: 10, padding: 12, color: '#fff', boxShadow: '0 8px 24px rgba(10,10,15,0.20)', border: '1px solid rgba(255,255,255,0.06)' }}>
+    {/* Header */}
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#16A34A', boxShadow: '0 0 6px #16A34A' }} />
+        <span style={{ fontSize: 7, fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.65)', letterSpacing: '0.08em', fontWeight: 600 }}>LIVE · STORE.PATELDAIRY.IN</span>
+      </div>
+      <span style={{ fontSize: 6, color: 'rgba(255,255,255,0.5)' }}>updated 12s ago</span>
+    </div>
+    {/* KPI cards */}
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 5, marginBottom: 8 }}>
+      {[
+        { l: 'REVENUE', v: '₹2.4L', sub: '+12% WoW', up: true },
+        { l: 'ORDERS',  v: '128',   sub: '+8 today',  up: true },
+        { l: 'CR',      v: '3.2%',  sub: '−0.4%',     up: false }
+      ].map((k, i) => (
+        <div key={i} style={{ padding: '5px 6px', background: 'rgba(255,255,255,0.04)', borderRadius: 4, border: '1px solid rgba(255,255,255,0.05)' }}>
+          <div style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em', fontWeight: 600 }}>{k.l}</div>
+          <div style={{ fontSize: 12, fontWeight: 800, color: i === 2 ? '#fff' : 'var(--accent)', lineHeight: 1.1, marginTop: 1 }}>{k.v}</div>
+          <div style={{ fontSize: 5, color: k.up ? '#16A34A' : '#F87171', fontWeight: 600, marginTop: 1 }}>{k.up ? '↑' : '↓'} {k.sub}</div>
         </div>
       ))}
     </div>
-    <div style={{ height: 36, background: 'linear-gradient(to top, rgba(255,90,31,0.2), transparent)', borderRadius: 4, position: 'relative' }}>
-      <svg viewBox="0 0 200 36" style={{ width: '100%', height: '100%' }}>
-        <polyline points="0,28 30,24 60,26 90,18 120,14 150,12 180,6 200,4" stroke="var(--accent)" strokeWidth="1.4" fill="none" />
+    {/* Chart with axis hints */}
+    <div style={{ height: 44, position: 'relative', borderRadius: 4, padding: '2px 2px 0' }}>
+      <svg viewBox="0 0 200 44" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
+        <defs>
+          <linearGradient id="md-gr" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FF5A1F" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FF5A1F" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {/* gridlines */}
+        {[11, 22, 33].map(y => <line key={y} x1="0" x2="200" y1={y} y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />)}
+        {/* area */}
+        <path d="M0,34 L25,30 L50,32 L75,22 L100,18 L125,15 L150,11 L175,7 L200,4 L200,44 L0,44 Z" fill="url(#md-gr)" />
+        {/* line */}
+        <polyline points="0,34 25,30 50,32 75,22 100,18 125,15 150,11 175,7 200,4" stroke="#FF5A1F" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        {/* end dot */}
+        <circle cx="200" cy="4" r="2" fill="#FF5A1F" />
+        <circle cx="200" cy="4" r="3.5" fill="#FF5A1F" fillOpacity="0.25" />
       </svg>
+    </div>
+    {/* X-axis labels */}
+    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 5, color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-mono)', marginTop: 1 }}>
+      <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
     </div>
   </div>
 );
 
 const MiniChat = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-    <div style={{ alignSelf: 'flex-start', background: 'var(--bg-pure)', padding: '6px 10px', borderRadius: 8, fontSize: 10, color: 'var(--ink)', maxWidth: '70%' }}>
-      Welcome 👋 What's your business size?
+  <div style={{ background: '#ECE5DD', borderRadius: 8, padding: 0, overflow: 'hidden', boxShadow: '0 4px 12px rgba(10,10,15,0.08)' }}>
+    {/* Header */}
+    <div style={{ padding: '7px 10px', background: '#0FAB6F', color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}>
+      <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'linear-gradient(135deg, #C2410C, #FF8A4C)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 9, fontWeight: 800, color: '#fff' }}>UC</div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontSize: 8.5, fontWeight: 700, lineHeight: 1.1 }}>Urban Cairn Sales</div>
+        <div style={{ fontSize: 6, opacity: 0.85, display: 'flex', alignItems: 'center', gap: 3 }}>
+          <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#A7F3D0' }} />
+          online · typically replies in 30 sec
+        </div>
+      </div>
     </div>
-    <div style={{ alignSelf: 'flex-end', background: '#DCF8C6', padding: '6px 10px', borderRadius: 8, fontSize: 10, color: 'var(--ink)', maxWidth: '60%' }}>
-      10-20 staff
-    </div>
-    <div style={{ alignSelf: 'flex-start', background: 'var(--bg-pure)', padding: '6px 10px', borderRadius: 8, fontSize: 10, color: 'var(--ink)', maxWidth: '80%' }}>
-      Booking a free call ✓
+    {/* Bubbles */}
+    <div style={{ padding: '8px 8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div style={{ alignSelf: 'flex-end', maxWidth: '80%' }}>
+        <div style={{ background: '#DCF8C6', padding: '5px 8px', borderRadius: '8px 8px 2px 8px', fontSize: 8, color: '#0A0A0F', lineHeight: 1.3 }}>Interested in your WhatsApp setup. Run a 12-staff clinic.</div>
+        <div style={{ fontSize: 5, color: '#71717A', textAlign: 'right', marginTop: 1 }}>10:24 ✓✓</div>
+      </div>
+      <div style={{ alignSelf: 'flex-start', maxWidth: '85%' }}>
+        <div style={{ background: '#fff', padding: '5px 8px', borderRadius: '8px 8px 8px 2px', fontSize: 8, color: '#0A0A0F', lineHeight: 1.3 }}>
+          Great 👋 For 12-staff clinics we usually bundle booking + reminders + intake.
+        </div>
+        <div style={{ fontSize: 5, color: '#71717A', marginTop: 1 }}>10:24</div>
+      </div>
+      <div style={{ alignSelf: 'flex-start', maxWidth: '70%' }}>
+        <div style={{ background: '#fff', padding: '5px 8px', borderRadius: '8px 8px 8px 2px', fontSize: 8, color: '#0A0A0F', lineHeight: 1.3 }}>
+          📅 Free 30-min strategy call — Wed 4 PM works?
+        </div>
+        <div style={{ fontSize: 5, color: '#71717A', marginTop: 1 }}>10:24</div>
+      </div>
     </div>
   </div>
 );
 
-const MiniTrading = () => (
-  <div style={{ background: 'var(--ink)', borderRadius: 10, padding: 12, color: 'var(--bg-pure)', height: 100 }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-      <span style={{ fontSize: 10, fontFamily: 'var(--font-mono)', color: 'var(--text-on-ink-soft)' }}>P&L · LIVE</span>
-      <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--success)' }}>+₹24,580</span>
+const MiniTrading = () => {
+  // Realistic OHLC candle data
+  const candles = [
+    { o: 38, c: 34, h: 36, l: 30 }, { o: 34, c: 32, h: 33, l: 30 }, { o: 32, c: 36, h: 36, l: 31 },
+    { o: 36, c: 28, h: 37, l: 27 }, { o: 28, c: 30, h: 31, l: 26 }, { o: 30, c: 24, h: 31, l: 22 },
+    { o: 24, c: 26, h: 27, l: 22 }, { o: 26, c: 20, h: 27, l: 18 }, { o: 20, c: 16, h: 21, l: 14 },
+    { o: 16, c: 18, h: 19, l: 14 }, { o: 18, c: 12, h: 19, l: 10 }, { o: 12, c: 8,  h: 13, l: 6 }
+  ];
+  return (
+    <div style={{ background: '#0A0A0F', borderRadius: 10, padding: 10, color: '#fff', boxShadow: '0 8px 24px rgba(10,10,15,0.20)', border: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
+        <div>
+          <div style={{ fontSize: 7, fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.55)', letterSpacing: '0.08em', fontWeight: 600 }}>NIFTY · 5M</div>
+          <div style={{ fontSize: 11, fontWeight: 800, marginTop: 1, fontVariantNumeric: 'tabular-nums' }}>22,548.<span style={{ color: '#16A34A' }}>70</span></div>
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontSize: 10, fontWeight: 800, color: '#16A34A', fontVariantNumeric: 'tabular-nums' }}>+₹24,580</div>
+          <div style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.55)' }}>+1.84% · 4 trades</div>
+        </div>
+      </div>
+      {/* Candle chart with EMA */}
+      <svg viewBox="0 0 200 52" preserveAspectRatio="none" style={{ width: '100%', height: 52, display: 'block' }}>
+        {/* gridlines */}
+        {[13, 26, 39].map(y => <line key={y} x1="0" x2="200" y1={y} y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2 2" />)}
+        {/* candles */}
+        {candles.map((c, i) => {
+          const x = 6 + i * 16;
+          const isUp = c.c < c.o;
+          const color = isUp ? '#16A34A' : '#F87171';
+          const bodyTop = Math.min(c.o, c.c);
+          const bodyHeight = Math.max(1.5, Math.abs(c.c - c.o));
+          return (
+            <g key={i}>
+              <line x1={x} x2={x} y1={c.h} y2={c.l} stroke={color} strokeWidth="0.8" />
+              <rect x={x - 3} y={bodyTop} width="6" height={bodyHeight} fill={color} rx="0.5" />
+            </g>
+          );
+        })}
+        {/* EMA line — smooth downtrend (uptrend after flip) */}
+        <polyline points="0,38 16,36 32,34 48,33 64,31 80,28 96,25 112,21 128,18 144,15 160,12 176,9 192,7" stroke="#FF5A1F" strokeWidth="1.1" fill="none" strokeOpacity="0.85" />
+      </svg>
+      {/* Order strip */}
+      <div style={{ marginTop: 5, display: 'flex', gap: 4, fontSize: 5.5, fontFamily: 'var(--font-mono)' }}>
+        <span style={{ padding: '1px 4px', background: 'rgba(22,163,74,0.15)', color: '#16A34A', borderRadius: 2, fontWeight: 700 }}>BUY 22,520</span>
+        <span style={{ padding: '1px 4px', background: 'rgba(255,90,31,0.15)', color: '#FF5A1F', borderRadius: 2, fontWeight: 700 }}>SL 22,485</span>
+        <span style={{ padding: '1px 4px', background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.75)', borderRadius: 2, fontWeight: 700 }}>TGT 22,580</span>
+      </div>
     </div>
-    <svg viewBox="0 0 200 50" style={{ width: '100%', height: 50 }}>
-      <polyline points="0,40 30,32 60,36 90,22 120,26 150,14 180,8 200,4" stroke="var(--success)" strokeWidth="1.6" fill="none" />
-      <polyline points="0,50 0,40 30,32 60,36 90,22 120,26 150,14 180,8 200,4 200,50" fill="rgba(15,169,88,0.18)" />
-    </svg>
-  </div>
-);
+  );
+};
 
 /* ═══════════ BIG STATS ═══════════ */
 const BigStats = () => (
