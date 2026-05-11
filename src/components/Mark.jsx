@@ -1,6 +1,6 @@
-// Original geometric mark — rounded square enclosure (the studio),
-// rising diagonal (growth/shipping), precision dot (the outcome).
-// Nothing taken from the brochure cairn-stones art.
+// Geometric fallback mark — used in places where the full UC brand logo
+// would feel too heavy (e.g., the footer dark surfaces). The Wordmark
+// component below uses the real UC TECH SOL brand logo from public/.
 
 const Mark = ({ size = 32, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,20 +10,32 @@ const Mark = ({ size = 32, color = 'currentColor' }) => (
   </svg>
 );
 
+// Brand logo asset path (Vite resolves base URL from import.meta.env.BASE_URL).
+const LOGO_SRC = `${import.meta.env.BASE_URL}logo-mark.png`;
+
 export const Wordmark = ({ size = 'md', tone = 'dark' }) => {
-  const fontSize = size === 'lg' ? 22 : size === 'sm' ? 14 : 17;
-  const markSize = size === 'lg' ? 38 : size === 'sm' ? 24 : 30;
-  const color = tone === 'light' ? 'var(--bg-pure)' : 'var(--ink)';
+  // Heights chosen so the logo reads cleanly without dominating the navbar.
+  const h = size === 'lg' ? 48 : size === 'sm' ? 26 : 36;
+  // On dark surfaces, invert the logo to white so it remains legible.
+  const filter = tone === 'light'
+    ? 'brightness(0) invert(1)'
+    : 'none';
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-      <Mark size={markSize} color={color} />
-      <span style={{
-        color, fontWeight: 700, fontSize,
-        letterSpacing: '-0.025em', lineHeight: 1
-      }}>
-        Urban Cairn
-      </span>
-    </div>
+    <img
+      src={LOGO_SRC}
+      alt="Urban Cairn Tech Solution · UC Tech Sol"
+      style={{
+        height: h,
+        width: 'auto',
+        display: 'block',
+        filter,
+        // Slight negative left margin pulls the logo into alignment with the
+        // navbar's container padding (the PNG carries a touch of whitespace).
+        marginLeft: -4
+      }}
+      width={Math.round((h / 200) * 457)}
+      height={h}
+    />
   );
 };
 

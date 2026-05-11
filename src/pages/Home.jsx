@@ -9,7 +9,7 @@ import TrustStrip from '../components/TrustStrip';
 import ROICalculator from '../components/ROICalculator';
 import MagneticButton from '../components/MagneticButton';
 import Reveal from '../components/Reveal';
-import AnimatedCairn from '../components/AnimatedCairn';
+import HeroPhoto from '../components/HeroPhoto';
 import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
@@ -165,16 +165,10 @@ const Hero = () => {
         </div>
        </div>
 
-       {/* Right: animated cairn — hides on mobile */}
-       <motion.div
-         className="hero-cairn"
-         initial={{ opacity: 0, scale: 0.92 }}
-         animate={{ opacity: 1, scale: 1 }}
-         transition={{ duration: 0.9, delay: 0.3, ease: [0.32, 0.72, 0, 1] }}
-         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-       >
-         <AnimatedCairn size={520} />
-       </motion.div>
+       {/* Right: realistic founder/workspace photo — hides on mobile */}
+       <div className="hero-cairn" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+         <HeroPhoto />
+       </div>
       </motion.div>
 
       <style>{`
