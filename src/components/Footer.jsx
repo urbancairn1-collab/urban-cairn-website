@@ -2,12 +2,14 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
 import { Wordmark } from './Mark';
 import { company } from '../data/company';
+import { LinkedinIcon, InstagramIcon, XIcon, FacebookIcon, GithubIcon } from './SocialIcons';
 
 const SOCIAL = [
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Instagram', href: '#' },
-  { label: 'X (Twitter)', href: '#' },
-  { label: 'YouTube', href: '#' }
+  { label: 'LinkedIn', href: company.social.linkedin, Icon: LinkedinIcon },
+  { label: 'Instagram', href: company.social.instagram, Icon: InstagramIcon },
+  { label: 'X (Twitter)', href: company.social.twitter, Icon: XIcon },
+  { label: 'Facebook', href: company.social.facebook, Icon: FacebookIcon },
+  { label: 'GitHub', href: company.social.github, Icon: GithubIcon }
 ];
 
 const Footer = () => {
@@ -94,10 +96,26 @@ const Footer = () => {
                 <span>{company.address.line1}<br />{company.address.line2}, {company.address.state} {company.address.pin}</span>
               </li>
             </ul>
-            <div style={{ display: 'flex', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 10, marginTop: 24, flexWrap: 'wrap' }}>
               {SOCIAL.map(s => (
-                <a key={s.label} href={s.href} style={{ fontSize: 13, color: 'var(--text-on-ink-soft)', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                  {s.label} <ArrowUpRight size={12} />
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow Urban Cairn on ${s.label}`}
+                  title={s.label}
+                  style={{
+                    width: 36, height: 36, borderRadius: '50%',
+                    border: '1px solid var(--line-on-ink)',
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--text-on-ink-soft)',
+                    transition: 'background 160ms ease, color 160ms ease, border-color 160ms ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = 'var(--accent)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-on-ink-soft)'; e.currentTarget.style.borderColor = 'var(--line-on-ink)'; }}
+                >
+                  <s.Icon size={15} />
                 </a>
               ))}
             </div>

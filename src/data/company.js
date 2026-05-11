@@ -22,10 +22,11 @@ export const company = {
   gstRegistrationDate: '11 May 2026',
   bank: 'HDFC Bank',
   social: {
-    facebook: '#',
-    instagram: '#',
-    linkedin: '#',
-    twitter: '#'
+    linkedin: 'https://www.linkedin.com/in/rahul-kumar-a615b2405/',
+    instagram: 'https://www.instagram.com/urbancairn1/',
+    twitter: 'https://x.com/UrbanCairn',
+    facebook: 'https://www.facebook.com/profile.php?id=61588905010382',
+    github: 'https://github.com/urbancairn1-collab'
   }
 };
 

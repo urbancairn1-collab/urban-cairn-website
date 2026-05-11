@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, ArrowUpRight } from 'lucide-re
 import SEO from '../components/SEO';
 import LeadForm from '../components/LeadForm';
 import { company } from '../data/company';
+import { LinkedinIcon, InstagramIcon, XIcon, FacebookIcon, GithubIcon } from '../components/SocialIcons';
 
 const WIcon = () => (
   <svg viewBox="0 0 24 24" width={20} height={20} fill="currentColor">
@@ -113,6 +114,39 @@ const Contact = () => {
                   <li style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text-soft)' }}>Saturday</span><span style={{ fontWeight: 600 }}>10am - 4pm IST</span></li>
                   <li style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: 'var(--text-soft)' }}>Sunday</span><span style={{ color: 'var(--text-muted)' }}>WhatsApp only</span></li>
                 </ul>
+              </div>
+              <div className="card" style={{ padding: 28 }}>
+                <div className="t-eyebrow" style={{ marginBottom: 16 }}>Follow us</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  {[
+                    { label: 'LinkedIn', href: company.social.linkedin, Icon: LinkedinIcon },
+                    { label: 'Instagram', href: company.social.instagram, Icon: InstagramIcon },
+                    { label: 'X (Twitter)', href: company.social.twitter, Icon: XIcon },
+                    { label: 'Facebook', href: company.social.facebook, Icon: FacebookIcon },
+                    { label: 'GitHub', href: company.social.github, Icon: GithubIcon }
+                  ].map(s => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Follow Urban Cairn on ${s.label}`}
+                      title={s.label}
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 8,
+                        padding: '8px 14px', borderRadius: 'var(--r-pill)',
+                        border: '1px solid var(--line)', background: 'var(--bg-pure)',
+                        fontSize: 13, fontWeight: 500, color: 'var(--ink)',
+                        transition: 'background 160ms, color 160ms, border-color 160ms'
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = 'var(--accent)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--bg-pure)'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = 'var(--line)'; }}
+                    >
+                      <s.Icon size={14} />
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

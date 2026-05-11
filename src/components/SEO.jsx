@@ -59,7 +59,13 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
       { '@type': 'AdministrativeArea', name: 'Gujarat' }
     ],
     identifier: company.udyam,
-    sameAs: [],
+    sameAs: [
+      company.social.linkedin,
+      company.social.instagram,
+      company.social.twitter,
+      company.social.facebook,
+      company.social.github
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Capabilities',
