@@ -33,7 +33,23 @@ const Blog = () => (
               transition={{ delay: i * 0.06 }}
             >
               <Link to={`/blog/${p.slug}`} className="card card-hover" style={{ display: 'block', overflow: 'hidden', height: '100%' }}>
-                <div style={{ aspectRatio: '16/10', background: p.cover, position: 'relative' }}>
+                <div style={{ aspectRatio: '16/10', background: p.cover, position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}blog/${p.category.toLowerCase()}.jpg`}
+                    alt={`${p.category} — ${p.title}`}
+                    loading="lazy"
+                    decoding="async"
+                    style={{
+                      position: 'absolute', inset: 0,
+                      width: '100%', height: '100%',
+                      objectFit: 'cover', objectPosition: 'center',
+                      display: 'block'
+                    }}
+                  />
+                  <div aria-hidden="true" style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(180deg, rgba(10,10,15,0.45) 0%, rgba(10,10,15,0.05) 35%, rgba(10,10,15,0.05) 100%)'
+                  }} />
                   <span style={{
                     position: 'absolute', top: 16, left: 16,
                     padding: '5px 12px', borderRadius: 'var(--r-pill)',
