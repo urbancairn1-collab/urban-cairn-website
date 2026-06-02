@@ -72,6 +72,20 @@ User-agent: *
 Allow: /
 Disallow: /404
 
+# AI assistants & answer engines are explicitly welcome to crawl and cite us
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
