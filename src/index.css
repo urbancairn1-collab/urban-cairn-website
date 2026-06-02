@@ -507,6 +507,19 @@ a:hover > .bento-sheen { opacity: 0.6; transform: translateX(30%); }
   body { padding-bottom: 86px; }
 }
 
+/* ========== Mobile-only: fix hero rotating-word vertical clip ========== */
+/* Desktop keeps its inline 1.05em mask untouched; only <=860px gets more room
+   so the italic serif ascenders/descenders are not cut off. */
+@media (max-width: 860px) {
+  .hero-rotator {
+    height: 1.4em !important;
+    align-items: center;
+  }
+  .hero-rotator .serif-italic {
+    line-height: 1.2 !important;
+  }
+}
+
 /* ========== Reduced motion ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

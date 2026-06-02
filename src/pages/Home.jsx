@@ -103,7 +103,7 @@ const Hero = () => {
           }}
         >
           Software that <br />
-          <span style={{ display: 'inline-flex', height: '1.05em', overflow: 'hidden', verticalAlign: 'top', position: 'relative' }}>
+          <span className="hero-rotator" style={{ display: 'inline-flex', height: '1.05em', overflow: 'hidden', verticalAlign: 'top', position: 'relative' }}>
             <AnimatePresence mode="wait">
               <motion.span
                 key={phrase}
