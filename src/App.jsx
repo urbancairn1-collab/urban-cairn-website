@@ -23,6 +23,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
 const FreeAudit = lazy(() => import('./pages/FreeAudit'));
 const Process = lazy(() => import('./pages/Process'));
+const Industries = lazy(() => import('./pages/Industries'));
 const TradingTools = lazy(() => import('./pages/TradingTools'));
 const WhatsAppAutomation = lazy(() => import('./pages/WhatsAppAutomation'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -68,6 +69,7 @@ const AnimatedRoutes = () => {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/process" element={<Process />} />
+            <Route path="/industries" element={<Industries />} />
             <Route path="/trading-tools" element={<TradingTools />} />
             <Route path="/whatsapp-automation" element={<WhatsAppAutomation />} />
             <Route path="*" element={<NotFound />} />

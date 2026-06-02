@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { caseStudies } from '../data/caseStudies';
+import { portfolio, portfolioCategories } from '../data/portfolio';
+import Mock from '../components/mockups/Mock';
+
+const BASE = import.meta.env.BASE_URL;
 
 const categories = ['All', 'Trading Business', 'Real Estate Company', 'Multi-Speciality Clinic', 'E-Commerce Store', 'Education Institute'];
 
@@ -132,6 +136,8 @@ const Portfolio = () => {
         <style>{`@media (max-width: 920px) { .case-row { grid-template-columns: 1fr !important; } }`}</style>
       </section>
 
+      <ProjectGallery />
+
       <section className="section" style={{ background: 'var(--bg-soft)', textAlign: 'center' }}>
         <div className="container">
           <p className="h-display serif-italic" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: 'var(--accent)', marginBottom: 14, fontWeight: 400 }}>
@@ -142,6 +148,101 @@ const Portfolio = () => {
         </div>
       </section>
     </>
+  );
+};
+
+/* ═══════════ PROJECT GALLERY — 12 buildable demos ═══════════ */
+const ProjectGallery = () => {
+  const [cat, setCat] = useState('All');
+  const items = cat === 'All' ? portfolio : portfolio.filter(p => p.category === cat);
+
+  return (
+    <section className="section" style={{ paddingTop: 0 }}>
+      <div className="container">
+        <div style={{ marginBottom: 36, maxWidth: 720 }}>
+          <span className="t-eyebrow">Project gallery</span>
+          <h2 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.4rem)', marginTop: 14, lineHeight: 0.98 }}>
+            Twelve systems, <span className="serif-italic" style={{ color: 'var(--accent)' }}>ready to build.</span>
+          </h2>
+          <p style={{ color: 'var(--text-soft)', fontSize: 16, lineHeight: 1.6, marginTop: 16 }}>
+            Each is a real architecture we can tailor to your business — explore by category.
+          </p>
+        </div>
+
+        {/* Filter */}
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 28 }}>
+          {portfolioCategories.map(c => (
+            <button key={c} onClick={() => setCat(c)} style={{
+              padding: '9px 16px', borderRadius: 'var(--r-pill)',
+              background: cat === c ? 'var(--ink)' : 'var(--bg-pure)',
+              color: cat === c ? 'var(--bg-pure)' : 'var(--text)',
+              border: '1px solid ' + (cat === c ? 'var(--ink)' : 'var(--line)'),
+              fontSize: 13, fontWeight: 500, transition: 'all 200ms var(--ease)'
+            }}>{c}</button>
+          ))}
+        </div>
+
+        <motion.div layout className="pf-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'clamp(16px, 1.6vw, 24px)' }}>
+          <AnimatePresence mode="popLayout">
+            {items.map((p, i) => (
+              <motion.article
+                key={p.slug}
+                layout
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.38, delay: (i % 2) * 0.05 }}
+                className="card"
+                style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+              >
+                {/* Visual */}
+                <div style={{ position: 'relative', padding: 22, background: 'var(--bg-soft)', borderBottom: '1px solid var(--line)' }}>
+                  {p.image ? (
+                    <img
+                      src={`${BASE}${p.image}`}
+                      alt={p.title}
+                      loading="lazy"
+                      width="640" height="360"
+                      style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 'var(--r-md)', boxShadow: 'var(--shadow-md)' }}
+                    />
+                  ) : (
+                    <Mock type={p.mock} />
+                  )}
+                  <span style={{
+                    position: 'absolute', top: 14, right: 14,
+                    padding: '5px 11px', borderRadius: 'var(--r-pill)',
+                    background: 'var(--bg-pure)', border: '1px solid var(--line)',
+                    fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 600,
+                    letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--text-soft)'
+                  }}>{p.category}</span>
+                </div>
+
+                {/* Body */}
+                <div style={{ padding: 'clamp(20px, 2.4vw, 28px)', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, marginBottom: 10 }}>
+                    <h3 className="h-display" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.6rem)', lineHeight: 1.05 }}>{p.title}</h3>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{p.metric}</span>
+                  </div>
+                  <p style={{ color: 'var(--text-soft)', fontSize: 14.5, lineHeight: 1.55, marginBottom: 18 }}>{p.summary}</p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'auto' }}>
+                    {p.stack.map((t, j) => (
+                      <span key={j} style={{
+                        padding: '4px 10px', borderRadius: 'var(--r-pill)',
+                        background: 'var(--bg-soft)', border: '1px solid var(--line)',
+                        fontSize: 11.5, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)'
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+
+      <style>{`@media (max-width: 760px) { .pf-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
   );
 };
 

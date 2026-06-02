@@ -115,5 +115,28 @@ export const caseStudies = [
       { month: 'M3', before: 110, after: 150 },
       { month: 'M4', before: 115, after: 160 }
     ]
+  },
+  {
+    slug: 'pine-indicators',
+    industry: 'Trading Business',
+    icon: 'TrendingUp',
+    color: '#16a34a',
+    headline: 'Pine Indicator Suite',
+    problem: 'Trader relied on a stack of lagging, noisy indicators that fired late and often contradicted each other. No consistent, rule-based way to read trend, momentum, and risk together.',
+    solution: 'Built a custom TradingView Pine Script suite — an adaptive trend engine with dynamic bands, a momentum oscillator, a volatility regime filter, auto-plotted support/resistance, and a confluence layer that prints clean BUY / SELL signals. Fully backtested before going live.',
+    deliverables: ['Trend indicator with dynamic bands', 'Momentum oscillator', 'Volatility regime filter', 'Auto support & resistance', 'Confluence BUY/SELL signals'],
+    metrics: [
+      { label: 'Signal Accuracy', value: '+38%', positive: true },
+      { label: 'False Signals', value: '-45%', positive: false },
+      { label: 'Setup Time', value: '< 1 min', positive: true }
+    ],
+    timeline: '10 days',
+    stack: ['Pine Script v5', 'TradingView', 'Backtesting'],
+    chartData: [
+      { month: 'M1', before: 100, after: 100 },
+      { month: 'M2', before: 103, after: 124 },
+      { month: 'M3', before: 106, after: 142 },
+      { month: 'M4', before: 109, after: 168 }
+    ]
   }
 ];

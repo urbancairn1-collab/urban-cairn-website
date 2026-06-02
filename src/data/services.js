@@ -9,7 +9,16 @@ export const services = [
     useCases: ['Corporate websites', 'Landing pages', 'Service-based business sites'],
     badge: 'BUILT TO CONVERT',
     icon: 'Globe',
-    result: 'More Leads · More Trust · More Business'
+    result: 'More Leads · More Trust · More Business',
+    tagline: 'Sites that sell, not just exist.',
+    features: [
+      'Lightning-fast Core Web Vitals (sub-2.5s LCP)',
+      'SEO foundations baked in from day one',
+      'CMS / self-serve content editing',
+      'Pixel-perfect responsive design',
+      'Analytics + conversion tracking wired up'
+    ],
+    miniProcess: ['Brand & audience discovery', 'Wireframe + design', 'Build + integrate', 'Launch + optimise']
   },
   {
     id: 'apps',
@@ -21,7 +30,16 @@ export const services = [
     useCases: ['Service apps', 'Booking apps', 'Marketplace apps'],
     badge: 'iOS · ANDROID · CROSS-PLATFORM',
     icon: 'Smartphone',
-    result: 'Better Engagement · More Customers'
+    result: 'Better Engagement · More Customers',
+    tagline: 'Your business, in their pocket.',
+    features: [
+      'Single codebase, both platforms',
+      'Offline-first + push notifications',
+      'Secure auth & encrypted storage',
+      'App Store / Play Store deployment',
+      'Crash + usage analytics'
+    ],
+    miniProcess: ['Concept + UX flows', 'Design system', 'Build + QA', 'Store launch + support']
   },
   {
     id: 'automation',
@@ -33,7 +51,16 @@ export const services = [
     useCases: ['Lead follow-up bots', 'Appointment systems', 'Internal workflow tools'],
     badge: 'SAVE 40+ HOURS / WEEK',
     icon: 'Zap',
-    result: 'Save 70%+ Time · Improve Productivity'
+    result: 'Save 70%+ Time · Improve Productivity',
+    tagline: 'Intelligence that works the night shift.',
+    features: [
+      'Custom-trained on your business knowledge',
+      'WhatsApp / web / CRM integrations',
+      'Lead capture, qualify & route automatically',
+      '24/7 instant customer responses',
+      'Human-in-the-loop handoff'
+    ],
+    miniProcess: ['Identify automation wins', 'Connect data + tools', 'Train + test', 'Deploy + monitor']
   },
   {
     id: 'software',
@@ -45,7 +72,16 @@ export const services = [
     useCases: ['ERP / CRM systems', 'Inventory management', 'Custom SaaS platforms'],
     badge: 'OWNED, NOT RENTED',
     icon: 'Code',
-    result: 'Better Efficiency · No More Limitations'
+    result: 'Better Efficiency · No More Limitations',
+    tagline: 'Operations, automated.',
+    features: [
+      'Custom data models that fit your workflow',
+      'Role-based access & audit logging',
+      'Third-party + payment integrations',
+      'Multi-tenant SaaS architecture',
+      'Dashboards and reporting built in'
+    ],
+    miniProcess: ['Map current workflow', 'Architecture + data model', 'Iterative build', 'Rollout + training']
   },
   {
     id: 'trading',
@@ -54,10 +90,20 @@ export const services = [
     short: 'Edge, not noise',
     desc: 'Real-time market dashboards, signal scanners, P&L trackers, and backtesting tools — built for traders who want an edge.',
     benefits: ['Live market data', 'Strategy backtesting', 'Risk metrics & P&L', 'Custom alerts'],
-    useCases: ['Trading dashboards', 'Algo signal scanners', 'Portfolio trackers'],
+    useCases: ['Trading dashboards', 'Algo signal scanners', 'Portfolio trackers', 'Pine Script indicators'],
     badge: 'LIVE DATA · INSTANT INSIGHTS',
     icon: 'TrendingUp',
-    result: 'Better Decisions · Higher Accuracy'
+    result: 'Better Decisions · Higher Accuracy',
+    tagline: 'Edge, engineered.',
+    features: [
+      'Custom TradingView Pine Script indicators',
+      'Real-time market data pipelines',
+      'Custom indicators & strategy logic',
+      'Option-chain & OI analytics',
+      'Backtesting + alerts',
+      'Low-latency, high-density UI'
+    ],
+    miniProcess: ['Strategy + data sources', 'Engine + indicators', 'Dashboard build', 'Live tuning']
   },
   {
     id: 'leadgen',
@@ -69,7 +115,16 @@ export const services = [
     useCases: ['Real estate funnels', 'Education enquiries', 'Service bookings'],
     badge: 'MORE QUALIFIED PIPELINE',
     icon: 'Users',
-    result: 'More Quality Leads · Lower Cost Per Lead'
+    result: 'More Quality Leads · Lower Cost Per Lead',
+    tagline: 'Pipeline on autopilot.',
+    features: [
+      'Multi-source lead capture',
+      'Automated scoring & qualification',
+      'CRM sync + instant routing',
+      'WhatsApp / email follow-up sequences',
+      'A/B-tested landing funnels'
+    ],
+    miniProcess: ['Map lead sources', 'Build capture + funnel', 'Automate follow-up', 'Optimise conversion']
   }
 ];
 

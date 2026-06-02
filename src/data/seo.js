@@ -31,6 +31,11 @@ export const seoMap = {
     description: 'From first call to live system in 5 precise steps. 14 days. Fixed price. Full code ownership transferred.',
     keywords: '14 day website delivery, fast software development, project process, fixed price software'
   },
+  '/industries': {
+    title: 'Industries · Built for your world',
+    description: 'Software, apps, and automation for healthcare, finance, trading, education, manufacturing, retail, real estate, logistics, startups, and professional services.',
+    keywords: 'software for healthcare india, fintech development, trading software, school erp, manufacturing erp, retail pos, real estate crm, logistics software'
+  },
   '/contact': {
     title: 'Contact · Direct line to Rahul',
     description: 'Direct WhatsApp, call, or email. India-based · IST hours. We respond within 4 business hours. Udyam + GST registered MSME.',

@@ -17,6 +17,7 @@ const STATIC = [
   { path: '/services', priority: '0.9', change: 'monthly' },
   { path: '/portfolio', priority: '0.9', change: 'monthly' },
   { path: '/process', priority: '0.85', change: 'monthly' },
+  { path: '/industries', priority: '0.85', change: 'monthly' },
   { path: '/whatsapp-automation', priority: '0.85', change: 'monthly' },
   { path: '/trading-tools', priority: '0.85', change: 'monthly' },
   { path: '/about', priority: '0.8', change: 'monthly' },
@@ -27,7 +28,7 @@ const STATIC = [
 ];
 
 // Case studies
-const CASE_SLUGS = ['trading-dashboard', 'real-estate', 'multi-clinic', 'ecommerce-store', 'education-institute'];
+const CASE_SLUGS = ['trading-dashboard', 'real-estate', 'multi-clinic', 'ecommerce-store', 'education-institute', 'pine-indicators'];
 const CASES = CASE_SLUGS.map(s => ({ path: `/case-study/${s}`, priority: '0.75', change: 'monthly' }));
 
 // Blog posts
