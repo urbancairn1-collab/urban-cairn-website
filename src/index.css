@@ -495,8 +495,8 @@ a:hover > .bento-sheen { opacity: 0.6; transform: translateX(30%); }
     position: fixed;
     bottom: 12px; left: 12px; right: 12px;
     z-index: 990;
-    padding: 10px;
-    background: rgba(255,255,255,0.85);
+    padding: 6px;
+    background: rgba(255,255,255,0.72);
     backdrop-filter: saturate(160%) blur(20px);
     -webkit-backdrop-filter: saturate(160%) blur(20px);
     border: 1px solid var(--line);
@@ -504,7 +504,7 @@ a:hover > .bento-sheen { opacity: 0.6; transform: translateX(30%); }
     box-shadow: var(--shadow-md);
     gap: 6px;
   }
-  body { padding-bottom: 86px; }
+  body { padding-bottom: 72px; }
 }
 
 /* ========== Mobile-only: fix hero rotating-word vertical clip ========== */

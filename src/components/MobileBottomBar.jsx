@@ -14,7 +14,7 @@ const Item = ({ children, href, to, primary }) => {
   return (
     <Cmp {...props}
       style={{
-        flex: 1, height: 44, borderRadius: 'var(--r-pill)',
+        flex: 1, height: 40, borderRadius: 'var(--r-pill)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
         background: primary ? 'var(--ink)' : 'transparent',
         color: primary ? 'var(--bg-pure)' : 'var(--text)',
