@@ -65,10 +65,10 @@ const Navbar = () => {
         </div>
 
         <button
-          className="hide-desktop"
+          className="hide-desktop nav-toggle"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
-          style={{ width: 40, height: 40, borderRadius: 'var(--r-pill)', background: 'var(--bg-tint)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+          style={{ width: 40, height: 40, borderRadius: 'var(--r-pill)', background: 'var(--bg-tint)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', padding: 0, lineHeight: 0, cursor: 'pointer' }}
         >
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>

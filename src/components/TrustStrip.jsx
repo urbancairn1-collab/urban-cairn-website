@@ -10,7 +10,7 @@ const points = [
 const TrustStrip = ({ tone = 'light' }) => {
   const isDark = tone === 'dark';
   return (
-    <div style={{
+    <div className="trust-strip" style={{
       display: 'inline-flex', flexWrap: 'wrap',
       padding: '6px', borderRadius: 'var(--r-pill)',
       gap: 4,

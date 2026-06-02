@@ -174,7 +174,10 @@ const Hero = () => {
       <style>{`
         @media (max-width: 920px) {
           .hero-grid { grid-template-columns: 1fr !important; }
-          .hero-cairn { display: none !important; }
+          /* Show the hero photo on mobile too (stacked below the copy).
+             Side padding gives the overlapping badges room so they aren't clipped. */
+          .hero-cairn { margin-top: 44px; padding: 6px 22px 22px; }
+          .hero-cairn > div { max-width: 460px; }
         }
       `}</style>
     </section>
@@ -271,7 +274,7 @@ const ProductReveal = () => {
         height: 'calc(100vh - var(--header-h))',
         display: 'flex', alignItems: 'center'
       }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 60, alignItems: 'center', width: '100%' }}>
+        <div className="container scrolly-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 60, alignItems: 'center', width: '100%' }}>
           <div>
             <span className="t-eyebrow">What we build</span>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.8rem)', marginTop: 16, marginBottom: 24, lineHeight: 0.96 }}>
@@ -322,7 +325,7 @@ const RevealVisual = ({ idx, slides }) => {
   const [v, setV] = useState(0);
   useEffect(() => idx.on('change', setV), [idx]);
   return (
-    <div style={{ position: 'relative', height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="hide-mobile">
+    <div className="scrolly-visual" style={{ position: 'relative', height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <motion.div
         animate={{ background: slides[v].tint }}
         transition={{ duration: 0.6 }}
@@ -334,6 +337,7 @@ const RevealVisual = ({ idx, slides }) => {
       />
       <AnimatePresence mode="wait">
         <motion.div key={v}
+          className="scrolly-visual-inner"
           initial={{ opacity: 0, scale: 0.96, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -16 }}

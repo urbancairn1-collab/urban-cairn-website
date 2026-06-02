@@ -520,6 +520,28 @@ a:hover > .bento-sheen { opacity: 0.6; transform: translateX(30%); }
   }
 }
 
+/* ========== Mobile-only: show visuals + small-screen layout fixes ========== */
+@media (max-width: 920px) {
+  /* "Six engines" section: stack to one column and reveal the device mockup
+     (previously hidden), so mobile gets the same product visuals as desktop.
+     The device frames are intrinsically tall (~565px), so scale them down on
+     the plain device wrapper (framer-motion drives the parent's transform, so
+     scaling the child here doesn't fight the enter/exit animation) and clip the
+     container to the scaled height — no overlap with the copy above. */
+  .scrolly-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .scrolly-visual { height: 340px !important; overflow: hidden; align-items: flex-start !important; }
+  .scrolly-visual-inner { padding: 6px 10px !important; }
+  .scrolly-visual-inner > div { transform: scale(0.6); transform-origin: top center; }
+}
+@media (max-width: 860px) {
+  /* Trust strip: smaller radius so the wrapped second row doesn't poke past
+     the over-rounded pill corners on small screens. */
+  .trust-strip { border-radius: 22px !important; }
+  /* Hamburger: .hide-desktop forces display:initial which kills the button's
+     flex centering — restore inline-flex so the icon stays centered. */
+  .nav-toggle { display: inline-flex !important; }
+}
+
 /* ========== Reduced motion ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
