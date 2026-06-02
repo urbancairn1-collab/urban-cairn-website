@@ -1,0 +1,36 @@
+# Urban Cairn Tech Solution
+
+> Software studio for ambitious operators across India. We build custom websites, business & WhatsApp automation, trading dashboards, and lead-generation systems — shipped in about 14 days. Udyam + GST registered MSME.
+
+Urban Cairn Tech Solution is a technology-driven studio that helps startups, SMEs, and enterprises automate operations, improve efficiency, and grow revenue through modern, custom-built software. Founded and led by Rahulkumar Dhobi (Founder & Principal Engineer). Work is strategy-first, ROI-driven, and fully owned by the client (100% code ownership). Based in Gujarat, India; works remotely with clients across India and globally.
+
+## Services
+- [High-Converting Websites](https://urbancairn.in/services): fast, premium marketing and product sites built to convert
+- [Mobile App Development](https://urbancairn.in/services): native and cross-platform apps for iOS and Android
+- [Business Automation](https://urbancairn.in/services): WhatsApp and workflow automation that removes manual work
+- [Custom Software Development](https://urbancairn.in/services): bespoke internal tools, portals, and SaaS products
+- [Trading Tools & Dashboards](https://urbancairn.in/trading-tools): live data dashboards, P&L tracking, signal scanners, backtest engines, and TradingView Pine Script indicators
+- [Lead Generation Systems](https://urbancairn.in/services): funnels, lead engines, and CRM integrations that fill the pipeline
+
+## Key pages
+- [Home](https://urbancairn.in/): overview of the studio and what it builds
+- [Services](https://urbancairn.in/services): full service catalogue
+- [Portfolio](https://urbancairn.in/portfolio): selected projects and product mockups
+- [Industries](https://urbancairn.in/industries): industry-specific solutions
+- [Process](https://urbancairn.in/process): how projects are delivered (typical 14-day cycle)
+- [Free Audit](https://urbancairn.in/free-audit): request a free website/automation audit
+- [Contact](https://urbancairn.in/contact): start a project
+
+## Why Urban Cairn
+- 14-day average delivery
+- 100% client code ownership
+- Direct WhatsApp access to the engineer (no account-manager layer)
+- Udyam (MSME) + GST registered business
+- Business-focused: every feature maps to a revenue, cost, or efficiency outcome
+
+## Contact
+- Website: https://urbancairn.in
+- Email: urbancairn1@gmail.com
+- Phone / WhatsApp: +91 93135 60694
+- Founder: Rahulkumar Dhobi
+- Location: Gujarat, India (remote, Mon–Sat 9 AM – 9 PM IST)
