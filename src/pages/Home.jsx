@@ -10,6 +10,7 @@ import ROICalculator from '../components/ROICalculator';
 import MagneticButton from '../components/MagneticButton';
 import Reveal from '../components/Reveal';
 import HeroPhoto from '../components/HeroPhoto';
+import WhatWeBuild from '../components/WhatWeBuild';
 import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
@@ -26,6 +27,7 @@ const Home = () => {
         description="Urban Cairn builds the systems that turn ideas into revenue. Custom websites, automation, dashboards. Shipped in 14 days. India · remote, IST."
       />
       <Hero />
+      <WhatWeBuild />
       <LogoTicker />
       <ProductReveal />
       <BentoCapabilities />

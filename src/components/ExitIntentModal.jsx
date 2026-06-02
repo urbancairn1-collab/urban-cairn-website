@@ -53,17 +53,17 @@ const ExitIntentModal = () => {
             </button>
 
             <Mark size={36} />
-            <span className="t-eyebrow" style={{ marginTop: 18, display: 'inline-flex' }}>One sec — before you go</span>
+            <span className="t-eyebrow" style={{ marginTop: 18, display: 'inline-flex' }}>Before you go</span>
 
             <h2 className="h-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', marginTop: 14, marginBottom: 14 }}>
-              Take the audit <span className="serif-italic" style={{ color: 'var(--accent)' }}>with you.</span>
+              Get a <span className="serif-italic" style={{ color: 'var(--accent)' }}>free</span> website audit.
             </h2>
             <p style={{ color: 'var(--text-soft)', marginBottom: 28, fontSize: 15, lineHeight: 1.6 }}>
-              12-point teardown of your current site — speed, SEO, mobile UX, conversion blockers. Worth ₹10,000. Yours, free, in 48 hours.
+              We'll check your site's speed, SEO, mobile experience, and what's stopping visitors from buying — then send you a clear 12-point report. Completely free, within 48 hours. No call required.
             </p>
 
             <Link to="/free-audit" onClick={() => setOpen(false)} className="btn btn-accent btn-lg" style={{ width: '100%', justifyContent: 'center' }}>
-              Claim my audit <ArrowUpRight size={18} />
+              Get my free audit <ArrowUpRight size={18} />
             </Link>
             <button onClick={() => setOpen(false)} style={{
               width: '100%', marginTop: 12, padding: '8px',

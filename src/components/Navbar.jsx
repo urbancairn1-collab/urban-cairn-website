@@ -4,12 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { Wordmark } from './Mark';
 
 const NAV = [
-  { name: 'Work', path: '/portfolio' },
-  { name: 'Capabilities', path: '/services' },
+  { name: 'Services', path: '/services' },
+  { name: 'Our Work', path: '/portfolio' },
   { name: 'Industries', path: '/industries' },
   { name: 'Process', path: '/process' },
-  { name: 'Studio', path: '/about' },
-  { name: 'Notes', path: '/blog' }
+  { name: 'About', path: '/about' },
+  { name: 'Blog', path: '/blog' }
 ];
 
 const Navbar = () => {
