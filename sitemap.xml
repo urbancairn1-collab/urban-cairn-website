@@ -2,259 +2,271 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/free-audit</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/audit-checklist</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/services</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/portfolio</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/process</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://urbancairn1-collab.github.io/urban-cairn-website/industries</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/whatsapp-automation</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/trading-tools</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/about</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/contact</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/privacy</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/terms</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/trading-dashboard</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/real-estate</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/multi-clinic</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/ecommerce-store</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/education-institute</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://urbancairn1-collab.github.io/urban-cairn-website/case-study/pine-indicators</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/custom-website-cost-india-2026</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/whatsapp-business-api-india-guide</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/custom-trading-dashboard-vs-broker-tools</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/lead-generation-mistakes-indian-smbs</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/14-day-website-delivery-process</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/msme-tech-budget-india</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/why-website-not-generating-leads</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/mobile-app-vs-website-india-smb</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/blog/local-seo-google-business-profile-india</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/anand</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/vadodara</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/ahmedabad</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/surat</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/mumbai</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/pune</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/bangalore</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/delhi-ncr</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/hyderabad</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/in/jaipur</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/real-estate</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/healthcare</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/education</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/ecommerce</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/trading</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://urbancairn1-collab.github.io/urban-cairn-website/for/manufacturing</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
