@@ -1,9 +1,16 @@
 import { useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Check } from 'lucide-react';
+import {
+  ArrowUpRight, Check, Compass, Search, Map as MapIcon, PenTool,
+  Code, CheckCircle2, Rocket, TrendingUp,
+} from 'lucide-react';
 import SEO from '../components/SEO';
 import MagneticButton from '../components/MagneticButton';
+import Reveal from '../components/Reveal';
+import { methodSteps } from '../data/process';
+
+const METHOD_ICONS = { Compass, Search, Map: MapIcon, PenTool, Code, CheckCircle2, Rocket, TrendingUp };
 
 const steps = [
   { n: '01', day: 'Day 1', title: 'Strategy call', desc: '45-min call. We map your goal, audience, current funnel, and the exact business outcome to ship. No tech jargon. No upsell.', deliverables: ['Goal & KPI mapping', 'Funnel teardown', 'Action plan'] },
@@ -51,6 +58,8 @@ const Process = () => {
           </p>
         </div>
       </section>
+
+      <DeliveryMethod />
 
       <section className="section" style={{ background: 'var(--bg-soft)', textAlign: 'center' }}>
         <div className="container-narrow">
@@ -212,5 +221,61 @@ const TimelineStep = ({ step: s, index: i, last, progress, count }) => {
     </motion.div>
   );
 };
+
+/* ═══════════ 8-STAGE DELIVERY METHOD — under-the-hood detail ═══════════ */
+const DeliveryMethod = () => (
+  <section className="section" style={{ paddingTop: 0 }}>
+    <div className="container">
+      <Reveal>
+        <div style={{ marginBottom: 48, maxWidth: 720 }}>
+          <span className="t-eyebrow">Under the hood</span>
+          <h2 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.4rem)', marginTop: 14, lineHeight: 0.98 }}>
+            The 8-stage <span className="serif-italic" style={{ color: 'var(--accent)' }}>delivery method.</span>
+          </h2>
+          <p style={{ color: 'var(--text-soft)', fontSize: 16, lineHeight: 1.6, marginTop: 16 }}>
+            The 14-day sprint runs on a disciplined engineering method — every project moves through the same eight stages, so nothing is improvised.
+          </p>
+        </div>
+      </Reveal>
+
+      <div className="method-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'clamp(14px, 1.4vw, 20px)' }}>
+        {methodSteps.map((s, i) => {
+          const Icon = METHOD_ICONS[s.icon] || Compass;
+          return (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.42, delay: (i % 4) * 0.06 }}
+              className="card"
+              style={{ padding: 'clamp(20px, 2vw, 26px)', display: 'flex', flexDirection: 'column', gap: 12, height: '100%' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{
+                  width: 44, height: 44, borderRadius: 'var(--r-md)',
+                  background: 'var(--accent-soft)', color: 'var(--accent)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <Icon size={20} strokeWidth={1.9} />
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-faint)', fontWeight: 600 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <h3 className="h-display" style={{ fontSize: '1.2rem', lineHeight: 1.1 }}>{s.title}</h3>
+              <p style={{ color: 'var(--text-soft)', fontSize: 13.5, lineHeight: 1.55 }}>{s.desc}</p>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      <style>{`
+        @media (max-width: 920px) { .method-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 520px) { .method-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </div>
+  </section>
+);
 
 export default Process;

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1223 278" preserveAspectRatio="xMidYMid meet">
+  <style>
+    .bg { fill: #0A0A0F; }
+    .urban { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 200; font-size: 230px; fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 1.5; letter-spacing: -8px; }
+    .cairn { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 240px; fill: #6B2A1A; letter-spacing: -2px; }
+  </style>
+  <rect class="bg" width="1223" height="278"/>
+  <text x="120" y="200" class="urban">urban</text>
+  <text x="690" y="210" class="cairn">cairn</text>
+</svg>

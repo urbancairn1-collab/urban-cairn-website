@@ -45,7 +45,16 @@ const Footer = () => {
           padding: '64px 0'
         }} className="footer-body">
           <div>
-            <Wordmark size="lg" tone="light" />
+            <img
+              src={`${import.meta.env.BASE_URL}brand/logo-full.png`}
+              alt="UC Tech Sol — Urban Cairn Tech Solution"
+              width="240" height="120"
+              style={{
+                width: 'min(240px, 70%)', height: 'auto', display: 'block',
+                background: 'var(--bg-pure)', borderRadius: 'var(--r-md)',
+                padding: 14, boxShadow: 'var(--shadow-sm)'
+              }}
+            />
             <p style={{ color: 'var(--text-on-ink-soft)', fontSize: 14, lineHeight: 1.7, marginTop: 22, maxWidth: 320 }}>
               A studio for ambitious operators. We build the systems that turn ideas into revenue — not slides into invoices.
             </p>

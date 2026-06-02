@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { TrendingUp, BarChart3, Bell, Shield, Zap, Layers, ArrowUpRight } from 'lucide-react';
+import { TrendingUp, BarChart3, Bell, Shield, Zap, Layers, ArrowUpRight, Crosshair, Gauge } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Laptop } from '../components/DeviceMockup';
+import { PineMock, PineIndicatorMini } from '../components/mockups/Mock';
+import { pineIndicators, pineBenefits, pineMeta } from '../data/pineIndicators';
+
+const PINE_ICONS = { Crosshair, TrendingUp, Shield, Gauge };
 
 const TradingTools = () => (
   <>
@@ -88,6 +92,8 @@ const TradingTools = () => (
       </div>
     </section>
 
+    <PineSection />
+
     <section className="section" style={{ background: 'var(--ink)', color: 'var(--text-on-ink)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div className="gradient-mesh-dark" style={{ opacity: 0.5 }} />
       <div className="container" style={{ position: 'relative' }}>
@@ -98,6 +104,77 @@ const TradingTools = () => (
       </div>
     </section>
   </>
+);
+
+/* ═══════════ PINE INDICATORS — in-house TradingView product ═══════════ */
+const PineSection = () => (
+  <section id="pine" className="section" style={{ background: 'var(--bg-soft)', position: 'relative', overflow: 'hidden' }}>
+    <div className="container">
+      {/* Header + live chart */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: 56, alignItems: 'center', marginBottom: 64 }} className="pine-hero">
+        <div>
+          <span className="t-eyebrow">New · {pineMeta.name}</span>
+          <h2 className="h-display" style={{ fontSize: 'clamp(2.2rem, 4.8vw, 3.8rem)', marginTop: 16, lineHeight: 0.98 }}>
+            Precise signals. <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>Powerful trades.</span>
+          </h2>
+          <p style={{ color: 'var(--text-soft)', fontSize: 16, lineHeight: 1.6, marginTop: 18, maxWidth: 460 }}>
+            {pineMeta.promise} Our own TradingView Pine Script suite — backtested, rule-based, and built for consistency.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 24 }}>
+            {pineBenefits.map((b) => {
+              const Icon = PINE_ICONS[b.icon] || Crosshair;
+              return (
+                <span key={b.title} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '8px 14px', borderRadius: 'var(--r-pill)',
+                  background: 'var(--bg-pure)', border: '1px solid var(--line)',
+                  fontSize: 13, fontWeight: 600
+                }}>
+                  <Icon size={14} color="var(--accent)" /> {b.title}
+                </span>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: 28 }}>
+            <Link to="/case-study/pine-indicators" className="btn btn-primary">See the case study <ArrowUpRight size={16} /></Link>
+          </div>
+        </div>
+        <PineMock />
+      </div>
+
+      {/* Five indicator modules */}
+      <div style={{ marginBottom: 28 }}>
+        <span className="t-eyebrow">Inside the suite</span>
+        <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', marginTop: 12 }}>Five indicators. One edge.</h3>
+      </div>
+      <div className="pine-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 'clamp(12px, 1.2vw, 18px)' }}>
+        {pineIndicators.map((ind) => (
+          <motion.div
+            key={ind.kind}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4 }}
+            className="card"
+            style={{ padding: 18, display: 'flex', flexDirection: 'column', gap: 12 }}
+          >
+            <div style={{ background: 'var(--bg-soft)', borderRadius: 'var(--r-sm)', padding: '10px 8px', border: '1px solid var(--line)' }}>
+              <PineIndicatorMini kind={ind.kind} />
+            </div>
+            <div>
+              <h4 className="h-display" style={{ fontSize: 15, marginBottom: 6 }}>{ind.name}</h4>
+              <p style={{ fontSize: 12.5, color: 'var(--text-soft)', lineHeight: 1.5 }}>{ind.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+
+    <style>{`
+      @media (max-width: 920px) { .pine-hero { grid-template-columns: 1fr !important; gap: 36px !important; } .pine-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+      @media (max-width: 520px) { .pine-grid { grid-template-columns: 1fr !important; } }
+    `}</style>
+  </section>
 );
 
 const DashScene = () => (

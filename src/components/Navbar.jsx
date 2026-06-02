@@ -6,6 +6,7 @@ import { Wordmark } from './Mark';
 const NAV = [
   { name: 'Work', path: '/portfolio' },
   { name: 'Capabilities', path: '/services' },
+  { name: 'Industries', path: '/industries' },
   { name: 'Process', path: '/process' },
   { name: 'Studio', path: '/about' },
   { name: 'Notes', path: '/blog' }

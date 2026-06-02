@@ -86,6 +86,41 @@ const Services = () => {
                     </ul>
                   </div>
 
+                  {s.features && (
+                    <div style={{ marginBottom: 28 }}>
+                      <div className="t-eyebrow" style={{ marginBottom: 12 }}>Key features</div>
+                      <ul style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }} className="svc-bens">
+                        {s.features.map((f, j) => (
+                          <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 14, color: 'var(--text-soft)', lineHeight: 1.4 }}>
+                            <Check size={14} color="var(--accent)" strokeWidth={3} style={{ flexShrink: 0, marginTop: 3 }} /> {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {s.miniProcess && (
+                    <div style={{ marginBottom: 28 }}>
+                      <div className="t-eyebrow" style={{ marginBottom: 12 }}>How we deliver</div>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+                        {s.miniProcess.map((p, j) => (
+                          <span key={j} style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{
+                              display: 'inline-flex', alignItems: 'center', gap: 7,
+                              padding: '6px 12px', borderRadius: 'var(--r-pill)',
+                              background: 'var(--bg-pure)', border: '1px solid var(--line)',
+                              fontSize: 12.5, fontWeight: 500
+                            }}>
+                              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--accent)' }}>{String(j + 1).padStart(2, '0')}</span>
+                              {p}
+                            </span>
+                            {j < s.miniProcess.length - 1 && <span style={{ color: 'var(--text-faint)', fontSize: 12 }}>→</span>}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: 10,
                     padding: '10px 16px', borderRadius: 'var(--r-pill)',
