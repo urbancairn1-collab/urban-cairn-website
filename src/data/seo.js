@@ -13,7 +13,7 @@ export const seoMap = {
   },
   '/about': {
     title: 'Studio · About Urban Cairn',
-    description: 'A small, opinionated software studio founded by Rahulkumar Dhobi. Strategy-first, ROI-driven, fully accountable. India-based · IST hours · Udyam + GST registered MSME.',
+    description: 'A small, opinionated software studio founded by Rahulkumar. Strategy-first, ROI-driven, fully accountable. India-based · IST hours · Udyam + GST registered MSME.',
     keywords: 'urban cairn studio, rahulkumar dhobi founder, software studio india, msme it company'
   },
   '/services': {

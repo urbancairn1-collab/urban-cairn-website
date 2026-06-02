@@ -3,7 +3,7 @@ export const company = {
   shortName: 'Urban Cairn',
   tagline: 'Stacking technology. Scaling businesses.',
   promise: 'We build systems that generate revenue, not just software.',
-  founder: 'Rahulkumar Dhobi',
+  founder: 'Rahulkumar',
   phone: '+91 93135 60694',
   phoneRaw: '919313560694',
   whatsapp: '919313560694',

@@ -9,7 +9,7 @@ import { company } from '../data/company';
 const About = () => {
   return (
     <>
-      <SEO title="Studio" description="Urban Cairn is a studio for ambitious operators. Founded by Rahulkumar Dhobi. India-based · IST hours. Udyam + GST registered MSME." />
+      <SEO title="Studio" description="Urban Cairn is a studio for ambitious operators. Founded by Rahulkumar. India-based · IST hours. Udyam + GST registered MSME." />
 
       <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 clamp(60px, 8vw, 100px)', position: 'relative', overflow: 'hidden' }}>
         <div className="gradient-mesh" style={{ opacity: 0.5 }} />

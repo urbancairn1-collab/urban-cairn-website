@@ -2,7 +2,7 @@
 
 > Software studio for ambitious operators across India. We build custom websites, business & WhatsApp automation, trading dashboards, and lead-generation systems — shipped in about 14 days. Udyam + GST registered MSME.
 
-Urban Cairn Tech Solution is a technology-driven studio that helps startups, SMEs, and enterprises automate operations, improve efficiency, and grow revenue through modern, custom-built software. Founded and led by Rahulkumar Dhobi (Founder & Principal Engineer). Work is strategy-first, ROI-driven, and fully owned by the client (100% code ownership). Based in Gujarat, India; works remotely with clients across India and globally.
+Urban Cairn Tech Solution is a technology-driven studio that helps startups, SMEs, and enterprises automate operations, improve efficiency, and grow revenue through modern, custom-built software. Founded and led by Rahulkumar (Founder & Principal Engineer). Work is strategy-first, ROI-driven, and fully owned by the client (100% code ownership). Based in Gujarat, India; works remotely with clients across India and globally.
 
 ## Services
 - [High-Converting Websites](https://urbancairn.in/services): fast, premium marketing and product sites built to convert
@@ -32,5 +32,5 @@ Urban Cairn Tech Solution is a technology-driven studio that helps startups, SME
 - Website: https://urbancairn.in
 - Email: urbancairn1@gmail.com
 - Phone / WhatsApp: +91 93135 60694
-- Founder: Rahulkumar Dhobi
+- Founder: Rahulkumar
 - Location: Gujarat, India (remote, Mon–Sat 9 AM – 9 PM IST)

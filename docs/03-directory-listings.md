@@ -9,7 +9,7 @@ Your NAP must be **identical** everywhere — Google penalizes inconsistent busi
 Always use this exact format:
 
 - **Name:** Urban Cairn Tech Solution
-- **Owner:** Rahulkumar Dhobi (Proprietor)
+- **Owner:** Rahulkumar (Proprietor)
 - **Address:** Near Patel Wadi, Hospital Road, Ras, Anand, Gujarat 388570, India
 - **Phone:** +91 93135 60694
 - **Email:** urbancairn1@gmail.com
@@ -108,7 +108,7 @@ https://clutch.co/get-listed (free)
 
 **Company name:** Urban Cairn Tech Solution
 **Founded:** 2026
-**Founder/CEO:** Rahulkumar Dhobi
+**Founder/CEO:** Rahulkumar
 **Headquarters:** Anand, Gujarat, India
 **Hourly rate:** $25-49 / hour (or "Undisclosed")
 **Min project size:** $500+
@@ -126,7 +126,7 @@ https://clutch.co/get-listed (free)
 
 **Description (paste — Clutch wants more detail):**
 
-> Urban Cairn Tech Solution is a software studio based in Anand, Gujarat, India, founded in February 2026 by Rahulkumar Dhobi. We work with ambitious operators — founders, SMB owners, active traders — who want their tech infrastructure to compound revenue rather than consume it.
+> Urban Cairn Tech Solution is a software studio based in Anand, Gujarat, India, founded in February 2026 by Rahulkumar. We work with ambitious operators — founders, SMB owners, active traders — who want their tech infrastructure to compound revenue rather than consume it.
 >
 > Our specialization is custom-built systems that solve specific business problems: conversion-optimized websites with multi-step lead capture, WhatsApp Business API automation that books calls 24/7, real-time trading dashboards with multi-broker integration, and end-to-end lead generation engines with CRM auto-routing.
 >
