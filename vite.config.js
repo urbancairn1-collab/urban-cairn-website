@@ -15,7 +15,7 @@ const vendorChunkMap = {
 
 export default defineConfig({
   plugins: [react()],
-  base: '/urban-cairn-website/',
+  base: '/',
   build: {
     chunkSizeWarningLimit: 800,
     rolldownOptions: {

@@ -7,7 +7,7 @@ import { existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { Resvg } from '@resvg/resvg-js';
 
-const SITE_URL = 'https://urbancairn1-collab.github.io/urban-cairn-website';
+const SITE_URL = 'https://urbancairn.in';
 
 // Static routes
 const STATIC = [

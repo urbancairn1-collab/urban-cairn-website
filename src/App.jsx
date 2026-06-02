@@ -82,7 +82,7 @@ const AnimatedRoutes = () => {
 
 function App() {
   return (
-    <Router basename="/urban-cairn-website">
+    <Router basename="/">
       <ScrollToTop />
       <Analytics />
       <CustomCursor />

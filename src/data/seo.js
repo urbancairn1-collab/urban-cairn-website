@@ -2,7 +2,7 @@
 
 const BASE_DESC = 'Urban Cairn — software studio for ambitious operators across India. Custom websites, WhatsApp automation, trading dashboards, and lead engines. Shipped in 14 days. Udyam + GST registered MSME.';
 
-export const SITE_URL = 'https://urbancairn1-collab.github.io/urban-cairn-website';
+export const SITE_URL = 'https://urbancairn.in';
 export const SITE_NAME = 'Urban Cairn Tech Solution';
 
 export const seoMap = {
