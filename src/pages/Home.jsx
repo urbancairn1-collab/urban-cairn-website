@@ -11,6 +11,7 @@ import MagneticButton from '../components/MagneticButton';
 import Reveal from '../components/Reveal';
 import HeroPhoto from '../components/HeroPhoto';
 import WhatWeBuild from '../components/WhatWeBuild';
+import TrustCredentials from '../components/TrustCredentials';
 import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
@@ -35,6 +36,7 @@ const Home = () => {
       <CaseStudiesScroll />
       <ROISection />
       <Testimonials />
+      <TrustCredentials />
       <ProcessCompact />
       <PricingTeaser />
       <FAQSection />
