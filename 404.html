@@ -8,31 +8,14 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="color-scheme" content="light" />
 
-    <!-- SEO base — overridden per-route by react-helmet-async -->
-    <title>Urban Cairn Tech Solution — A studio for ambitious operators</title>
-    <meta name="description" content="Custom websites, WhatsApp automation, trading dashboards, and lead engines. Shipped in 14 days. India · remote, IST. Udyam + GST registered MSME." />
-    <meta name="author" content="Urban Cairn Tech Solution" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <!-- react-helmet-async owns ALL per-route SEO tags (title, description, author,
+         robots, canonical, Open Graph, Twitter, geo). They are intentionally NOT
+         hardcoded here: helmet APPENDS rather than replaces, so static copies would
+         produce duplicate <title>/<meta> tags in every prerendered page. -->
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-    <!-- Open Graph fallback -->
-    <meta property="og:title" content="Urban Cairn — A studio for ambitious operators" />
-    <meta property="og:description" content="Software that ships outcomes. 14-day delivery. 100% code ownership. Udyam-registered MSME." />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="Urban Cairn Tech Solution" />
-    <meta property="og:image" content="https://urbancairn.in/og-default.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://urbancairn.in/og-default.png" />
-
-    <!-- Geo (country-only — exact location intentionally not published) -->
-    <meta name="geo.region" content="IN" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
-    <link rel="canonical" href="https://urbancairn.in/" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <!-- Performance -->
@@ -78,7 +61,7 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-C613kD8n.js"></script>
+    <script type="module" crossorigin src="/assets/index-BsQTpBGL.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-BYbx6iT9.js">
     <link rel="modulepreload" crossorigin href="/assets/charts-KHrbqpqV.js">
     <link rel="modulepreload" crossorigin href="/assets/react-vendor-DdeVuaVA.js">
