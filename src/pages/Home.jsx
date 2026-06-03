@@ -12,6 +12,8 @@ import Reveal from '../components/Reveal';
 import HeroPhoto from '../components/HeroPhoto';
 import WhatWeBuild from '../components/WhatWeBuild';
 import TrustCredentials from '../components/TrustCredentials';
+import IndustriesStrip from '../components/IndustriesStrip';
+import EnterpriseCredibility from '../components/EnterpriseCredibility';
 import { useTilt } from '../hooks/useTilt';
 import { useABTest } from '../hooks/useABTest';
 import { Laptop, Phone, BrowserCard } from '../components/DeviceMockup';
@@ -32,11 +34,13 @@ const Home = () => {
       <LogoTicker />
       <ProductReveal />
       <BentoCapabilities />
+      <IndustriesStrip />
       <BigStats />
       <CaseStudiesScroll />
       <ROISection />
       <Testimonials />
       <TrustCredentials />
+      <EnterpriseCredibility />
       <ProcessCompact />
       <PricingTeaser />
       <FAQSection />
