@@ -1,56 +1,42 @@
+// Honest "operating principles" — NOT client testimonials.
+// Urban Cairn is a new, focused studio; we do not fabricate named client
+// reviews. Each entry is a verifiable promise we hold ourselves to. When real
+// client quotes exist (with permission + real numbers), they can be added back
+// as a separate, clearly-attributed section.
 export const testimonials = [
   {
-    name: 'Hardik Patel',
-    role: 'Director, Patel Realty',
-    location: 'Vadodara, Gujarat',
-    initials: 'HP',
-    quote: 'Pehle hum monthly 12-15 leads par stuck the. Urban Cairn ne hamari website aur lead system rebuild kiya — ab har month 35-40 quality leads aate hain. CRM bilkul automatic chal raha hai.',
-    metric: '+65% leads in 60 days',
-    rating: 5
+    name: 'You own everything',
+    role: 'Transferred in full at delivery',
+    initials: '01',
+    quote: 'Source code, design files, hosting credentials, database access — all handed over at delivery. Zero lock-in. No "premium plan to access your own data" nonsense.',
+    metric: '100% ownership'
   },
   {
-    name: 'Dr. Meera Joshi',
-    role: 'Founder, Aarogya Multi-Speciality Clinic',
-    location: 'Anand, Gujarat',
-    initials: 'MJ',
-    quote: 'Appointment system aur WhatsApp reminders ne sab kuch badal diya. No-shows 35% kam ho gaye, aur staff ka time bach raha hai. Rahul ji ka response time bhi excellent hai — direct WhatsApp pe baat hoti hai.',
-    metric: '-35% no-shows',
-    rating: 5
+    name: 'Talk to the builder',
+    role: 'Direct line to the founder',
+    initials: '02',
+    quote: 'You speak to the person actually building it — no account managers, no middlemen. A direct WhatsApp line, and a reply inside business hours.',
+    metric: '< 4hr response'
   },
   {
-    name: 'Karan Mehta',
-    role: 'Active Trader & Investor',
-    location: 'Ahmedabad, Gujarat',
-    initials: 'KM',
-    quote: 'My P&L tracking was a mess across 4 brokers. Urban Cairn built me a unified dashboard with backtest engine and risk metrics. Pure custom code, my data, my server. Trading accuracy went up clearly.',
-    metric: '+42% trading accuracy',
-    rating: 5
+    name: 'Fixed price, written upfront',
+    role: 'No agency overhead',
+    initials: '03',
+    quote: 'You approve a written blueprint and a flat quote before we start. No hidden charges, no scope-creep invoices, no agency rates for studio work.',
+    metric: 'No surprises'
   },
   {
-    name: 'Priya Shah',
-    role: 'Co-founder, Trendora Boutique',
-    location: 'Surat, Gujarat',
-    initials: 'PS',
-    quote: 'Cart abandonment recovery system ne literally paisa wapas laaya. Repeat customers bhi 30% badh gaye. Honestly, fast delivery aur clean code — paisa vasool tha.',
-    metric: '+48% sales',
-    rating: 5
+    name: 'A working v1 in week two',
+    role: 'Tight planning, no sitting on work',
+    initials: '04',
+    quote: 'Most builds ship in 7–14 days because we plan precisely and move. Larger custom platforms still get you a working v1 by week two.',
+    metric: '14-day delivery'
   },
   {
-    name: 'Rohan Desai',
-    role: 'Director, Vidya Career Institute',
-    location: 'Anand, Gujarat',
-    initials: 'RD',
-    quote: 'Counselors ka dashboard aur lead auto-assignment system game-changer raha. Admissions 60% badhe is admission cycle mein. Team ko bhi clarity aa gayi performance par.',
-    metric: '+60% admissions',
-    rating: 5
-  },
-  {
-    name: 'Anjali Iyer',
-    role: 'Operations Lead, Nivaan Wellness',
-    location: 'Pune, Maharashtra',
-    initials: 'AI',
-    quote: 'Manual work was eating 30+ hours every week. Urban Cairn automated our follow-ups, invoicing, and reporting. Now our team focuses on actual growth, not admin work.',
-    metric: '70% time saved',
-    rating: 5
+    name: 'Verifiable & accountable',
+    role: 'Udyam + GST registered MSME',
+    initials: '05',
+    quote: 'A real, registered business invoicing through a real account — and a founder personally accountable for every build. New studio, serious engineering.',
+    metric: 'Udyam + GST'
   }
 ];

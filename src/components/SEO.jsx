@@ -6,7 +6,7 @@ import { SITE_URL, SITE_NAME, getSeo } from '../data/seo';
 const DEFAULT_OG = `${SITE_URL}/og-default.png`;
 const DEFAULT_OG_SVG = `${SITE_URL}/og-default.svg`;
 
-const SEO = ({ title, description, path, image, keywords, type = 'website' }) => {
+const SEO = ({ title, description, path, image, keywords, type = 'website', faqItems }) => {
   const location = useLocation();
   const route = path || location.pathname;
   const fallback = getSeo(route);
@@ -90,6 +90,17 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
     }
   };
 
+  // FAQPage rich-results + AI-citable Q&A. Only emitted on routes that pass faqItems.
+  const faqPage = Array.isArray(faqItems) && faqItems.length ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a }
+    }))
+  } : null;
+
   return (
     <Helmet>
       <title>{finalTitle}</title>
@@ -119,6 +130,7 @@ const SEO = ({ title, description, path, image, keywords, type = 'website' }) =>
       <script type="application/ld+json">{JSON.stringify(localBusiness)}</script>
       <script type="application/ld+json">{JSON.stringify(webSite)}</script>
       {breadcrumb && <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>}
+      {faqPage && <script type="application/ld+json">{JSON.stringify(faqPage)}</script>}
     </Helmet>
   );
 };

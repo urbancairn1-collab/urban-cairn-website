@@ -28,6 +28,7 @@ const Home = () => {
       <SEO
         title="A studio for ambitious operators"
         description="Urban Cairn builds the systems that turn ideas into revenue. Custom websites, automation, dashboards. Shipped in 14 days. India · remote, IST."
+        faqItems={faqs}
       />
       <Hero />
       <WhatWeBuild />
@@ -194,26 +195,27 @@ const Hero = () => {
 
 /* ═══════════ LOGO TICKER ═══════════ */
 const LogoTicker = () => {
-  // Each brand gets a one-character mark colour-coded by industry.
+  // The real, production-grade stack we build on — colour-coded by layer.
+  // (Honest: a new studio doesn't borrow client logos. We show our tooling.)
   const row1 = [
-    { name: 'Patel Realty',     mark: 'P', tag: 'Real estate', hue: 18 },
-    { name: 'Aarogya Clinic',   mark: 'A', tag: 'Healthcare',  hue: 165 },
-    { name: 'Karan Capital',    mark: 'K', tag: 'Finance',     hue: 220 },
-    { name: 'Trendora',         mark: 'T', tag: 'E-commerce',  hue: 332 },
-    { name: 'Vidya Institute',  mark: 'V', tag: 'Education',   hue: 264 },
-    { name: 'Nivaan Wellness',  mark: 'N', tag: 'Healthcare',  hue: 150 },
-    { name: 'Shah Fintech',     mark: 'S', tag: 'Finance',     hue: 200 },
-    { name: 'Green Grow',       mark: 'G', tag: 'Agri',        hue: 95 }
+    { name: 'React',         mark: 'R', tag: 'Frontend',   hue: 200 },
+    { name: 'Next.js',       mark: 'N', tag: 'Web',        hue: 220 },
+    { name: 'React Native',  mark: 'R', tag: 'Mobile',     hue: 195 },
+    { name: 'TypeScript',    mark: 'T', tag: 'Language',   hue: 215 },
+    { name: 'Tailwind',      mark: 'T', tag: 'Styling',    hue: 188 },
+    { name: 'Framer Motion', mark: 'F', tag: 'Motion',     hue: 332 },
+    { name: 'Vite',          mark: 'V', tag: 'Build',      hue: 264 },
+    { name: 'Expo',          mark: 'E', tag: 'App ship',   hue: 248 }
   ];
   const row2 = [
-    { name: 'Mehta Motors',     mark: 'M', tag: 'Auto',        hue: 12 },
-    { name: 'Sanjivani Lab',    mark: 'S', tag: 'Diagnostics', hue: 178 },
-    { name: 'Brixly Builds',    mark: 'B', tag: 'Construction',hue: 32 },
-    { name: 'Yug Travels',      mark: 'Y', tag: 'Travel',      hue: 195 },
-    { name: 'Coral Coffee',     mark: 'C', tag: 'F&B',         hue: 8 },
-    { name: 'Vega Apparel',     mark: 'V', tag: 'Retail',      hue: 282 },
-    { name: 'Helix Edtech',     mark: 'H', tag: 'Education',   hue: 248 },
-    { name: 'Anvi Jewelers',    mark: 'A', tag: 'Jewelry',     hue: 42 }
+    { name: 'Node.js',       mark: 'N', tag: 'Backend',    hue: 130 },
+    { name: 'PostgreSQL',    mark: 'P', tag: 'Database',   hue: 210 },
+    { name: 'Redis',         mark: 'R', tag: 'Cache',      hue: 8 },
+    { name: 'Prisma',        mark: 'P', tag: 'ORM',        hue: 240 },
+    { name: 'WhatsApp API',  mark: 'W', tag: 'Messaging',  hue: 150 },
+    { name: 'Razorpay',      mark: 'R', tag: 'Payments',   hue: 220 },
+    { name: 'Docker',        mark: 'D', tag: 'Deploy',     hue: 200 },
+    { name: 'WebSocket',     mark: 'W', tag: 'Realtime',   hue: 165 }
   ];
 
   const Chip = ({ item }) => (
@@ -244,9 +246,9 @@ const LogoTicker = () => {
   return (
     <section style={{ padding: '52px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', background: 'var(--bg-soft)' }}>
       <div className="container" style={{ marginBottom: 26, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 12 }}>
-        <span className="t-eyebrow">Trusted by ambitious operators · India · Global</span>
+        <span className="t-eyebrow">The stack we build on · production-grade, no lock-in</span>
         <span style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
-          {row1.length + row2.length}+ brands · 12 industries
+          Modern tooling · your code, your servers
         </span>
       </div>
       <div className="ticker-mask">
@@ -352,7 +354,7 @@ const RevealVisual = ({ idx, slides }) => {
           transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
           style={{ position: 'relative', zIndex: 1, padding: 48, width: '100%', maxWidth: 560 }}
         >
-          {v === 0 && <Laptop label="patelrealty.in"><WebsiteScene /></Laptop>}
+          {v === 0 && <Laptop label="yourbrand.in"><WebsiteScene /></Laptop>}
           {v === 1 && <Phone><WhatsAppScene /></Phone>}
           {v === 2 && <Laptop label="trading.dashboard"><TradingScene /></Laptop>}
           {v === 3 && <BrowserCard label="leads.dashboard"><LeadsScene /></BrowserCard>}
@@ -369,7 +371,7 @@ const WebsiteScene = () => (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 18px', borderBottom: '1px solid rgba(10,10,15,0.06)', background: 'rgba(255,255,255,0.65)', backdropFilter: 'blur(8px)' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
         <div style={{ width: 18, height: 18, borderRadius: 4, background: 'linear-gradient(135deg, #C2410C, #FF8A4C)' }} />
-        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.04em', color: '#0A0A0F' }}>PATEL REALTY</span>
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.04em', color: '#0A0A0F' }}>YOURBRAND</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
         {['Properties', 'EMI Calculator', 'About', 'Contact'].map(t => (
@@ -649,7 +651,7 @@ const MiniWebsite = () => (
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#FEBC2E' }} />
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#28C840' }} />
       <div style={{ marginLeft: 8, flex: 1, height: 10, borderRadius: 3, background: '#1A1A22', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 6, color: 'rgba(255,255,255,0.5)' }}>patelrealty.in</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 6, color: 'rgba(255,255,255,0.5)' }}>yourbrand.in</span>
       </div>
     </div>
     {/* Browser page */}
@@ -657,7 +659,7 @@ const MiniWebsite = () => (
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
           <div style={{ width: 8, height: 8, borderRadius: 2, background: 'linear-gradient(135deg, #C2410C, #FF8A4C)' }} />
-          <span style={{ fontSize: 6.5, fontWeight: 800, color: '#0A0A0F', letterSpacing: '0.04em' }}>PATEL REALTY</span>
+          <span style={{ fontSize: 6.5, fontWeight: 800, color: '#0A0A0F', letterSpacing: '0.04em' }}>YOURBRAND</span>
         </div>
         <div style={{ padding: '2px 6px', background: '#C2410C', color: '#fff', borderRadius: 999, fontSize: 5.5, fontWeight: 600 }}>Book →</div>
       </div>
@@ -730,9 +732,9 @@ const MiniPhone = () => (
         {/* Notification cards */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2.5, marginTop: 7 }}>
           {[
-            { app: 'PATEL REALTY', body: 'New 3BHK match in Vadodara — ₹72L', tint: '#C2410C' },
+            { app: 'YOURBRAND', body: 'New 3BHK match in Vadodara — ₹72L', tint: '#C2410C' },
             { app: 'ORDERS', body: '2 new orders · ₹3,148 today', tint: '#16A34A' },
-            { app: 'CRM', body: 'Lead: Priya Shah · WhatsApp now', tint: '#FF5A1F' }
+            { app: 'CRM', body: 'New lead · reply on WhatsApp now', tint: '#FF5A1F' }
           ].map((n, i) => (
             <div key={i} style={{ background: 'rgba(255,255,255,0.95)', borderRadius: 4, padding: '3px 4px', backdropFilter: 'blur(6px)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 1 }}>
@@ -1116,12 +1118,12 @@ const Testimonials = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 60, alignItems: 'center' }} className="testi">
           <Reveal>
             <div>
-              <span className="t-eyebrow">Voices</span>
+              <span className="t-eyebrow">The promise</span>
               <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', marginTop: 16, lineHeight: 0.98 }}>
-                Real founders. <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>Real numbers.</span>
+                No fake reviews. <br /><span className="serif-italic" style={{ color: 'var(--accent)' }}>Just how we work.</span>
               </h2>
               <p style={{ color: 'var(--text-soft)', fontSize: 15, lineHeight: 1.6, marginTop: 18, maxWidth: 360 }}>
-                Six engagements across real estate, healthcare, trading, e-commerce, education and wellness — averaging +52% on the primary KPI in under 90 days.
+                We're a new, focused studio — so instead of borrowed logos, here are the commitments we hold ourselves to on every build. All verifiable.
               </p>
               <div style={{ display: 'flex', gap: 6, marginTop: 28 }}>
                 {testimonials.map((_, idx) => (
@@ -1163,7 +1165,6 @@ const Testimonials = () => {
                 background: `linear-gradient(90deg, hsl(${hue}, 70%, 55%), var(--accent))`,
                 borderRadius: '12px 0 0 0'
               }} />
-              <Stars n={t.rating} />
               <p className="h-display" style={{
                 fontSize: 'clamp(1.4rem, 2.6vw, 2.1rem)',
                 fontWeight: 500, lineHeight: 1.25, letterSpacing: '-0.02em',
@@ -1182,7 +1183,7 @@ const Testimonials = () => {
                 }}>{t.initials}</div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontWeight: 700, fontSize: 15 }}>{t.name}</div>
-                  <div style={{ fontSize: 13, color: 'var(--text-soft)' }}>{t.role} · <span style={{ color: 'var(--text-muted)' }}>{t.location}</span></div>
+                  <div style={{ fontSize: 13, color: 'var(--text-soft)' }}>{t.role}</div>
                 </div>
                 <span style={{
                   padding: '7px 13px', borderRadius: 'var(--r-pill)',
