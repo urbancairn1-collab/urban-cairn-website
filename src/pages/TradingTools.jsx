@@ -2,15 +2,24 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TrendingUp, BarChart3, Bell, Shield, Zap, Layers, ArrowUpRight, Crosshair, Gauge } from 'lucide-react';
 import SEO from '../components/SEO';
+import FaqSection from '../components/FaqSection';
 import { Laptop } from '../components/DeviceMockup';
 import { PineMock, PineIndicatorMini } from '../components/mockups/Mock';
 import { pineIndicators, pineBenefits, pineMeta } from '../data/pineIndicators';
 
 const PINE_ICONS = { Crosshair, TrendingUp, Shield, Gauge };
 
+const FAQS = [
+  { q: 'What is a custom trading dashboard?', a: 'A dashboard built around your exact strategy — live market data, signal scanners, strategy-tagged P&L, risk metrics, and backtesting in one place, instead of juggling broker apps and Excel. Built for active Indian traders.' },
+  { q: 'Can it connect to my broker (Zerodha, etc.)?', a: 'Yes. We integrate broker APIs (Zerodha and others) for live positions, multi-broker P&L sync, and real-time data. Your data stays on your own server.' },
+  { q: 'Do I own the code and data?', a: '100%. Full code and credentials are transferred to you at handover, and your trade data lives on your infrastructure — not ours.' },
+  { q: 'How much does a custom trading dashboard cost in India?', a: 'Fixed price per project, quoted after a free strategy call based on scope (scanner vs. full multi-broker dashboard with backtesting). Written quote within 48 hours, GST invoice included.' },
+  { q: 'Do you build TradingView / Pine Script indicators?', a: 'Yes — we have our own backtested Pine Script indicator suite and also build custom, rule-based TradingView indicators and alerts for your strategy.' }
+];
+
 const TradingTools = () => (
   <>
-    <SEO title="Trading dashboards" description="Custom trading dashboards, signal scanners, P&L trackers, backtesting. Live data, your edge." path="/trading-tools" />
+    <SEO title="Trading dashboards" description="Custom trading dashboards, signal scanners, P&L trackers, backtesting. Live data, your edge." path="/trading-tools" faqItems={FAQS} />
 
     <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 60px', position: 'relative', overflow: 'hidden' }}>
       <div style={{
@@ -93,6 +102,8 @@ const TradingTools = () => (
     </section>
 
     <PineSection />
+
+    <FaqSection heading="Custom trading dashboards," accent="answered." items={FAQS} />
 
     <section className="section" style={{ background: 'var(--ink)', color: 'var(--text-on-ink)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div className="gradient-mesh-dark" style={{ opacity: 0.5 }} />

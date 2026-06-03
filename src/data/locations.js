@@ -3,7 +3,27 @@
 // `context` describes the kind of operators each city is home to — the businesses
 // we build FOR. Honest framing: industry focus, not claims of existing clients.
 export const cities = [
-  { slug: 'anand', name: 'Anand', state: 'Gujarat', context: 'a co-operative-belt hub of agri, dairy, retail, and education SMBs — exactly the operators we build for.' },
+  {
+    slug: 'anand', name: 'Anand', state: 'Gujarat',
+    context: 'a co-operative-belt hub of agri, dairy, retail, and education SMBs — exactly the operators we build for.',
+    geo: { lat: 22.5645, lng: 72.9289 },
+    metaTitle: 'Web Development Company in Anand',
+    metaDesc: 'Anand-based software studio: custom websites, WhatsApp automation, lead engines & trading dashboards. 14-day delivery, fixed price, full code ownership. Local, Udyam + GST registered MSME — meet us in person.',
+    intro: 'Anand is our home base — the Charotar belt of dairy and agri co-operatives, the Vallabh Vidyanagar education hub, and a dense layer of retail and small-manufacturing SMBs. Being right here means in-person meetings, faster kickoffs, and a studio that actually understands the local market. We build custom websites, WhatsApp automation, and dashboards for Anand operators in 14 days.',
+    areas: ['Vallabh Vidyanagar', 'Karamsad', 'Anand town', 'Bakrol', 'Mogri', 'Borsad', 'Petlad', 'Sojitra'],
+    localFocus: [
+      { name: 'Dairy & agri co-operatives', detail: 'Member portals, order/collection dashboards, and WhatsApp updates for the Charotar co-operative belt.' },
+      { name: 'Education', detail: 'Admission lead engines, fee portals, and counselor dashboards for the Vallabh Vidyanagar college belt.' },
+      { name: 'Retail & local SMBs', detail: 'Conversion websites, catalog + enquiry capture, and WhatsApp follow-up for Anand-town retailers.' },
+      { name: 'Healthcare & clinics', detail: 'Online appointment booking + reminder automation for local clinics and diagnostics.' }
+    ],
+    faqs: [
+      { q: 'Are you actually based in Anand?', a: 'Yes — Urban Cairn Tech Solution is an Anand-based studio (registered in Ras, Anand). You can meet us in person, and you get a local team that understands the Charotar market. Udyam + GST registered MSME.' },
+      { q: 'Can we meet in person in Anand or Vallabh Vidyanagar?', a: 'Absolutely. Being local, in-person strategy calls and kickoffs in Anand / V.V. Nagar are easy. Day-to-day delivery runs with WhatsApp visibility every 48 hours.' },
+      { q: 'How much does a website cost in Anand?', a: 'Fixed price per project, quoted after a free 45-minute strategy call — no hourly surprises. You get a written quote within 48 hours based on scope, plus a proper GST invoice.' },
+      { q: 'What do you build?', a: 'Custom websites, WhatsApp Business API automation, lead-generation systems, mobile apps, custom software/ERP, and trading dashboards. Most ship in 14 days with 100% code ownership transferred to you.' }
+    ]
+  },
   {
     slug: 'vadodara', name: 'Vadodara', state: 'Gujarat',
     context: 'a strong manufacturing, real-estate, and healthcare base — the kind of operators we build for, and a market we focus on closely.',
@@ -46,7 +66,27 @@ export const cities = [
       { q: 'Are you a registered company?', a: 'Yes — Udyam-registered MSME (UDYAM-GJ-03-0077762) and GST-registered in Gujarat. You receive proper GST invoices and full code + credentials ownership at handover.' }
     ]
   },
-  { slug: 'surat', name: 'Surat', state: 'Gujarat', context: 'a textile, jewelry, and trading hub with high WhatsApp and e-commerce demand.' },
+  {
+    slug: 'surat', name: 'Surat', state: 'Gujarat',
+    context: 'a textile, jewelry, and trading hub with high WhatsApp and e-commerce demand.',
+    geo: { lat: 21.1702, lng: 72.8311 },
+    metaTitle: 'Web Development Company in Surat',
+    metaDesc: 'Custom websites, WhatsApp automation, e-commerce & lead systems for Surat\'s textile, diamond, and trading businesses. 14-day delivery, fixed price, full code ownership. Gujarat-based Udyam + GST registered studio.',
+    intro: 'Surat runs on textiles, diamonds, and trading — fast-moving businesses with heavy WhatsApp and e-commerce demand. We build the systems that fit that pace: catalog and order websites, WhatsApp Business automation for buyer enquiries, and e-commerce funnels with cart recovery. Delivered remotely with WhatsApp visibility, in-person sessions available for local projects.',
+    areas: ['Adajan', 'Vesu', 'Athwa', 'Citylight', 'Piplod', 'Varachha', 'Ring Road', 'Katargam', 'Udhna'],
+    localFocus: [
+      { name: 'Textile & trading', detail: 'Catalog websites, order-enquiry capture, and WhatsApp automation for Ring Road / textile-market traders.' },
+      { name: 'Diamond & jewelry', detail: 'Showcase sites, B2B enquiry funnels, and inventory dashboards for the Varachha diamond ecosystem.' },
+      { name: 'E-commerce & retail', detail: 'Checkout optimization and abandoned-cart recovery via WhatsApp + email for high-volume Surat retail.' },
+      { name: 'Manufacturing & MSME', detail: 'Custom ERPs with inventory and order management built around your actual workflow.' }
+    ],
+    faqs: [
+      { q: 'Do you build websites for businesses in Surat?', a: 'Yes. We build custom websites, WhatsApp automation, e-commerce funnels, and lead systems for Surat operators — textile, diamond, trading, and retail. Most projects ship in 14 days with full code ownership transferred.' },
+      { q: 'Can you handle high-volume WhatsApp enquiries for a textile/diamond business?', a: 'Yes — official WhatsApp Business API automation that auto-qualifies buyers, sends catalogs, and books calls 24/7, with everything logged to a CRM. Built for the enquiry volume Surat trading businesses see.' },
+      { q: 'How much does a website cost in Surat?', a: 'Fixed price per project, quoted after a free 45-minute strategy call — no hourly billing. Written quote within 48 hours based on scope, with a proper GST invoice.' },
+      { q: 'Are you a registered company?', a: 'Yes — Udyam-registered MSME (UDYAM-GJ-03-0077762) and GST-registered in Gujarat. Full code + credentials ownership transferred at handover.' }
+    ]
+  },
   { slug: 'mumbai', name: 'Mumbai', state: 'Maharashtra', context: 'home to fintech, real-estate, and finance teams — we deliver remotely with weekly check-ins.' },
   { slug: 'pune', name: 'Pune', state: 'Maharashtra', context: 'an IT-services, startup, and education hub — a strong remote-collaboration market.' },
   { slug: 'bangalore', name: 'Bangalore', state: 'Karnataka', context: 'where tech founders and startups need custom dashboards and API-heavy builds.' },

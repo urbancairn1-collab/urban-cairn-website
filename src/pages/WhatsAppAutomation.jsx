@@ -2,11 +2,20 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Bot, Calendar, CreditCard, Users, Send, Zap, ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import FaqSection from '../components/FaqSection';
 import { Phone } from '../components/DeviceMockup';
+
+const FAQS = [
+  { q: 'Is this the official WhatsApp Business API?', a: 'Yes. We build on the official WhatsApp Business API (not unofficial/grey tools that get numbers banned), so you can run approved broadcasts, get the green tick, and scale safely.' },
+  { q: 'How much does WhatsApp automation cost in India?', a: 'Fixed project price quoted after a free strategy call — no per-message markup from us. You pay Meta\'s standard conversation charges directly. We give a written quote within 48 hours based on your flows.' },
+  { q: 'Can it book calls and take payments inside the chat?', a: 'Yes — calendar booking with confirmations (synced to Google Calendar) and Razorpay/UPI payment links right inside the conversation, with who-paid tracking. Bot handles ~80% of load and hands off complex queries to your team.' },
+  { q: 'Will my conversations sync to a CRM?', a: 'Every conversation and lead detail is auto-logged — no manual data entry. We can integrate with your existing CRM or set one up.' },
+  { q: 'Do you work with businesses outside Gujarat?', a: 'Yes — we deliver remotely across India with WhatsApp visibility every 48 hours. We\'re a Gujarat-based Udyam + GST registered MSME.' }
+];
 
 const WhatsAppAutomation = () => (
   <>
-    <SEO title="WhatsApp automation suite" description="Your fastest sales rep. 24/7. Books calls, sends payment links, never on leave." path="/whatsapp-automation" />
+    <SEO title="WhatsApp automation suite" description="Your fastest sales rep. 24/7. Books calls, sends payment links, never on leave." path="/whatsapp-automation" faqItems={FAQS} />
 
     <section style={{ padding: 'clamp(80px, 10vw, 160px) 0 60px', position: 'relative', overflow: 'hidden' }}>
       <div style={{
@@ -89,6 +98,8 @@ const WhatsAppAutomation = () => (
         </div>
       </div>
     </section>
+
+    <FaqSection heading="WhatsApp automation," accent="answered." items={FAQS} />
 
     <section className="section" style={{ background: 'var(--ink)', color: 'var(--text-on-ink)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(37,211,102,0.18), transparent 60%)', pointerEvents: 'none' }} />

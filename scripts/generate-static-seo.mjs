@@ -46,7 +46,7 @@ const POST_SLUGS = [
 const POSTS = POST_SLUGS.map(s => ({ path: `/blog/${s}`, priority: '0.75', change: 'monthly' }));
 
 // Programmatic city pages. Focus cities (deep, unique content) get higher priority.
-const FOCUS_CITIES = ['vadodara', 'ahmedabad'];
+const FOCUS_CITIES = ['anand', 'vadodara', 'ahmedabad', 'surat'];
 const CITY_SLUGS = ['anand', 'vadodara', 'ahmedabad', 'surat', 'mumbai', 'pune', 'bangalore', 'delhi-ncr', 'hyderabad', 'jaipur'];
 const CITIES = CITY_SLUGS.map(s => ({ path: `/in/${s}`, priority: FOCUS_CITIES.includes(s) ? '0.8' : '0.7', change: 'monthly' }));
 
