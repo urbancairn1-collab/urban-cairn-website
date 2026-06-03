@@ -25,6 +25,7 @@ export const company = {
   registrationDate: '13 Feb 2026',
   gstRegistrationDate: '11 May 2026',
   bank: 'HDFC Bank',
+  reviewLink: 'https://g.page/r/CfpFnqWfjKTdEAI/review',
   social: {
     linkedin: 'https://www.linkedin.com/in/rahul-kumar-a615b2405/',
     instagram: 'https://www.instagram.com/urbancairn1/',

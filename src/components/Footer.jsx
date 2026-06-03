@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Star } from 'lucide-react';
 import { Wordmark } from './Mark';
 import { company } from '../data/company';
 import { LinkedinIcon, InstagramIcon, XIcon, FacebookIcon, GithubIcon } from './SocialIcons';
@@ -128,6 +128,23 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+            <a
+              href={company.reviewLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Review Urban Cairn on Google"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 18,
+                padding: '9px 16px', borderRadius: 'var(--r-pill)',
+                background: 'rgba(255,255,255,0.05)', border: '1px solid var(--line-on-ink)',
+                color: 'var(--text-on-ink)', fontSize: 13, fontWeight: 600,
+                transition: 'background 160ms ease, border-color 160ms ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,90,31,0.12)'; e.currentTarget.style.borderColor = 'var(--accent)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'var(--line-on-ink)'; }}
+            >
+              <Star size={14} color="var(--accent)" fill="var(--accent)" /> Review us on Google
+            </a>
           </div>
         </div>
 
