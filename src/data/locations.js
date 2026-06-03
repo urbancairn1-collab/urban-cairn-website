@@ -1,16 +1,18 @@
 // Programmatic SEO data — city + industry combos.
 
+// `context` describes the kind of operators each city is home to — the businesses
+// we build FOR. Honest framing: industry focus, not claims of existing clients.
 export const cities = [
-  { slug: 'anand', name: 'Anand', state: 'Gujarat', context: 'co-operative-belt SMBs — agri, dairy, retail, and education clients we ship for.' },
-  { slug: 'vadodara', name: 'Vadodara', state: 'Gujarat', context: 'one of our most active markets — manufacturing, real-estate, healthcare clients.' },
-  { slug: 'ahmedabad', name: 'Ahmedabad', state: 'Gujarat', context: 'Gujarat\'s commercial capital — fintech, retail, and education clients we ship for.' },
-  { slug: 'surat', name: 'Surat', state: 'Gujarat', context: 'textile, jewelry, and trading-business clients — high WhatsApp + e-commerce demand.' },
-  { slug: 'mumbai', name: 'Mumbai', state: 'Maharashtra', context: 'fintech, real-estate, and finance professionals — we deliver remotely with weekly check-ins.' },
-  { slug: 'pune', name: 'Pune', state: 'Maharashtra', context: 'IT services, startups, and education institutes — strong remote-collab market.' },
-  { slug: 'bangalore', name: 'Bangalore', state: 'Karnataka', context: 'tech founders and startups — usually need custom dashboards and API-heavy builds.' },
-  { slug: 'delhi-ncr', name: 'Delhi NCR', state: 'Delhi', context: 'service businesses, real-estate, and retail — high lead-gen / CRM demand.' },
-  { slug: 'hyderabad', name: 'Hyderabad', state: 'Telangana', context: 'fast-scaling SMBs across pharma, education, and SaaS.' },
-  { slug: 'jaipur', name: 'Jaipur', state: 'Rajasthan', context: 'tourism, retail, and education — strong e-commerce and lead-engine demand.' }
+  { slug: 'anand', name: 'Anand', state: 'Gujarat', context: 'a co-operative-belt hub of agri, dairy, retail, and education SMBs — exactly the operators we build for.' },
+  { slug: 'vadodara', name: 'Vadodara', state: 'Gujarat', context: 'a strong manufacturing, real-estate, and healthcare base — the kind of operators we build for, and a market we focus on closely.' },
+  { slug: 'ahmedabad', name: 'Ahmedabad', state: 'Gujarat', context: 'Gujarat\'s commercial capital, dense with fintech, retail, and education businesses we build for.' },
+  { slug: 'surat', name: 'Surat', state: 'Gujarat', context: 'a textile, jewelry, and trading hub with high WhatsApp and e-commerce demand.' },
+  { slug: 'mumbai', name: 'Mumbai', state: 'Maharashtra', context: 'home to fintech, real-estate, and finance teams — we deliver remotely with weekly check-ins.' },
+  { slug: 'pune', name: 'Pune', state: 'Maharashtra', context: 'an IT-services, startup, and education hub — a strong remote-collaboration market.' },
+  { slug: 'bangalore', name: 'Bangalore', state: 'Karnataka', context: 'where tech founders and startups need custom dashboards and API-heavy builds.' },
+  { slug: 'delhi-ncr', name: 'Delhi NCR', state: 'Delhi', context: 'service businesses, real-estate, and retail with high lead-gen and CRM demand.' },
+  { slug: 'hyderabad', name: 'Hyderabad', state: 'Telangana', context: 'home to fast-scaling SMBs across pharma, education, and SaaS.' },
+  { slug: 'jaipur', name: 'Jaipur', state: 'Rajasthan', context: 'tourism, retail, and education businesses with strong e-commerce and lead-engine demand.' }
 ];
 
 export const industries = [
