@@ -4,8 +4,48 @@
 // we build FOR. Honest framing: industry focus, not claims of existing clients.
 export const cities = [
   { slug: 'anand', name: 'Anand', state: 'Gujarat', context: 'a co-operative-belt hub of agri, dairy, retail, and education SMBs — exactly the operators we build for.' },
-  { slug: 'vadodara', name: 'Vadodara', state: 'Gujarat', context: 'a strong manufacturing, real-estate, and healthcare base — the kind of operators we build for, and a market we focus on closely.' },
-  { slug: 'ahmedabad', name: 'Ahmedabad', state: 'Gujarat', context: 'Gujarat\'s commercial capital, dense with fintech, retail, and education businesses we build for.' },
+  {
+    slug: 'vadodara', name: 'Vadodara', state: 'Gujarat',
+    context: 'a strong manufacturing, real-estate, and healthcare base — the kind of operators we build for, and a market we focus on closely.',
+    geo: { lat: 22.3072, lng: 73.1812 },
+    metaTitle: 'Web Development Company in Vadodara',
+    metaDesc: 'Custom websites, WhatsApp automation, lead-gen systems & trading dashboards for Vadodara businesses. 14-day delivery, fixed price, full code ownership. Gujarat-based Udyam + GST registered studio — just up the road in Anand.',
+    intro: 'Vadodara runs on manufacturing, petrochemicals, real estate, and a deep education base around MSU. We build the digital systems those operators actually need — lead funnels, WhatsApp follow-up, and custom dashboards — and being an Anand-based studio, Vadodara is a short drive for in-person kickoffs.',
+    areas: ['Alkapuri', 'Sayajigunj', 'Fatehgunj', 'Gotri', 'Akota', 'Manjalpur', 'Karelibaug', 'Waghodia Road', 'Old Padra Road', 'Vasna'],
+    localFocus: [
+      { name: 'Manufacturing & MSMEs', detail: 'Inventory + order-management ERPs and production dashboards for Makarpura / GIDC-belt units.' },
+      { name: 'Real estate', detail: 'Property lead funnels with CRM routing and WhatsApp follow-up for fast-moving Alkapuri & Gotri inventory.' },
+      { name: 'Healthcare & clinics', detail: 'Online booking + reminder automation for the city\'s dense clinic and diagnostics network.' },
+      { name: 'Education & coaching', detail: 'Admission lead engines and counselor dashboards for MSU-belt institutes and coaching centers.' }
+    ],
+    faqs: [
+      { q: 'Do you build websites for businesses in Vadodara?', a: 'Yes. We\'re a Gujarat-based studio in Anand — about an hour from Vadodara — building custom websites, WhatsApp automation, lead-generation systems, and trading dashboards for Vadodara operators. Most projects ship in 14 days with full code ownership transferred.' },
+      { q: 'Can we meet in person in Vadodara?', a: 'Yes. Being Anand-based, we can do an in-person kickoff or strategy session in Vadodara for local projects. Day-to-day delivery then runs remotely with WhatsApp visibility every 48 hours.' },
+      { q: 'How much does a website cost in Vadodara?', a: 'We quote a fixed price per project after a free 45-minute strategy call — no hourly surprises. Pricing depends on scope (a lead-gen site vs. a custom dashboard or ERP), and you get the written quote within 48 hours.' },
+      { q: 'Are you a registered company?', a: 'Yes — Udyam-registered MSME (UDYAM-GJ-03-0077762) and GST-registered in Gujarat (jurisdiction: Vadodara). You get proper GST invoices and 100% code + credentials ownership at handover.' }
+    ]
+  },
+  {
+    slug: 'ahmedabad', name: 'Ahmedabad', state: 'Gujarat',
+    context: 'Gujarat\'s commercial capital, dense with fintech, retail, and education businesses we build for.',
+    geo: { lat: 23.0225, lng: 72.5714 },
+    metaTitle: 'Web Development Company in Ahmedabad',
+    metaDesc: 'Custom websites, WhatsApp automation, lead engines & trading dashboards for Ahmedabad businesses. 14-day delivery, fixed price, full code ownership. Gujarat-based Udyam + GST registered studio.',
+    intro: 'Ahmedabad is Gujarat\'s commercial engine — fintech around GIFT City, textile and retail trade, a heavy education and coaching market, and fast-scaling startups. We build conversion-focused websites, WhatsApp automation, and custom software for these operators, delivered remotely with weekly check-ins and the option of in-person sessions.',
+    areas: ['Satellite', 'Bodakdev', 'Prahlad Nagar', 'SG Highway', 'Navrangpura', 'CG Road', 'Vastrapur', 'Thaltej', 'Maninagar', 'Bopal'],
+    localFocus: [
+      { name: 'Fintech & finance', detail: 'Dashboards, onboarding flows, and automation for the GIFT City / finance-professional ecosystem.' },
+      { name: 'Retail & e-commerce', detail: 'Checkout optimization and abandoned-cart recovery for CG Road / SG Highway retail and textile traders.' },
+      { name: 'Education & coaching', detail: 'Admission lead routing and counselor performance dashboards for the city\'s large coaching market.' },
+      { name: 'Startups & SaaS', detail: 'API-heavy builds, custom dashboards, and MVP web apps for Ahmedabad\'s startup scene.' }
+    ],
+    faqs: [
+      { q: 'Do you build websites for businesses in Ahmedabad?', a: 'Yes. We\'re a Gujarat-based studio building custom websites, WhatsApp automation, lead-generation systems, and trading dashboards for Ahmedabad operators — fintech, retail, education, and startups. Most projects ship in 14 days with full code ownership transferred.' },
+      { q: 'Do you work remotely with Ahmedabad clients?', a: 'Yes. We deliver remotely with weekly check-ins and WhatsApp visibility every 48 hours, and can do an in-person session in Ahmedabad for project kickoffs when it helps.' },
+      { q: 'How much does a website cost in Ahmedabad?', a: 'Fixed price per project, quoted after a free 45-minute strategy call — no hourly billing. You get a written quote within 48 hours based on scope, from a lead-gen site to a full custom dashboard or ERP.' },
+      { q: 'Are you a registered company?', a: 'Yes — Udyam-registered MSME (UDYAM-GJ-03-0077762) and GST-registered in Gujarat. You receive proper GST invoices and full code + credentials ownership at handover.' }
+    ]
+  },
   { slug: 'surat', name: 'Surat', state: 'Gujarat', context: 'a textile, jewelry, and trading hub with high WhatsApp and e-commerce demand.' },
   { slug: 'mumbai', name: 'Mumbai', state: 'Maharashtra', context: 'home to fintech, real-estate, and finance teams — we deliver remotely with weekly check-ins.' },
   { slug: 'pune', name: 'Pune', state: 'Maharashtra', context: 'an IT-services, startup, and education hub — a strong remote-collaboration market.' },

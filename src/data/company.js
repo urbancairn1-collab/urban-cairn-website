@@ -12,7 +12,13 @@ export const company = {
     country: 'India',
     countryCode: 'IN',
     timezone: 'IST (UTC+5:30)',
-    full: 'India · remote, IST 9-9 Mon-Sat'
+    full: 'India · remote, IST 9-9 Mon-Sat',
+    // Registered MSME address — kept identical to Udyam/GST NAP for citation consistency.
+    street: 'Near Patel Wadi, Hospital Road, Ras',
+    locality: 'Anand',
+    region: 'Gujarat',
+    postalCode: '388570',
+    geo: { lat: 22.5645, lng: 72.9289 }
   },
   udyam: 'UDYAM-GJ-03-0077762',
   gstin: '24ETKPD1689B1ZU',

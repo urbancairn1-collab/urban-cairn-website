@@ -6,7 +6,7 @@ import { SITE_URL, SITE_NAME, getSeo } from '../data/seo';
 const DEFAULT_OG = `${SITE_URL}/og-default.png`;
 const DEFAULT_OG_SVG = `${SITE_URL}/og-default.svg`;
 
-const SEO = ({ title, description, path, image, keywords, type = 'website', faqItems }) => {
+const SEO = ({ title, description, path, image, keywords, type = 'website', faqItems, geo, localityServed }) => {
   const location = useLocation();
   const route = path || location.pathname;
   const fallback = getSeo(route);
@@ -39,13 +39,29 @@ const SEO = ({ title, description, path, image, keywords, type = 'website', faqI
     },
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'IN'
+      streetAddress: company.address.street,
+      addressLocality: company.address.locality,
+      addressRegion: company.address.region,
+      postalCode: company.address.postalCode,
+      addressCountry: company.address.countryCode
     },
+    // Registered-HQ coordinates anchor the studio's geographic relevance to Gujarat.
+    geo: company.address.geo ? {
+      '@type': 'GeoCoordinates',
+      latitude: company.address.geo.lat,
+      longitude: company.address.geo.lng
+    } : undefined,
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '10:00', closes: '20:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '16:00' }
     ],
-    areaServed: { '@type': 'Country', name: 'India' },
+    // On a city page, advertise that specific city as the served area; otherwise default to India.
+    areaServed: localityServed
+      ? [
+          { '@type': 'City', name: localityServed, ...(geo ? { geo: { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lng } } : {}) },
+          { '@type': 'Country', name: 'India' }
+        ]
+      : { '@type': 'Country', name: 'India' },
     identifier: company.udyam,
     sameAs: [
       company.social.linkedin,
