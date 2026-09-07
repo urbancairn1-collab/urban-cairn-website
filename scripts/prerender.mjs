@@ -33,22 +33,62 @@ async function findRoutes(dir, routes = []) {
   return routes;
 }
 
+// Everything vite preview says about itself. Previously the child was spawned
+// with stdio: 'ignore', so when it failed to boot its explanation was discarded
+// and the only surviving evidence was "did not start in time" — the symptom,
+// never the cause. Keep the output; it is the whole diagnosis.
+let previewLog = '';
+
 async function waitForServer(url, tries = 60) {
+  let lastErr = 'no attempt made';
   for (let i = 0; i < tries; i++) {
     try {
       const res = await fetch(url);
       if (res.ok) return true;
-    } catch { /* not up yet */ }
+      lastErr = `HTTP ${res.status}`;
+    } catch (e) {
+      lastErr = e.cause?.code || e.code || e.message;
+    }
     await new Promise(r => setTimeout(r, 250));
   }
-  throw new Error('vite preview did not start in time');
+
+  // Which hostnames answer tells us WHY. A slim Linux container resolves
+  // `localhost` to ::1 before 127.0.0.1, so a preview server bound only to IPv4
+  // is up and still unreachable at the URL we polled — a failure that cannot
+  // happen on the Windows dev box where this script was written.
+  const probes = [];
+  for (const host of ['127.0.0.1', '[::1]', 'localhost']) {
+    try {
+      const r = await fetch(`http://${host}:${PORT}/`);
+      probes.push(`${host} -> HTTP ${r.status}`);
+    } catch (e) {
+      probes.push(`${host} -> ${e.cause?.code || e.code || e.message}`);
+    }
+  }
+
+  throw new Error([
+    'vite preview did not start in time',
+    `  polled : ${url} (${tries} tries, last: ${lastErr})`,
+    `  probes : ${probes.join(' | ')}`,
+    '  ----- vite preview output -----',
+    previewLog.trim() || '  (produced no output at all)',
+    '  -------------------------------',
+  ].join('\n'));
 }
 
 const preview = spawn(
   'npx',
   ['vite', 'preview', '--port', String(PORT), '--strictPort'],
-  { cwd: process.cwd(), stdio: 'ignore', shell: true }
+  { cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], shell: true }
 );
+preview.stdout.on('data', d => { previewLog += d; });
+preview.stderr.on('data', d => { previewLog += d; });
+preview.on('error', e => { previewLog += `[spawn error] ${e.message}
+`; });
+preview.on('exit', (code, signal) => {
+  previewLog += `[preview exited early: code=${code} signal=${signal}]
+`;
+});
 
 let browser;
 try {
