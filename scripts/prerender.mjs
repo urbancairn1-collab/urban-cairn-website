@@ -16,7 +16,18 @@ import puppeteer from 'puppeteer';
 
 const distDir = resolve(process.cwd(), 'dist');
 const PORT = 4179;
-const ORIGIN = `http://localhost:${PORT}`;
+
+// Bind and poll the SAME literal address, never the name `localhost`.
+//
+// vite preview binds one family. Inside a slim Debian image it chose ::1, while
+// node's fetch resolved `localhost` to 127.0.0.1 — so the server was up, serving,
+// and unreachable at the URL this script polled, for the full 15s budget. It only
+// ever agreed on Windows. Naming the address removes resolution from the loop.
+//
+// IPv4 rather than ::1 because 127.0.0.1 exists in every container; IPv6 loopback
+// does not when a daemon runs with ipv6 disabled.
+const HOST = '127.0.0.1';
+const ORIGIN = `http://${HOST}:${PORT}`;
 const SETTLE_MS = 1400; // let entrance animations + helmet head updates finish
 
 // Collect every route from the index.html files already in dist/
@@ -78,7 +89,7 @@ async function waitForServer(url, tries = 60) {
 
 const preview = spawn(
   'npx',
-  ['vite', 'preview', '--port', String(PORT), '--strictPort'],
+  ['vite', 'preview', '--port', String(PORT), '--strictPort', '--host', HOST],
   { cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], shell: true }
 );
 preview.stdout.on('data', d => { previewLog += d; });
