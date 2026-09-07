@@ -1,0 +1,71 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Urban Cairn marketing site — a SECOND site inside the EMS nginx.
+#
+# Install to:  /srv/ems/infra/nginx/templates/urbancairn.conf.template
+# Mounted as:  /etc/nginx/templates/urbancairn.conf.template
+# Rendered to: /etc/nginx/conf.d/urbancairn.conf   (by the nginx entrypoint)
+#
+# Written to match ems.prod.conf.template: domain comes from an env var, so
+# staging -> live is an env change and a restart, not an edit of this file.
+#
+# ${URBANCAIRN_DOMAIN} is substituted at container START, not on reload — the
+# entrypoint only renders templates during startup. Note that envsubst is
+# invoked with an explicit variable list, so nginx's own $host / $remote_addr /
+# $proxy_add_x_forwarded_for pass through untouched.
+#
+# Deliberately NOT touching ems.prod.conf.template: keeping this in its own
+# file means removing the site is deleting one file and two mounts, and a
+# mistake here cannot corrupt the EMS portal's vhost.
+# ─────────────────────────────────────────────────────────────────────────────
+
+upstream urbancairn_site {
+    # Container name from the urbancairn compose project, resolvable because
+    # that container joins ems_backend. Port 80 is INSIDE the container.
+    server urbancairn-web:80;
+}
+
+server {
+    listen 80;
+    server_name ${URBANCAIRN_DOMAIN};
+
+    # Serve ACME challenges from disk so certbot renews over HTTP-01 without
+    # ever needing port 80 to itself. This is what lets renewal happen with
+    # nginx still running — unlike the EMS cert's `authenticator = standalone`,
+    # which cannot renew while this container holds port 80.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type "text/plain";
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name ${URBANCAIRN_DOMAIN};
+
+    # Its own cert directory — the existing /etc/nginx/certs holds the
+    # mkpdigital.in cert and is mounted read-only from a different source.
+    ssl_certificate     /etc/nginx/certs-urbancairn/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs-urbancairn/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    # HSTS is intentionally absent until HTTPS is confirmed on the live apex.
+    # It tells browsers to refuse plain HTTP for a year and is hard to undo.
+    # The site's own nginx already sets nosniff / frame-options / referrer.
+
+    location / {
+        proxy_pass http://urbancairn_site;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+}

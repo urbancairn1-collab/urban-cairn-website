@@ -1,0 +1,22 @@
+# Overlay for the server that runs the EMS stack (srv1798857).
+#
+#   docker compose -f docker-compose.yml -f deploy/docker-compose.ems.yml up -d
+#
+# Replaces the Traefik overlay, which has nothing to attach to on this host.
+#
+# All this does is join the site container to the network the EMS nginx is
+# already on, so `proxy_pass http://urbancairn-web:80` resolves. It adds
+# nothing to the EMS stack itself and shares no volumes with it.
+#
+# The loopback publish from the base file is kept on purpose: it is how you
+# curl-verify the site directly, bypassing nginx, when something looks wrong.
+
+services:
+  urbancairn-web:
+    networks:
+      - ems_backend
+
+networks:
+  ems_backend:
+    external: true
+    name: ems_backend
