@@ -1,0 +1,61 @@
+# Traefik overlay for Urban Cairn.
+#
+# The base docker-compose.yml deliberately depends on nothing external, so it
+# always comes up. This overlay is what puts the site on the domain.
+#
+#   docker compose -f docker-compose.yml -f deploy/docker-compose.traefik.yml up -d
+#
+# To avoid retyping that every time, put this in .env:
+#   COMPOSE_FILE=docker-compose.yml:deploy/docker-compose.traefik.yml
+#
+# ─── SET THESE THREE THINGS BEFORE FIRST USE ────────────────────────────────
+#   1. network name      (both places below) -> docker network ls
+#   2. certresolver name                     -> docker inspect traefik | grep -i certresolver
+#   3. the Host() rule   -> vps.urbancairn.in to stage, urbancairn.in to go live
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  urbancairn-web:
+    networks:
+      - proxy
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+
+      # --- routing ---------------------------------------------------------
+      # STAGING — ACTIVE NOW. urbancairn.in stays on GitHub Pages, untouched.
+      # Needs one DNS record:  A   vps   ->  <your VPS IP>
+      - "traefik.http.routers.urbancairn.rule=Host(`vps.urbancairn.in`)"
+      #
+      # LIVE — at go-live, comment the line above, uncomment the line below,
+      # and also uncomment the www-redirect block further down.
+      # - "traefik.http.routers.urbancairn.rule=Host(`urbancairn.in`) || Host(`www.urbancairn.in`)"
+      - "traefik.http.routers.urbancairn.entrypoints=websecure"
+      - "traefik.http.routers.urbancairn.tls=true"
+      - "traefik.http.routers.urbancairn.tls.certresolver=letsencrypt"
+
+      # The container listens on 80 INTERNALLY. This is not a host port.
+      - "traefik.http.services.urbancairn.loadbalancer.server.port=80"
+
+      # --- www -> apex redirect --------------------------------------------
+      # OFF during staging (there is no www.vps.urbancairn.in). Uncomment all
+      # four lines at go-live, together with the LIVE rule above.
+      # $$ escapes the $ so compose does not interpolate $1 itself.
+      # - "traefik.http.middlewares.urbancairn-www.redirectregex.regex=^https?://www\\.urbancairn\\.in/(.*)"
+      # - "traefik.http.middlewares.urbancairn-www.redirectregex.replacement=https://urbancairn.in/$${1}"
+      # - "traefik.http.middlewares.urbancairn-www.redirectregex.permanent=true"
+      # - "traefik.http.routers.urbancairn.middlewares=urbancairn-www"
+
+      # --- HSTS ------------------------------------------------------------
+      # Turn on only AFTER https is confirmed working: it tells browsers to
+      # refuse plain http for a year, which is hard to walk back.
+      # - "traefik.http.middlewares.urbancairn-hsts.headers.stsSeconds=31536000"
+      # - "traefik.http.middlewares.urbancairn-hsts.headers.stsIncludeSubdomains=true"
+      # then swap the middlewares line above for:
+      # - "traefik.http.routers.urbancairn.middlewares=urbancairn-www,urbancairn-hsts"
+
+networks:
+  proxy:
+    external: true
+    name: proxy          # <-- your real Traefik network name

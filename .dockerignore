@@ -1,0 +1,29 @@
+# Keep the build context small and reproducible.
+# NOTE: deploy/ must NOT be ignored — the Dockerfile needs deploy/nginx.conf
+# and deploy/verify-prerender.mjs.
+
+.git
+.gitignore
+node_modules
+dist
+build
+
+# Never bake real secrets into the image context.
+.env
+.env.*
+!.env.example
+
+# Local / editor noise
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.vscode
+.idea
+coverage
+.eslintcache
+
+# Docs aren't needed to build the site.
+docs
+DEPLOY.md
+README.md

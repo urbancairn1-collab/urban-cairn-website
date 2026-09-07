@@ -1,0 +1,71 @@
+# Urban Cairn — production compose file
+#
+# Designed for a VPS that ALREADY runs other projects:
+#   * the container publishes to 127.0.0.1 only, never 0.0.0.0, so it cannot
+#     clash with another project's public port and is not reachable from the
+#     internet except through your reverse proxy
+#   * HOST_PORT is configurable (default 8087) if 8087 is already taken
+#   * no host volumes, no database, no shared state
+#
+# Pick ONE of the two routing options at the bottom (host reverse proxy, or
+# Traefik). The default as written is the host-reverse-proxy option.
+
+services:
+  urbancairn-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Headless Chrome crashes on Docker's default 64MB /dev/shm during the
+      # prerender step. This is the fix; do not remove it.
+      shm_size: '1gb'
+      args:
+        VITE_GA_ID:          "${VITE_GA_ID:-}"
+        VITE_CLARITY_ID:     "${VITE_CLARITY_ID:-}"
+        VITE_EMAILJS_SERVICE: "${VITE_EMAILJS_SERVICE:-}"
+        VITE_EMAILJS_TEMPLATE: "${VITE_EMAILJS_TEMPLATE:-}"
+        VITE_EMAILJS_PUBLIC: "${VITE_EMAILJS_PUBLIC:-}"
+        VITE_CALENDLY_URL:   "${VITE_CALENDLY_URL:-}"
+
+    image: urbancairn-web:latest
+    container_name: urbancairn-web
+    restart: unless-stopped
+
+    # Loopback-only publish: your host reverse proxy (nginx / Caddy / NPM)
+    # forwards to http://127.0.0.1:${HOST_PORT}. Nothing else on the box, and
+    # nothing on the internet, can reach it directly.
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8087}:80"
+
+    # Static file server: it needs no privileges and writes nothing but nginx
+    # runtime scratch files.
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+    security_opt:
+      - no-new-privileges:true
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # ───────────────────────────────────────────────────────────────────────────
+  # Putting this on your domain:
+  #
+  #   Traefik (your current stack) -> deploy/docker-compose.traefik.yml
+  #     docker compose -f docker-compose.yml -f deploy/docker-compose.traefik.yml up -d
+  #
+  #   host nginx / Nginx Proxy Manager -> just proxy to 127.0.0.1:${HOST_PORT}
+  #     no changes needed to this file; see DEPLOY.md section 6c
+  #
+  # The loopback port above stays useful either way: it is how you curl-verify
+  # the container locally before and after attaching it to the proxy.
+  # ───────────────────────────────────────────────────────────────────────────
